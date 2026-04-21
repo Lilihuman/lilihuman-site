@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FDFAF6;
+    color: #7A6248;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #2C1A0E;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-peach text-white font-body font-medium px-7 py-3 rounded-pill transition-all duration-200 hover:bg-mocha hover:shadow-md active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-peach text-peach font-body font-medium px-7 py-3 rounded-pill transition-all duration-200 hover:bg-peach hover:text-white active:scale-95;
+  }
+
+  .btn-sage {
+    @apply inline-flex items-center justify-center gap-2 bg-sage text-white font-body font-medium px-7 py-3 rounded-pill transition-all duration-200 hover:bg-mocha hover:shadow-md active:scale-95;
+  }
+
+  .card {
+    @apply bg-cream-dark rounded-2xl border border-peach-light/40 p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-sm font-body font-medium text-peach tracking-widest uppercase mb-3;
+  }
+
+  .leaf-dot::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 8px;
+    background-color: #7A9A5A;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    flex-shrink: 0;
+  }
+
+  .section-heading {
+    @apply font-heading text-4xl md:text-5xl font-light text-brown leading-tight;
+  }
+
+  .nav-link {
+    @apply font-body text-sm font-medium text-mocha hover:text-peach transition-colors duration-150;
+  }
+
+  .prose-lili h2 {
+    @apply font-heading text-3xl text-brown mt-10 mb-4;
+  }
+
+  .prose-lili h3 {
+    @apply font-heading text-2xl text-brown mt-8 mb-3;
+  }
+
+  .prose-lili p {
+    @apply font-body text-mocha leading-relaxed mb-4;
+  }
+
+  .prose-lili ul {
+    @apply list-disc list-inside space-y-2 mb-4 font-body text-mocha;
+  }
+
+  .prose-lili a {
+    @apply text-peach underline underline-offset-2 hover:text-mocha;
+  }
+}
+
+/* Grain texture overlay for hero sections */
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+.fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+.fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+.fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
