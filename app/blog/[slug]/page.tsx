@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import LeafDot from '@/components/LeafDot';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Props {
   params: { slug: string };
@@ -64,6 +65,8 @@ export default function BlogPost({ params }: Props) {
     );
   }
 
+  const imagePath = post.data.image ? post.data.image : null;
+
   return (
     <article className="max-w-2xl mx-auto px-5 md:px-8 py-20">
       <Link href="/blog" className="font-body text-sm text-peach hover:underline mb-8 inline-flex items-center gap-1">
@@ -75,9 +78,21 @@ export default function BlogPost({ params }: Props) {
       <h1 className="font-heading text-4xl md:text-5xl font-light text-brown mt-2 leading-tight">
         {post.data.title}
       </h1>
-      <p className="font-body text-xs text-mocha/40 mt-4 mb-10">
+      <p className="font-body text-xs text-mocha/40 mt-4 mb-8">
         {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · {post.data.author || 'Lili Human'}
       </p>
+      {imagePath && (
+        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-10">
+          <Image
+            src={imagePath}
+            alt={post.data.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 672px"
+          />
+        </div>
+      )}
       <div className="prose-lili">
         {renderContent(post.content)}
       </div>
