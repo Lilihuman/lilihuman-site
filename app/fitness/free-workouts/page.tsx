@@ -1,18 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import LeafDot from '@/components/LeafDot';
 
 const freeWorkouts = [
-  {
-    id: 1,
-    title: '15-Minute Full Body Burn',
-    duration: '15 min',
-    equipment: 'None',
-    level: 'All levels',
-    gated: false,
-    description: 'A quick full-body circuit you can do anywhere. 5 moves, 3 rounds, done.',
-  },
   {
     id: 2,
     title: 'Core Restore — Postpartum Safe',
@@ -29,7 +20,7 @@ const freeWorkouts = [
     equipment: 'Light dumbbells',
     level: 'Intermediate',
     gated: true,
-    description: 'Thirty days to stronger arms. Requires email signup — free forever after.',
+    description: 'Stronger arms and defined shoulders in 30 days. Push, pull, and sculpt with light dumbbells — no gym needed.',
   },
   {
     id: 4,
@@ -96,13 +87,64 @@ function GateForm({ onClose }: { onClose: () => void }) {
   );
 }
 
+function FullBodyBurnCard() {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const tags = ['Full Body', '15 Minutes', 'No Equipment', 'All Levels'];
+
+  function handleSubmit() {
+    if (emailRef.current && emailRef.current.value) {
+      setSubmitted(true);
+    }
+  }
+
+  return (
+    <div className="card flex flex-col">
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex gap-2 flex-wrap">
+          {tags.map((tag) => (
+            <span key={tag} className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <span className="font-body text-xs text-peach">📧 Email required</span>
+      </div>
+      <h3 className="font-heading text-xl font-semibold text-brown mb-1">15-Min Full Body Burn</h3>
+      <p className="font-body text-xs font-medium text-mocha/50 mb-2">5 Moves × 3 Rounds</p>
+      <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">
+        No equipment needed. 40 seconds work, 20 seconds rest. Beginner and advanced modifications included. This is the workout you do when you have 15 minutes and zero excuses.
+      </p>
+      <div className="mt-5">
+        {submitted ? (
+          <a href="/downloads/15-min-full-body-burn.pdf" className="btn-primary w-full justify-center text-sm text-center block" download>
+            Download your workout ↓
+          </a>
+        ) : (
+          <div className="flex flex-col gap-2">
+            <input
+              ref={emailRef}
+              type="email"
+              defaultValue=""
+              placeholder="your@email.com"
+              className="w-full px-4 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
+            />
+            <button onClick={handleSubmit} className="btn-secondary text-sm">
+              Get the free workout →
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function FreeWorkouts() {
   const [gateOpen, setGateOpen] = useState(false);
 
   return (
     <>
       {gateOpen && <GateForm onClose={() => setGateOpen(false)} />}
-
       <section className="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-12">
         <span className="section-eyebrow">
           <LeafDot /> Free workouts
@@ -114,23 +156,17 @@ export default function FreeWorkouts() {
           A growing library of free workouts. Some require your email; most don't. All are worth your time.
         </p>
       </section>
-
       <section className="max-w-6xl mx-auto px-5 md:px-8 pb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <FullBodyBurnCard />
           {freeWorkouts.map((w) => (
             <div key={w.id} className="card flex flex-col">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex gap-2 flex-wrap">
-                  <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
-                    {w.duration}
-                  </span>
-                  <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
-                    {w.level}
-                  </span>
+                  <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">{w.duration}</span>
+                  <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">{w.level}</span>
                 </div>
-                {w.gated && (
-                  <span className="font-body text-xs text-peach">📧 Email required</span>
-                )}
+                {w.gated && <span className="font-body text-xs text-peach">📧 Email required</span>}
               </div>
               <h3 className="font-heading text-xl font-semibold text-brown mb-2">{w.title}</h3>
               <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{w.description}</p>
