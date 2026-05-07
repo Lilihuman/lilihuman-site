@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LeafDot from './LeafDot';
+import NewsletterForm from './NewsletterForm';
 
 const columns = [
   {
@@ -97,8 +98,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter */}
+        <div className="mt-12 pt-10 border-t border-cream/10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="md:max-w-xs">
+            <p className="font-heading text-xl text-cream">Join the list</p>
+            <p className="font-body text-sm text-cream/50 mt-1">Weekly-ish notes on fitness, family, and whatever I'm loving.</p>
+          </div>
+          <div className="md:w-96">
+            <NewsletterForm />
+          </div>
+        </div>
+
         {/* Bottom */}
-        <div className="mt-12 pt-6 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="mt-8 pt-6 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="font-body text-xs text-cream/40">© 2025 Lili Human. All rights reserved.</p>
           <p className="font-body text-xs text-cream/30">Built with love in Next.js</p>
         </div>
