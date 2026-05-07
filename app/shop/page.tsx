@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
 import { products, formatPrice, Product } from '@/data/products';
 
@@ -39,8 +40,14 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="card flex flex-col group">
-      <div className="aspect-square rounded-xl bg-gradient-to-br from-peach-light/30 via-cream to-sage-light/20 mb-4 flex items-center justify-center overflow-hidden">
-        <span className="font-script text-2xl text-peach/40">{categoryLabel}</span>
+      <div className="relative rounded-2xl overflow-hidden h-48 mb-4">
+        {product.image ? (
+          <Image src={product.image} alt={product.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-peach-light/30 via-cream to-sage-light/20 flex items-center justify-center">
+            <span className="font-script text-2xl text-peach/40">{categoryLabel}</span>
+          </div>
+        )}
       </div>
 
       <div className="flex items-center gap-2 mb-2">
