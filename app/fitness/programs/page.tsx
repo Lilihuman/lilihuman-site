@@ -1,14 +1,14 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
 
 const programs = [
-  // ── 20-Minute Hustle ─────────────────────────────────────────────────
+  // â”€â”€ 20-Minute Hustle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: '20min-hustle',
-    title: '20-Minute Hustle — 30-Day Plan',
-    description: 'Thirty days of 20-minute workouts built for real life. No equipment, no gym, no excuses. Lower body, upper body, cardio, and recovery — all mapped out for you.',
+    title: '20-Minute Hustle â€” 30-Day Plan',
+    description: 'Thirty days of 20-minute workouts built for real life. No equipment, no gym, no excuses. Lower body, upper body, cardio, and recovery â€” all mapped out for you.',
     price: '$15.00',
     badge: null,
     tags: ['No equipment', 'All levels'],
@@ -16,7 +16,7 @@ const programs = [
   },
   {
     id: '20min-hustle-nutrition',
-    title: '20-Minute Hustle — Meal Plan Bundle',
+    title: '20-Minute Hustle â€” Meal Plan Bundle',
     description: 'Two weeks of fat-loss meal plans designed to pair with your 20-Minute Hustle workouts. Simple, repeatable meals with a grocery list included.',
     price: '$15.00',
     badge: null,
@@ -25,17 +25,17 @@ const programs = [
   },
   {
     id: '20min-hustle-complete',
-    title: '20-Minute Hustle — Complete Bundle',
-    description: 'The full package — 30 days of workouts plus two weeks of fat-loss meal plans. Everything you need to move, eat well, and build habits that stick.',
+    title: '20-Minute Hustle â€” Complete Bundle',
+    description: 'The full package â€” 30 days of workouts plus two weeks of fat-loss meal plans. Everything you need to move, eat well, and build habits that stick.',
     price: '$25.00',
     badge: 'Best value',
     tags: ['No equipment', 'All levels'],
     image: '/images/programs/20min-hustle-complete.png',
   },
-  // ── Postpartum Reset ─────────────────────────────────────────────────
+  // â”€â”€ Postpartum Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'postpartum-meal-plan',
-    title: 'Postpartum Reset — Meal Plan Bundle',
+    title: 'Postpartum Reset â€” Meal Plan Bundle',
     description: 'Two weeks of nourishing meal plans designed to pair with your Postpartum Reset program. Batch-cook friendly, high protein, real-life ready.',
     price: '$15.00',
     badge: null,
@@ -44,8 +44,8 @@ const programs = [
   },
   {
     id: 'postpartum-reset',
-    title: 'Postpartum Reset — 4-Week Program',
-    description: 'Rebuild your core and pelvic floor, restore mobility, and gradually reintroduce strength — all in 20–30 minutes a day. Four progressive weeks designed specifically for postpartum moms.',
+    title: 'Postpartum Reset â€” 4-Week Program',
+    description: 'Rebuild your core and pelvic floor, restore mobility, and gradually reintroduce strength â€” all in 20â€“30 minutes a day. Four progressive weeks designed specifically for postpartum moms.',
     price: '$25.00',
     badge: null,
     tags: ['No equipment', 'All levels'],
@@ -53,18 +53,18 @@ const programs = [
   },
   {
     id: 'postpartum-complete',
-    title: 'Postpartum Reset — Complete Bundle',
-    description: 'Everything you need in one place — the full 4-week postpartum fitness program plus both meal plan weeks. Move well, eat well, and rebuild your strength and confidence from the inside out.',
+    title: 'Postpartum Reset â€” Complete Bundle',
+    description: 'Everything you need in one place â€” the full 4-week postpartum fitness program plus both meal plan weeks. Move well, eat well, and rebuild your strength and confidence from the inside out.',
     price: '$35.00',
     badge: 'Best value',
     tags: ['No equipment', 'All levels'],
     image: '/images/programs/postpartum-complete.png',
   },
-  // ── Strong Mama ──────────────────────────────────────────────────────
+  // â”€â”€ Strong Mama â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: 'strong-mama-nutrition',
-    title: 'Strong Mama — 8-Week Nutrition Program',
-    description: 'Eight weeks of protein-first meal planning designed to fuel your workouts and support fat loss — without extreme dieting or cutting food groups.',
+    title: 'Strong Mama â€” 8-Week Nutrition Program',
+    description: 'Eight weeks of protein-first meal planning designed to fuel your workouts and support fat loss â€” without extreme dieting or cutting food groups.',
     price: '$19.00',
     badge: null,
     tags: ['All levels'],
@@ -72,7 +72,7 @@ const programs = [
   },
   {
     id: 'strong-mama-8wk',
-    title: 'Strong Mama — 8-Week Program',
+    title: 'Strong Mama â€” 8-Week Program',
     description: 'Eight weeks of progressive strength training designed for busy moms. Four workouts a week, dumbbells and a resistance band, and a full exercise instruction guide included.',
     price: '$47.00',
     badge: 'Most popular',
@@ -81,8 +81,8 @@ const programs = [
   },
   {
     id: 'strong-mama-complete',
-    title: 'Strong Mama — Complete Bundle',
-    description: 'The full Strong Mama experience — 8 weeks of progressive workouts, the exercise instruction guide, and the complete nutrition program. Everything you need to get stronger, eat better, and show up for yourself every day.',
+    title: 'Strong Mama â€” Complete Bundle',
+    description: 'The full Strong Mama experience â€” 8 weeks of progressive workouts, the exercise instruction guide, and the complete nutrition program. Everything you need to get stronger, eat better, and show up for yourself every day.',
     price: '$57.00',
     badge: 'Best value',
     tags: ['Dumbbells', 'All levels'],
@@ -129,7 +129,7 @@ function ProgramCard({ program }: { program: typeof programs[0] }) {
       </div>
       {program.badge && (
         <span className="inline-flex items-center gap-1 font-body text-xs font-medium text-amber-700 bg-amber-50 rounded-full px-3 py-1 mb-3 self-start">
-          ✨ {program.badge}
+          âœ¨ {program.badge}
         </span>
       )}
       <h3 className="font-heading text-xl font-semibold text-brown mb-2">{program.title}</h3>
@@ -151,7 +151,7 @@ function ProgramCard({ program }: { program: typeof programs[0] }) {
           disabled={loading}
           className="btn-primary text-sm disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {loading ? 'Redirecting…' : 'Buy now →'}
+          {loading ? 'Redirectingâ€¦' : 'Buy now â†’'}
         </button>
       </div>
     </div>
@@ -169,7 +169,7 @@ export default function Programs() {
           Programs built for <em className="italic text-sage">your real life</em>
         </h1>
         <p className="font-body text-lg text-mocha/80 mt-5 max-w-xl leading-relaxed">
-          Every program is a digital download — buy once, access forever. No subscription, no upsells.
+          Every program is a digital download â€” buy once, access forever. No subscription, no upsells.
         </p>
       </section>
 
@@ -187,3 +187,4 @@ export default function Programs() {
     </>
   );
 }
+
