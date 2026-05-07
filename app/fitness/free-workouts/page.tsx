@@ -1,138 +1,73 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import LeafDot from '@/components/LeafDot';
 
-const freeWorkouts = [
+const workouts = [
   {
-    id: 2,
-    title: 'Core Restore — Postpartum Safe',
-    duration: '20 min',
-    equipment: 'Mat',
-    level: 'Beginner',
-    gated: false,
-    description: 'Gentle core work that respects your postpartum body. Pelvic floor aware, zero crunches.',
+    id: 'full-body-burn',
+    title: '15-Min Full Body Burn',
+    description: 'No equipment needed. 40 seconds work, 20 seconds rest. Beginner and advanced modifications included. This is the workout you do when you have 15 minutes and zero excuses.',
+    tags: ['Full body', '15 min', 'No equipment', 'All levels'],
+    file: '/downloads/15-min-full-body-burn.pdf',
   },
   {
-    id: 3,
+    id: 'arms-shoulders',
     title: '30-Day Arms & Shoulders Plan',
-    duration: '20 min/day',
-    equipment: 'Light dumbbells',
-    level: 'Intermediate',
-    gated: true,
     description: 'Stronger arms and defined shoulders in 30 days. Push, pull, and sculpt with light dumbbells — no gym needed.',
-  },
-  {
-    id: 4,
-    title: 'Naptime Express — 10 Minutes',
-    duration: '10 min',
-    equipment: 'None',
-    level: 'All levels',
-    gated: false,
-    description: "Got a napping baby and 10 minutes? This one's for you.",
-  },
-  {
-    id: 5,
-    title: 'Lower Body Love',
-    duration: '25 min',
-    equipment: 'Resistance band',
-    level: 'Intermediate',
-    gated: false,
-    description: 'Glutes, hamstrings, and quads. A resistance band and your living room floor.',
-  },
-  {
-    id: 6,
-    title: 'Morning Mobility Routine',
-    duration: '12 min',
-    equipment: 'None',
-    level: 'All levels',
-    gated: true,
-    description: 'Start your day with movement that actually feels good. Free with email.',
+    tags: ['Arms & shoulders', '20 min/day', 'Light dumbbells', 'Intermediate'],
+    file: '/downloads/30-day-arms-and-shoulders.pdf',
   },
 ];
 
-function GateForm({ onClose }: { onClose: () => void }) {
-  const [submitted, setSubmitted] = useState(false);
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brown/60 backdrop-blur-sm">
-      <div className="bg-cream rounded-3xl p-8 max-w-sm w-full shadow-2xl">
-        {submitted ? (
-          <div className="text-center">
-            <div className="text-4xl mb-4">🎉</div>
-            <h3 className="font-heading text-2xl text-brown mb-2">You're in!</h3>
-            <p className="font-body text-sm text-mocha/70 mb-5">Check your inbox for the download link.</p>
-            <button onClick={onClose} className="btn-primary w-full justify-center">Close</button>
-          </div>
-        ) : (
-          <>
-            <h3 className="font-heading text-2xl text-brown mb-2">Grab your free workout</h3>
-            <p className="font-body text-sm text-mocha/70 mb-5 leading-relaxed">
-              Drop your email and I'll send it straight to your inbox. No spam — I promise.
-            </p>
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="w-full px-4 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach mb-3"
-            />
-            <button onClick={() => setSubmitted(true)} className="btn-primary w-full justify-center">
-              Send me the workout →
-            </button>
-            <button onClick={onClose} className="btn-secondary w-full justify-center mt-3 text-sm">
-              Maybe later
-            </button>
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
+function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
+  const [email, setEmail] = useState('');
+  const [unlocked, setUnlocked] = useState(false);
+  const [error, setError] = useState('');
 
-function FullBodyBurnCard() {
-  const emailRef = useRef<HTMLInputElement>(null);
-  const [submitted, setSubmitted] = useState(false);
-  const tags = ['Full Body', '15 Minutes', 'No Equipment', 'All Levels'];
-
-  function handleSubmit() {
-    if (emailRef.current && emailRef.current.value) {
-      setSubmitted(true);
-    }
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) { setError('Please enter your email.'); return; }
+    setUnlocked(true);
   }
 
   return (
     <div className="card flex flex-col">
-      <div className="flex items-start justify-between mb-3">
-        <div className="flex gap-2 flex-wrap">
-          {tags.map((tag) => (
-            <span key={tag} className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <span className="font-body text-xs text-peach">📧 Email required</span>
+      <div className="flex gap-2 flex-wrap mb-4">
+        {workout.tags.map((tag) => (
+          <span key={tag} className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
+            {tag}
+          </span>
+        ))}
       </div>
-      <h3 className="font-heading text-xl font-semibold text-brown mb-1">15-Min Full Body Burn</h3>
-      <p className="font-body text-xs font-medium text-mocha/50 mb-2">5 Moves × 3 Rounds</p>
-      <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">
-        No equipment needed. 40 seconds work, 20 seconds rest. Beginner and advanced modifications included. This is the workout you do when you have 15 minutes and zero excuses.
-      </p>
-      <div className="mt-5">
-        {submitted ? (
-          <a href="/downloads/15-min-full-body-burn.pdf" className="btn-primary w-full justify-center text-sm text-center block" download>
-            Download your workout ↓
+
+      <h3 className="font-heading text-2xl font-semibold text-brown mb-2">{workout.title}</h3>
+      <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{workout.description}</p>
+
+      <div className="mt-6">
+        {unlocked ? (
+          <a
+            href={workout.file}
+            download
+            className="btn-primary w-full justify-center text-sm text-center block"
+          >
+            Download your workout
           </a>
         ) : (
-          <div className="flex flex-col gap-2">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
             <input
-              ref={emailRef}
               type="email"
-              defaultValue=""
+              required
+              value={email}
+              onChange={(e) => { setEmail(e.target.value); setError(''); }}
               placeholder="your@email.com"
               className="w-full px-4 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
             />
-            <button onClick={handleSubmit} className="btn-secondary text-sm">
-              Get the free workout →
+            {error && <p className="font-body text-xs text-red-400 px-1">{error}</p>}
+            <button type="submit" className="btn-secondary text-sm">
+              Get the free download
             </button>
-          </div>
+          </form>
         )}
       </div>
     </div>
@@ -140,11 +75,8 @@ function FullBodyBurnCard() {
 }
 
 export default function FreeWorkouts() {
-  const [gateOpen, setGateOpen] = useState(false);
-
   return (
     <>
-      {gateOpen && <GateForm onClose={() => setGateOpen(false)} />}
       <section className="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-12">
         <span className="section-eyebrow">
           <LeafDot /> Free workouts
@@ -153,31 +85,14 @@ export default function FreeWorkouts() {
           Move for free. <em className="italic text-sage">No strings.</em>
         </h1>
         <p className="font-body text-lg text-mocha/80 mt-5 max-w-xl leading-relaxed">
-          A growing library of free workouts. Some require your email; most don't. All are worth your time.
+          Drop your email and the PDF downloads instantly. No spam — just good workouts.
         </p>
       </section>
-      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <FullBodyBurnCard />
-          {freeWorkouts.map((w) => (
-            <div key={w.id} className="card flex flex-col">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex gap-2 flex-wrap">
-                  <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">{w.duration}</span>
-                  <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">{w.level}</span>
-                </div>
-                {w.gated && <span className="font-body text-xs text-peach">📧 Email required</span>}
-              </div>
-              <h3 className="font-heading text-xl font-semibold text-brown mb-2">{w.title}</h3>
-              <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{w.description}</p>
-              <p className="font-body text-xs text-mocha/50 mt-3">Equipment: {w.equipment}</p>
-              <button
-                onClick={() => { if (w.gated) setGateOpen(true); }}
-                className={`mt-5 ${w.gated ? 'btn-secondary' : 'btn-sage'} text-sm`}
-              >
-                {w.gated ? 'Get free access →' : 'Start workout →'}
-              </button>
-            </div>
+
+      <section className="max-w-3xl mx-auto px-5 md:px-8 pb-24">
+        <div className="grid md:grid-cols-2 gap-6">
+          {workouts.map((w) => (
+            <WorkoutCard key={w.id} workout={w} />
           ))}
         </div>
       </section>
