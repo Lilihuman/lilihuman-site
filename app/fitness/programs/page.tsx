@@ -15,7 +15,7 @@ const programs = [
   { id: 'strong-mama-complete', title: 'Strong Mama — Complete Bundle', description: 'The full Strong Mama experience — 8 weeks of progressive workouts, the exercise instruction guide, and the complete nutrition program. Everything you need to get stronger.', price: '$57.00', badge: 'Best value', tags: ['Dumbbells', 'All levels'], image: '/images/programs/strong-mama-complete.png' },
 ];
 
-function ProgramCard({ program }) {
+function ProgramCard({ program }: { program: (typeof programs)[number] }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   async function handleBuy() {
