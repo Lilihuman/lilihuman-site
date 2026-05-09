@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import LeafDot from '@/components/LeafDot';
+import NewsletterForm from '@/components/NewsletterForm';
 
 const featureCards = [
   {
@@ -205,16 +206,7 @@ export default function Home() {
           <p className="font-body text-mocha/70 leading-relaxed mb-8">
             Weekly-ish notes on fitness, home life, and whatever I'm currently obsessed with. No spam — I promise.
           </p>
-          <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 px-5 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
-            />
-            <button type="submit" className="btn-primary whitespace-nowrap">
-              Join the list
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </section>
     </>
