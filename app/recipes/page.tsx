@@ -100,6 +100,7 @@ function getRecipes(): RecipeMeta[] {
       time: data.time || '',
       servings: data.servings || '',
       tag: data.tag || 'Recipe',
+      image: data.image || undefined,
     };
   });
 }
