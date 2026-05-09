@@ -1,6 +1,8 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
-import NewsletterForm from '@/components/NewsletterForm';
 
 const featureCards = [
   {
@@ -67,14 +69,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Photo placeholder */}
+          {/* Hero image */}
           <div className="relative fade-up fade-up-delay-3">
-            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-peach-light/60 via-cream-dark to-sage-light/40 flex items-center justify-center border border-peach-light/30 overflow-hidden">
-              <div className="text-center p-8">
-                <p className="font-script text-3xl text-peach/60">Lili</p>
-                <p className="font-body text-sm text-mocha/40 mt-2">Photo placeholder</p>
-                <p className="font-body text-xs text-mocha/30">Replace with your hero image</p>
-              </div>
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+              <Image
+                src="/images/hero.jpg"
+                alt="Lili Human by the sea"
+                fill
+                priority
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-3 border border-peach-light/30">
@@ -206,7 +211,16 @@ export default function Home() {
           <p className="font-body text-mocha/70 leading-relaxed mb-8">
             Weekly-ish notes on fitness, home life, and whatever I'm currently obsessed with. No spam — I promise.
           </p>
-          <NewsletterForm />
+          <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="flex-1 px-5 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
+            />
+            <button type="submit" className="btn-primary whitespace-nowrap">
+              Join the list
+            </button>
+          </form>
         </div>
       </section>
     </>
