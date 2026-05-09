@@ -4,98 +4,109 @@ export interface Product {
   id: string;
   name: string;
   description: string;
-  price: number; // in cents
+  price: number;
   type: ProductType;
-  filePath?: string; // for digital products
+  filePath?: string;
   category: 'program' | 'printable' | 'physical';
   image?: string;
   featured?: boolean;
-  stripePriceId?: string; // set after creating in Stripe dashboard
+  stripePriceId?: string;
 }
 
 export const products: Product[] = [
-  // Fitness programs
   {
-    id: 'strong-mama-8wk',
-    name: 'Strong Mama — 8-Week Program',
-    description:
-      'Eight weeks of progressive strength training designed for busy mothers. Includes PDF workout guides, a nutrition framework, and lifetime access to all updates.',
-    price: 4700,
+    id: '20min-hustle',
+    name: '20-Minute Hustle — 30-Day Plan',
+    description: 'Thirty days of 20-minute workouts built for real life. No equipment, no gym, no excuses.',
+    price: 1500,
     type: 'digital',
-    filePath: '/downloads/strong-mama-8wk.pdf',
+    filePath: '/downloads/20-min-hustle-fitness.pdf',
     category: 'program',
+    image: '/images/programs/20min-hustle-fitness.png',
+  },
+  {
+    id: '20min-hustle-nutrition',
+    name: '20-Minute Hustle — Meal Plan Bundle',
+    description: 'Two weeks of fat-loss meal plans designed to pair with your 20-Minute Hustle workouts.',
+    price: 1500,
+    type: 'digital',
+    filePath: '/downloads/20-min-hustle-meal-plan-w1.pdf',
+    category: 'program',
+    image: '/images/programs/20min-hustle-nutrition.png',
+  },
+  {
+    id: '20min-hustle-complete',
+    name: '20-Minute Hustle — Complete Bundle',
+    description: 'The full package — 30 days of workouts plus two weeks of fat-loss meal plans.',
+    price: 2500,
+    type: 'digital',
+    filePath: '/downloads/20-min-hustle-fitness.pdf',
+    category: 'program',
+    image: '/images/programs/20min-hustle-complete.png',
     featured: true,
-    stripePriceId: process.env.STRIPE_PRICE_STRONG_MAMA,
+  },
+  {
+    id: 'postpartum-meal-plan',
+    name: 'Postpartum Reset — Meal Plan Bundle',
+    description: 'Two weeks of nourishing meal plans designed to pair with your Postpartum Reset program.',
+    price: 1500,
+    type: 'digital',
+    filePath: '/downloads/postpartum-reset-meal-plan-a.pdf',
+    category: 'program',
+    image: '/images/programs/postpartum-nutrition.png',
   },
   {
     id: 'postpartum-reset',
     name: 'Postpartum Reset — 4-Week Program',
-    description:
-      'A gentle but effective 4-week return-to-movement program for new moms. Low impact, pelvic floor aware, and fully bodyweight.',
-    price: 2900,
+    description: 'Rebuild your core and pelvic floor, restore mobility, and gradually reintroduce strength.',
+    price: 2500,
     type: 'digital',
-    filePath: '/downloads/postpartum-reset.pdf',
+    filePath: '/downloads/postpartum-reset-4-week-program.pdf',
     category: 'program',
-    stripePriceId: process.env.STRIPE_PRICE_POSTPARTUM,
+    image: '/images/programs/postpartum-fitness.png',
   },
   {
-    id: '20min-hustle',
-    name: '20-Minute Hustle — Monthly Plan',
-    description:
-      '30 days of 20-minute workouts for the time-starved mama. New plan drops monthly, no equipment needed.',
-    price: 1500,
+    id: 'postpartum-complete',
+    name: 'Postpartum Reset — Complete Bundle',
+    description: 'Everything you need — the full 4-week postpartum fitness program plus both meal plan weeks.',
+    price: 3500,
     type: 'digital',
-    filePath: '/downloads/20min-hustle.pdf',
+    filePath: '/downloads/postpartum-reset-4-week-program.pdf',
     category: 'program',
-    stripePriceId: process.env.STRIPE_PRICE_20MIN,
-  },
-
-  // Printables
-  {
-    id: 'morning-planner-pad',
-    name: 'Morning Ritual Planner — Printable',
-    description:
-      'A beautifully designed daily planner page with space for intentions, movement, gratitude, and the three things that actually matter today.',
-    price: 900,
-    type: 'digital',
-    filePath: '/downloads/morning-planner.pdf',
-    category: 'printable',
+    image: '/images/programs/postpartum-complete.png',
     featured: true,
-    stripePriceId: process.env.STRIPE_PRICE_PLANNER,
   },
   {
-    id: 'family-command-centre',
-    name: 'Family Command Centre — 5-Page Set',
-    description:
-      'Five printable pages: weekly meal plan, grocery list, chore chart, family calendar, and an emergency contacts sheet. Warm neutral aesthetic.',
-    price: 1400,
+    id: 'strong-mama-nutrition',
+    name: 'Strong Mama — 8-Week Nutrition Program',
+    description: 'Eight weeks of protein-first meal planning designed to fuel your workouts and support fat loss.',
+    price: 1900,
     type: 'digital',
-    filePath: '/downloads/family-command-centre.pdf',
-    category: 'printable',
-    stripePriceId: process.env.STRIPE_PRICE_COMMAND_CENTRE,
+    filePath: '/downloads/strong-mama-nutrition-program.pdf',
+    category: 'program',
+    image: '/images/programs/strong-mama-nutrition.png',
   },
   {
-    id: 'wall-art-botanicals',
-    name: 'Botanical Wall Art — 3-Print Set',
-    description:
-      'Printable A4/Letter botanical art prints in warm, earthy tones. Instant download, print at home or at your local print shop.',
-    price: 1200,
+    id: 'strong-mama-8wk',
+    name: 'Strong Mama — 8-Week Program',
+    description: 'Eight weeks of progressive strength training designed for busy moms.',
+    price: 4700,
     type: 'digital',
-    filePath: '/downloads/botanical-prints.zip',
-    category: 'printable',
-    stripePriceId: process.env.STRIPE_PRICE_WALL_ART,
+    filePath: '/downloads/strong-mama-8-week-program.pdf',
+    category: 'program',
+    image: '/images/programs/strong-mama-fitness.png',
+    featured: true,
   },
-
-  // Physical
   {
-    id: 'linen-tote',
-    name: 'LH Linen Tote Bag',
-    description:
-      'Natural linen tote with the LH monogram embroidered in warm peach thread. Market bag sized, strong handles.',
-    price: 3400,
-    type: 'physical',
-    category: 'physical',
-    stripePriceId: process.env.STRIPE_PRICE_TOTE,
+    id: 'strong-mama-complete',
+    name: 'Strong Mama — Complete Bundle',
+    description: 'The full Strong Mama experience — 8 weeks of workouts plus the complete nutrition program.',
+    price: 5700,
+    type: 'digital',
+    filePath: '/downloads/strong-mama-8-week-program.pdf',
+    category: 'program',
+    image: '/images/programs/strong-mama-complete.png',
+    featured: true,
   },
 ];
 
