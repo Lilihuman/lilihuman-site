@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { notFound } from 'next/navigation';
 import LeafDot from '@/components/LeafDot';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Props {
   params: { slug: string };
@@ -47,9 +48,17 @@ export default function RecipePage({ params }: Props) {
           <span className="font-body text-xs text-mocha/50">🍽 Serves {recipe.data.servings}</span>
         )}
       </div>
-      <div className="aspect-video rounded-2xl bg-gradient-to-br from-peach-light/40 to-sage-light/30 mb-10 flex items-center justify-center">
-        <p className="font-body text-xs text-mocha/30">Recipe photo</p>
-      </div>
+      {recipe.data.image && (
+        <div className="relative w-full rounded-2xl overflow-hidden mb-10">
+          <Image
+            src={recipe.data.image}
+            alt={recipe.data.title}
+            width={900}
+            height={600}
+            className="w-full h-auto"
+          />
+        </div>
+      )}
       <div className="prose-lili" dangerouslySetInnerHTML={{ __html: recipe.content }} />
     </article>
   );
