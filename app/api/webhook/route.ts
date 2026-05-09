@@ -52,10 +52,3 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ received: true });
 }
-
-// Required for raw body parsing with Stripe webhooks
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
