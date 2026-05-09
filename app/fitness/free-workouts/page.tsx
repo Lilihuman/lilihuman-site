@@ -18,6 +18,13 @@ const workouts = [
     tags: ['Arms & shoulders', '20 min/day', 'Light dumbbells', 'Intermediate'],
     file: '/downloads/30-day-arms-and-shoulders.pdf',
   },
+  {
+    id: 'car-ride-mobility',
+    title: 'Car Ride Mobility Plan',
+    description: 'Perfect for long drives, road trips, or any time you\'ve been sitting too long. Simple stretches and mobility moves you can do at a rest stop or in a parking lot.',
+    tags: ['Mobility', '10 min', 'No equipment', 'All levels'],
+    file: '/car-ride-mobility-plan.pdf',
+  },
 ];
 
 function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
