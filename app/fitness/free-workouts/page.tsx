@@ -24,6 +24,7 @@ const workouts = [
     description: 'Perfect for long drives, road trips, or any time you\'ve been sitting too long. Simple stretches and mobility moves you can do at a rest stop or in a parking lot.',
     tags: ['Mobility', '10 min', 'No equipment', 'All levels'],
     file: '/car-ride-mobility-plan.pdf',
+    freeDownload: true,
   },
 ];
 
@@ -52,7 +53,15 @@ function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
       <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{workout.description}</p>
 
       <div className="mt-6">
-        {unlocked ? (
+        {'freeDownload' in workout && workout.freeDownload ? (
+          <a
+            href={workout.file}
+            download
+            className="btn-primary w-full justify-center text-sm text-center block"
+          >
+            Download for free
+          </a>
+        ) : unlocked ? (
           <a
             href={workout.file}
             download
