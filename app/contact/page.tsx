@@ -4,10 +4,10 @@ import { useState } from 'react';
 import LeafDot from '@/components/LeafDot';
 
 const socials = [
-  { label: 'Instagram', handle: '@lilimotaghedi', href: 'https://www.instagram.com/lilimotaghedi/', icon: '📸' },
-  { label: 'Pinterest', handle: 'Pinterest', href: 'https://pin.it/1gppwVqWJ', icon: '📌' },
-  { label: 'YouTube', handle: 'Lili Human', href: 'https://www.youtube.com/@lilihuman', icon: '▶️' },
-  { label: 'Email', handle: 'lili.motaghedi@gmail.com', href: 'mailto:lili.motaghedi@gmail.com', icon: '✉️' },
+  { label: 'Instagram', handle: '@lilihuman', href: 'https://instagram.com/lilihuman', icon: '📸' },
+  { label: 'Pinterest', handle: 'lilihuman', href: 'https://pinterest.com/lilihuman', icon: '📌' },
+  { label: 'YouTube', handle: 'Lili Human', href: 'https://youtube.com/@lilihuman', icon: '▶️' },
+  { label: 'Email', handle: 'lili@lilihuman.com', href: 'mailto:lili@lilihuman.com', icon: '✉️' },
 ];
 
 export default function Contact() {

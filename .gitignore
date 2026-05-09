@@ -34,7 +34,3 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
-node_modules/ 
-.next/ 
-.env.local 
-out/ 

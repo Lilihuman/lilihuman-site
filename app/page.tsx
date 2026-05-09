@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
 
 const featureCards = [
@@ -69,17 +66,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero image */}
+          {/* Photo placeholder */}
           <div className="relative fade-up fade-up-delay-3">
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
-              <Image
-                src="/images/hero.jpg"
-                alt="Lili Human by the sea"
-                fill
-                priority
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-peach-light/60 via-cream-dark to-sage-light/40 flex items-center justify-center border border-peach-light/30 overflow-hidden">
+              <div className="text-center p-8">
+                <p className="font-script text-3xl text-peach/60">Lili</p>
+                <p className="font-body text-sm text-mocha/40 mt-2">Photo placeholder</p>
+                <p className="font-body text-xs text-mocha/30">Replace with your hero image</p>
+              </div>
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-3 border border-peach-light/30">

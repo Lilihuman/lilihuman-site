@@ -1,5 +1,6 @@
 import LeafDot from '@/components/LeafDot';
 import Link from 'next/link';
+import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -12,9 +13,20 @@ interface RecipeMeta {
   time: string;
   servings: string;
   tag: string;
+  image?: string;
 }
 
 const sampleRecipes: RecipeMeta[] = [
+  {
+    slug: 'avocado-toast',
+    title: 'Avocado Toast',
+    date: '2026-05-08',
+    excerpt: 'Simple, fresh, and filling. Toast the bread, mash the avocado, done. Ready in minutes.',
+    time: '5 min',
+    servings: '1',
+    tag: 'Breakfast',
+    image: '/recipes/avocado-toast.png',
+  },
   {
     slug: 'one-pan-lemon-chicken',
     title: 'One-Pan Lemon Herb Chicken',
@@ -68,6 +80,7 @@ const sampleRecipes: RecipeMeta[] = [
     time: '5 min',
     servings: '1',
     tag: 'Breakfast',
+    image: '/recipes/overnight-oats.png',
   },
 ];
 
@@ -128,8 +141,20 @@ export default function Recipes() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recipes.map((recipe) => (
             <Link href={`/recipes/${recipe.slug}`} key={recipe.slug} className="card group cursor-pointer flex flex-col">
-              <div className="aspect-video rounded-xl bg-gradient-to-br from-peach-light/30 to-sage-light/20 mb-4 flex items-center justify-center">
-                <p className="font-body text-xs text-mocha/30">Recipe photo</p>
+              <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-peach-light/30 to-sage-light/20">
+                {recipe.image ? (
+                  <Image
+                    src={recipe.image}
+                    alt={recipe.title}
+                    width={600}
+                    height={338}
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <p className="font-body text-xs text-mocha/30">Recipe photo</p>
+                  </div>
+                )}
               </div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-2.5 py-1">

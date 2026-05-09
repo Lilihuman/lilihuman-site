@@ -1,6 +1,5 @@
 import LeafDot from '@/components/LeafDot';
 import Link from 'next/link';
-import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -12,14 +11,12 @@ interface PostMeta {
   excerpt: string;
   tag: string;
   author?: string;
-  image?: string;
 }
 
 function getPosts(): PostMeta[] {
   const dir = path.join(process.cwd(), 'content/blog');
   if (!fs.existsSync(dir)) return samplePosts;
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx') || f.endsWith('.md'));
-  if (files.length === 0) return samplePosts;
   return files.map((file) => {
     const raw = fs.readFileSync(path.join(dir, file), 'utf-8');
     const { data } = matter(raw);
@@ -30,7 +27,6 @@ function getPosts(): PostMeta[] {
       excerpt: data.excerpt || '',
       tag: data.tag || 'General',
       author: data.author,
-      image: data.image || null,
     };
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
@@ -42,6 +38,41 @@ const samplePosts: PostMeta[] = [
     date: '2025-05-12',
     excerpt: 'No screens, no schedules. Just pancakes and whatever the kids feel like doing.',
     tag: 'Family life',
+  },
+  {
+    slug: '5-moves-15-minutes',
+    title: '5 moves for when you have 15 minutes',
+    date: '2025-05-05',
+    excerpt: 'This is the workout I actually do on chaotic days — no equipment, no excuses.',
+    tag: 'Fitness',
+  },
+  {
+    slug: 'morning-planner-story',
+    title: 'The printable planner that changed my mornings',
+    date: '2025-04-28',
+    excerpt: "I designed this one for myself first. Now it's in the shop and I get DMs about it weekly.",
+    tag: 'Home',
+  },
+  {
+    slug: 'postpartum-honest',
+    title: 'The honest truth about postpartum fitness',
+    date: '2025-04-15',
+    excerpt: "Nobody tells you that showing up on day 3 feels harder than day 1. Here's what helped.",
+    tag: 'Fitness',
+  },
+  {
+    slug: 'lake-house-summer',
+    title: 'Our lake house summer traditions',
+    date: '2025-04-02',
+    excerpt: 'The ones we repeat every year and why they matter more than I expected.',
+    tag: 'Family life',
+  },
+  {
+    slug: 'meal-prep-for-real',
+    title: 'Meal prep for people who hate meal prep',
+    date: '2025-03-24',
+    excerpt: "Two hours on Sunday. The whole week sorted. Here's the exact routine.",
+    tag: 'Recipes',
   },
 ];
 
@@ -64,6 +95,7 @@ export default function Blog() {
         </p>
       </section>
 
+      {/* Tag filter (visual only — add client-side filter if desired) */}
       <section className="max-w-6xl mx-auto px-5 md:px-8 pb-4">
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
@@ -84,20 +116,8 @@ export default function Blog() {
             href={`/blog/${posts[0].slug}`}
             className="card flex flex-col md:flex-row gap-6 mb-8 group cursor-pointer"
           >
-            <div className="md:w-1/2 aspect-video rounded-xl overflow-hidden relative bg-gradient-to-br from-peach-light/50 to-sage-light/30">
-              {posts[0].image ? (
-                <Image
-                  src={posts[0].image}
-                  alt={posts[0].title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <p className="font-body text-xs text-mocha/30">Featured image</p>
-                </div>
-              )}
+            <div className="md:w-1/2 aspect-video rounded-xl bg-gradient-to-br from-peach-light/50 to-sage-light/30 flex items-center justify-center">
+              <p className="font-body text-xs text-mocha/30">Featured image</p>
             </div>
             <div className="md:w-1/2 flex flex-col justify-center">
               <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1 mb-3 self-start">
@@ -118,20 +138,8 @@ export default function Blog() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.slice(1).map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug} className="card group cursor-pointer flex flex-col">
-              <div className="aspect-video rounded-xl overflow-hidden relative bg-gradient-to-br from-peach-light/30 to-sage-light/20 mb-4">
-                {post.image ? (
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <p className="font-body text-xs text-mocha/30">Post thumbnail</p>
-                  </div>
-                )}
+              <div className="aspect-video rounded-xl bg-gradient-to-br from-peach-light/30 to-sage-light/20 mb-4 flex items-center justify-center">
+                <p className="font-body text-xs text-mocha/30">Post thumbnail</p>
               </div>
               <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1 mb-3 self-start">
                 {post.tag}

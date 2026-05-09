@@ -80,29 +80,6 @@ export default function FitnessHub() {
         </div>
       </section>
 
-      {/* Personal Training */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 py-16">
-        <div className="bg-brown rounded-3xl p-8 md:p-12 text-cream relative overflow-hidden flex flex-col md:flex-row md:items-center gap-8">
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-peach/10 blur-3xl translate-x-1/3 -translate-y-1/3" />
-          <div className="flex-1 relative">
-            <span className="inline-flex items-center gap-2 text-xs font-medium text-peach tracking-widest uppercase mb-4">
-              <LeafDot /> Work with me 1:1
-            </span>
-            <h2 className="font-heading text-4xl font-light text-cream leading-tight mb-4">
-              Personal Training <em className="italic text-peach">with Lili</em>
-            </h2>
-            <p className="font-body text-sm text-cream/70 leading-relaxed max-w-lg">
-              Zumba + fitness hybrid sessions tailored to your goals, your schedule and your real life. Fill out my intake form and I will be in touch within 48 hours.
-            </p>
-          </div>
-          <div className="flex-shrink-0 relative">
-            <Link href="/fitness/personal-training" className="btn-primary whitespace-nowrap">
-              Apply to work with me →
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Philosophy */}
       <section className="bg-cream-dark border-y border-peach-light/30 py-20">
         <div className="max-w-3xl mx-auto px-5 md:px-8 text-center">
