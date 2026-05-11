@@ -17,6 +17,7 @@ const workouts = [
     description: 'Stronger arms and defined shoulders in 30 days. Push, pull, and sculpt with light dumbbells — no gym needed.',
     tags: ['Arms & shoulders', '20 min/day', 'Light dumbbells', 'Intermediate'],
     file: '/downloads/30-day-arms-and-shoulders.pdf',
+    freeDownload: true,
   },
   {
     id: 'car-ride-mobility',
