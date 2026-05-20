@@ -11,6 +11,7 @@ export interface Product {
   image?: string;
   featured?: boolean;
   stripePriceId?: string;
+  tags?: string[];
 }
 
 export const products: Product[] = [
@@ -107,6 +108,61 @@ export const products: Product[] = [
     category: 'program',
     image: '/images/programs/strong-mama-complete.png',
     featured: true,
+  },
+
+  // Printables & Art
+  {
+    id: 'everyday-ai-busy-women',
+    name: 'Everyday AI for Busy Women',
+    description: 'A no-fluff guide to using AI tools in your daily life — from meal planning to inbox management. Practical prompts and real-life examples built for women who are too busy to waste time figuring it out alone.',
+    price: 500,
+    type: 'digital',
+    filePath: '/downloads/Everyday_AI_for_Busy_Women_v2_compressed.pdf',
+    category: 'printable',
+    image: '/images/printables/everyday-ai-v2-preview.jpg',
+    featured: true,
+    tags: ['AI Tools', 'PDF Guide'],
+  },
+  {
+    id: 'weekly-wellness-planner',
+    name: 'Weekly Wellness Planner',
+    description: 'A beautifully designed one-page weekly planner to track workouts, meals, water intake, and mood. Print as many as you need — designed to fit your life, not a perfect week.',
+    price: 700,
+    type: 'digital',
+    filePath: '/downloads/weekly-wellness-planner.pdf',
+    category: 'printable',
+    tags: ['Planner', 'Printable'],
+  },
+  {
+    id: 'habit-tracker-bundle',
+    name: 'Habit Tracker Bundle',
+    description: 'Three habit tracker layouts in one download — a monthly overview, a weekly check-in, and a 30-day challenge sheet. Mix and match to find what sticks.',
+    price: 900,
+    type: 'digital',
+    filePath: '/downloads/habit-tracker-bundle.pdf',
+    category: 'printable',
+    featured: true,
+    tags: ['Planner', 'Bundle'],
+  },
+  {
+    id: 'family-weekly-planner',
+    name: 'Family Weekly Planner',
+    description: 'Keep the whole family on the same page. A large-format weekly schedule with space for each person, shared meals, and a running to-do list. Print it, stick it on the fridge, done.',
+    price: 700,
+    type: 'digital',
+    filePath: '/downloads/family-weekly-planner.pdf',
+    category: 'printable',
+    tags: ['Family', 'Planner'],
+  },
+  {
+    id: 'kids-chore-chart',
+    name: 'Kids Chore Chart',
+    description: 'A clean, simple chore chart for kids. Add your child\'s name and chores, print it out, laminate it, and check off tasks with a dry-erase marker. Works for one kid or a whole crew.',
+    price: 500,
+    type: 'digital',
+    filePath: '/downloads/kids-chore-chart.pdf',
+    category: 'printable',
+    tags: ['Family', 'Kids'],
   },
 ];
 
