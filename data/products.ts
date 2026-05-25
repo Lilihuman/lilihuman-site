@@ -109,6 +109,18 @@ export const products: Product[] = [
     image: '/images/programs/strong-mama-complete.png',
     featured: true,
   },
+  {
+    id: 'move-with-me-toddler',
+    name: '20-Minute "Move With Me" Daily Program',
+    description: 'A playful strength, mobility, and developmental movement routine for you and your toddler. Warm-up, strength, toddler development games, and a calm cooldown — all in 20 minutes.',
+    price: 1000,
+    type: 'digital',
+    filePath: '/downloads/20-min-move-with-me-daily program-parent-&-toddler.pdf',
+    category: 'program',
+    image: '/images/programs/move-with-me-cover.png',
+    featured: true,
+    tags: ['Family', 'Kids', 'Toddler'],
+  },
 
   // Printables & Art
   {
