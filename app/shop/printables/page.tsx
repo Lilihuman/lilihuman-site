@@ -22,7 +22,7 @@ const sections = [
     key: 'family',
     title: 'Family Printables',
     description: 'Organizing tools designed for the whole family, not just the person holding it together.',
-    productIds: ['family-weekly-planner', 'kids-chore-chart'],
+    productIds: ['brain-activation-age2', 'brain-activation-age4', 'family-weekly-planner', 'kids-chore-chart'],
   },
 ];
 

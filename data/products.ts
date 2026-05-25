@@ -112,6 +112,30 @@ export const products: Product[] = [
 
   // Printables & Art
   {
+    id: 'brain-activation-age2',
+    name: '10-Minute Daily Brain Activation Program — Age 2.5',
+    description: 'A week of short, playful daily routines designed for toddlers around age 2.5. Each 10-minute session blends movement, language, sensory play, and connection — building brain power without pressure or expensive toys.',
+    price: 500,
+    type: 'digital',
+    filePath: '/downloads/10_min_Brain_Activation_Program_Age2_compressed.pdf',
+    category: 'printable',
+    image: '/images/printables/brain-activation-age2-cover.jpg',
+    featured: true,
+    tags: ['Family', 'Kids', 'Ages 2+'],
+  },
+  {
+    id: 'brain-activation-age4',
+    name: '10-Minute Brain Activation Program — Age 4',
+    description: 'A full week of 10-minute daily play plans designed for 4-year-olds. Each day has a theme — movement, storytelling, science, and more — built to boost brain development through connection and play.',
+    price: 500,
+    type: 'digital',
+    filePath: '/downloads/10_min_Brain_Activation_Program_Age4_compressed.pdf',
+    category: 'printable',
+    image: '/images/printables/brain-activation-age4-cover.jpg',
+    featured: true,
+    tags: ['Family', 'Kids', 'Ages 4+'],
+  },
+  {
     id: 'everyday-ai-busy-women',
     name: 'Everyday AI for Busy Women',
     description: 'A no-fluff guide to using AI tools in your daily life — from meal planning to inbox management. Practical prompts and real-life examples built for women who are too busy to waste time figuring it out alone.',
