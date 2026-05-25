@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
 
 const workouts = [
@@ -10,6 +11,7 @@ const workouts = [
     description: 'No equipment needed. 40 seconds work, 20 seconds rest. Beginner and advanced modifications included. This is the workout you do when you have 15 minutes and zero excuses.',
     tags: ['Full body', '15 min', 'No equipment', 'All levels'],
     file: '/downloads/15-min-full-body-burn.pdf',
+    image: '/images/free-workouts/15-min-full-body-burn.png',
   },
   {
     id: 'arms-shoulders',
@@ -17,6 +19,7 @@ const workouts = [
     description: 'Stronger arms and defined shoulders in 30 days. Push, pull, and sculpt with light dumbbells — no gym needed.',
     tags: ['Arms & shoulders', '20 min/day', 'Light dumbbells', 'Intermediate'],
     file: '/downloads/30-day-arms-and-shoulders.pdf',
+    image: '/images/free-workouts/30-day-arms-&-shoulders-plan.png',
     freeDownload: true,
   },
   {
@@ -25,6 +28,7 @@ const workouts = [
     description: 'Perfect for long drives, road trips, or any time you\'ve been sitting too long. Simple stretches and mobility moves you can do at a rest stop or in a parking lot.',
     tags: ['Mobility', '10 min', 'No equipment', 'All levels'],
     file: '/car-ride-mobility-plan.pdf',
+    image: '/images/free-workouts/Car-ride-mobility.png',
     freeDownload: true,
   },
 ];
@@ -42,6 +46,16 @@ function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
 
   return (
     <div className="card flex flex-col">
+      <div className="relative rounded-2xl overflow-hidden h-48 mb-4">
+        <Image
+          src={workout.image}
+          alt={workout.title}
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+
       <div className="flex gap-2 flex-wrap mb-4">
         {workout.tags.map((tag) => (
           <span key={tag} className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
