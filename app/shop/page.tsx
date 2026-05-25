@@ -9,7 +9,6 @@ const categories = [
   { key: 'all', label: 'All products' },
   { key: 'program', label: 'Fitness programs' },
   { key: 'printable', label: 'Printables & art' },
-  { key: 'physical', label: 'Physical goods' },
 ];
 
 function ProductCard({ product }: { product: Product }) {
@@ -35,8 +34,7 @@ function ProductCard({ product }: { product: Product }) {
   const categoryLabel = {
     program: 'Fitness program',
     printable: 'Printable',
-    physical: 'Physical',
-  }[product.category];
+  }[product.category as 'program' | 'printable'];
 
   return (
     <div className="card flex flex-col group">

@@ -7,7 +7,7 @@ export interface Product {
   price: number;
   type: ProductType;
   filePath?: string;
-  category: 'program' | 'printable' | 'physical';
+  category: 'program' | 'printable';
   image?: string;
   featured?: boolean;
   stripePriceId?: string;
