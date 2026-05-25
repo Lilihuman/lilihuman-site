@@ -5,26 +5,73 @@ import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const photos = Array.from({ length: 12 }, (_, i) => ({
-  id: i + 1,
-  src: `https://picsum.photos/seed/lili${i + 1}/800/600`,
-  thumb: `https://picsum.photos/seed/lili${i + 1}/400/300`,
-  alt: `Gallery photo ${i + 1}`,
-  caption: [
-    'Morning light at the lake house',
-    'Nico and Olive in the garden',
-    'Sunday pancake ritual',
-    'Post-workout sunrise',
-    'The reading corner we built last winter',
-    'Farmers market haul',
-    'Workout by the lake',
-    "Nico's first 'help' with baking",
-    'The workshop project',
-    'Golden hour walk',
-    'Herb garden progress',
-    'Family movie night setup',
-  ][i],
-}));
+const photos = [
+  { src: '/images/gallery/paragliding 013.jpg', caption: 'Paragliding' },
+  { src: '/images/gallery/paragliding 008.jpg', caption: 'Paragliding' },
+  { src: '/images/gallery/whistler bungee jump.JPG', caption: 'Whistler bungee jump' },
+  { src: '/images/gallery/highest bungee jump in the world south africa.JPG', caption: 'Highest bungee jump in the world — South Africa' },
+  { src: '/images/gallery/hiking an active volcano in guatemala.JPG', caption: 'Hiking an active volcano in Guatemala' },
+  { src: '/images/gallery/takal guatemala.JPG', caption: 'Tikal, Guatemala' },
+  { src: '/images/gallery/caye caulker belize.JPG', caption: 'Caye Caulker, Belize' },
+  { src: '/images/gallery/Las vegas.JPG', caption: 'Las Vegas' },
+  { src: '/images/gallery/pocna isla mujeres.JPG', caption: 'Pocna, Isla Mujeres' },
+  { src: '/images/gallery/havana cuba.JPG', caption: 'Havana, Cuba' },
+  { src: '/images/gallery/sandles bahamas.jpg', caption: 'Bahamas' },
+  { src: '/images/gallery/gastown vancouver.jpg', caption: 'Gastown, Vancouver' },
+  { src: '/images/gallery/stanley park vancouver.jpg', caption: 'Stanley Park, Vancouver' },
+  { src: '/images/gallery/surfing tofino bc.jpg', caption: 'Surfing in Tofino, BC' },
+  { src: '/images/gallery/westcoast trails.JPG', caption: 'West Coast trails' },
+  { src: '/images/gallery/rockies.JPG', caption: 'The Rockies' },
+  { src: '/images/gallery/south africa.JPG', caption: 'South Africa' },
+  { src: '/images/gallery/south africa (1).JPG', caption: 'South Africa' },
+  { src: '/images/gallery/south africa (2).JPG', caption: 'South Africa' },
+  { src: '/images/gallery/south africa (3).JPG', caption: 'South Africa' },
+  { src: '/images/gallery/colosseum rome.JPG', caption: 'Colosseum, Rome' },
+  { src: '/images/gallery/florence italy.JPG', caption: 'Florence, Italy' },
+  { src: '/images/gallery/pisa italy.JPG', caption: 'Pisa, Italy' },
+  { src: '/images/gallery/venice italy.JPG', caption: 'Venice, Italy' },
+  { src: '/images/gallery/vence italy.JPG', caption: 'Vence, Italy' },
+  { src: '/images/gallery/verona italy juliet.JPG', caption: "Verona, Italy — Juliet's balcony" },
+  { src: '/images/gallery/london.JPG', caption: 'London' },
+  { src: '/images/gallery/nothingham.JPG', caption: 'Nottingham' },
+  { src: '/images/gallery/louvre.JPG', caption: 'The Louvre, Paris' },
+  { src: '/images/gallery/notre-dame cathedral of paris.JPG', caption: 'Notre-Dame Cathedral, Paris' },
+  { src: '/images/gallery/catacomb.JPG', caption: 'The Catacombs, Paris' },
+  { src: '/images/gallery/kicked a bunny in paris.JPG', caption: 'Kicked a bunny in Paris' },
+  { src: '/images/gallery/escargo in paris.JPG', caption: 'Escargot in Paris' },
+  { src: '/images/gallery/nice france.JPG', caption: 'Nice, France' },
+  { src: '/images/gallery/greece (1).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (2).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (3).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (4).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (5).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (6).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (7).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (8).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (9).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (10).jpg', caption: 'Greece' },
+  { src: '/images/gallery/greece (11).jpg', caption: 'Greece' },
+  { src: '/images/gallery/elephant mud bath thailand.jpg', caption: 'Elephant mud bath, Thailand' },
+  { src: '/images/gallery/swimming with elephants thailand.jpg', caption: 'Swimming with elephants, Thailand' },
+  { src: '/images/gallery/thailand.jpg', caption: 'Thailand' },
+  { src: '/images/gallery/cambodia.jpg', caption: 'Cambodia' },
+  { src: '/images/gallery/halong bay vientnam.jpg', caption: 'Ha Long Bay, Vietnam' },
+  { src: '/images/gallery/mud fishing vietnam.jpg', caption: 'Mud fishing, Vietnam' },
+  { src: '/images/gallery/bathman.jpg', caption: 'Batman' },
+  { src: '/images/gallery/engagement photos.jpg', caption: 'Engagement' },
+  { src: '/images/gallery/engagement photos 2.jpg', caption: 'Engagement' },
+  { src: '/images/gallery/wedding.jpg', caption: 'Wedding day' },
+  { src: '/images/gallery/wedding dance.jpg', caption: 'Wedding dance' },
+  { src: '/images/gallery/pregnancy  (1).JPG', caption: 'Pregnancy' },
+  { src: '/images/gallery/pregnancy  (2).JPG', caption: 'Pregnancy' },
+  { src: '/images/gallery/pregnancy  (3).JPG', caption: 'Pregnancy' },
+  { src: '/images/gallery/baby olive.jpg', caption: 'Baby Olive' },
+  { src: '/images/gallery/nico infant photos (1).JPG', caption: 'Baby Nico' },
+  { src: '/images/gallery/nico infant photos (2).JPG', caption: 'Baby Nico' },
+  { src: '/images/gallery/nico infant photos (3).JPG', caption: 'Baby Nico' },
+  { src: '/images/gallery/nico infant photos (4).JPG', caption: 'Baby Nico' },
+  { src: '/images/gallery/olive paddleboarding.jpg', caption: 'Olive paddleboarding' },
+].map((p, i) => ({ ...p, id: i + 1, alt: p.caption }));
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
@@ -38,7 +85,6 @@ export default function Gallery() {
 
   return (
     <>
-      {/* Lightbox */}
       {lightbox !== null && (
         <div
           className="fixed inset-0 z-50 bg-brown/95 flex items-center justify-center p-4"
@@ -56,10 +102,7 @@ export default function Gallery() {
           >
             <ChevronLeft size={32} />
           </button>
-          <div
-            className="max-w-4xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src={photos[lightbox].src}
@@ -90,10 +133,10 @@ export default function Gallery() {
           <LeafDot /> Photo gallery
         </span>
         <h1 className="font-heading text-5xl md:text-6xl font-light text-brown mt-2 leading-tight max-w-2xl">
-          Moments from <em className="italic text-peach">our life</em>
+          A life lived <em className="italic text-peach">out loud</em>
         </h1>
         <p className="font-body text-lg text-mocha/80 mt-5 max-w-xl leading-relaxed">
-          The ordinary days, the golden light moments, and everything in between.
+          Adventures, ordinary days, and everything in between.
         </p>
       </section>
 
@@ -106,7 +149,7 @@ export default function Gallery() {
               onClick={() => setLightbox(i)}
             >
               <Image
-                src={photo.thumb}
+                src={photo.src}
                 alt={photo.alt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
