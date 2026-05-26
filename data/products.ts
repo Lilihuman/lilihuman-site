@@ -160,6 +160,18 @@ export const products: Product[] = [
     tags: ['AI Tools', 'PDF Guide'],
   },
   {
+    id: 'everyday-ai-car-troubles',
+    name: 'Everyday AI for Car Troubles',
+    description: 'A simple guide to using AI when your car makes a weird noise, warning lights come on, repair costs feel confusing, or you don\'t know what to say to a mechanic. Smarter questions. Calmer decisions.',
+    price: 500,
+    type: 'digital',
+    filePath: '/downloads/everyday-ai-for-car-trouble-compressed.pdf',
+    category: 'printable',
+    image: '/images/printables/everyday-ai-for-car-troubles.png',
+    featured: true,
+    tags: ['AI Tools', 'PDF Guide'],
+  },
+  {
     id: 'weekly-wellness-planner',
     name: 'Weekly Wellness Planner',
     description: 'A beautifully designed one-page weekly planner to track workouts, meals, water intake, and mood. Print as many as you need — designed to fit your life, not a perfect week.',
