@@ -13,16 +13,10 @@ const sections = [
     productIds: ['everyday-ai-busy-women', 'everyday-ai-car-troubles', 'everyday-ai-busy-moms', 'everyday-ai-small-business'],
   },
   {
-    key: 'planners',
-    title: 'Planners & Trackers',
-    description: 'Print-at-home planning pages to keep your days, habits, and goals on track.',
-    productIds: ['weekly-wellness-planner', 'habit-tracker-bundle'],
-  },
-  {
     key: 'family',
     title: 'Family Printables',
     description: 'Organizing tools designed for the whole family, not just the person holding it together.',
-    productIds: ['brain-activation-age2', 'brain-activation-age4', 'family-weekly-planner', 'kids-chore-chart'],
+    productIds: ['brain-activation-age2', 'brain-activation-age4', 'kids-chore-chart'],
   },
 ];
 
