@@ -194,10 +194,11 @@ export const products: Product[] = [
     id: 'kids-chore-chart',
     name: 'Kids Chore Chart',
     description: 'A clean, simple chore chart for kids. Add your child\'s name and chores, print it out, laminate it, and check off tasks with a dry-erase marker. Works for one kid or a whole crew.',
-    price: 500,
+    price: 0,
     type: 'digital',
     filePath: '/downloads/kids-chore-chart.pdf',
     category: 'printable',
+    image: '/images/printables/kids-chore-chart.png',
     tags: ['Family', 'Kids'],
   },
 ];

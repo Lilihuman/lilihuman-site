@@ -71,15 +71,25 @@ function ProductCard({ product }: { product: Product }) {
 
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-peach-light/30">
         <span className="font-heading text-2xl font-semibold text-peach">
-          {formatPrice(product.price)}
+          {product.price === 0 ? 'Free' : formatPrice(product.price)}
         </span>
-        <button
-          onClick={handleBuy}
-          disabled={loading}
-          className="btn-primary text-sm disabled:opacity-60"
-        >
-          {loading ? 'Loading…' : 'Add to cart →'}
-        </button>
+        {product.price === 0 ? (
+          <a
+            href={product.filePath}
+            download
+            className="btn-primary text-sm"
+          >
+            Download Free →
+          </a>
+        ) : (
+          <button
+            onClick={handleBuy}
+            disabled={loading}
+            className="btn-primary text-sm disabled:opacity-60"
+          >
+            {loading ? 'Loading…' : 'Add to cart →'}
+          </button>
+        )}
       </div>
     </div>
   );
