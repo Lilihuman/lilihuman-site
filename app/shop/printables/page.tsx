@@ -10,7 +10,7 @@ const sections = [
     key: 'ai-tools',
     title: 'AI Tools & Resources',
     description: 'Practical guides for using AI in your everyday life — no tech background needed.',
-    productIds: ['everyday-ai-busy-women'],
+    productIds: ['everyday-ai-busy-women', 'everyday-ai-car-troubles', 'everyday-ai-busy-moms', 'everyday-ai-small-business'],
   },
   {
     key: 'planners',
