@@ -9,6 +9,7 @@ const categories = [
   { key: 'all', label: 'All products' },
   { key: 'program', label: 'Fitness programs' },
   { key: 'printable', label: 'Printables & art' },
+  { key: 'ai-tools', label: 'AI Tools & Resources' },
 ];
 
 function ProductCard({ product }: { product: Product }) {
@@ -97,7 +98,11 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function Shop() {
   const [filter, setFilter] = useState('all');
-  const filtered = filter === 'all' ? products : products.filter((p) => p.category === filter);
+  const filtered =
+    filter === 'all' ? products :
+    filter === 'ai-tools' ? products.filter((p) => p.tags?.includes('AI Tools')) :
+    filter === 'printable' ? products.filter((p) => p.category === 'printable' && !p.tags?.includes('AI Tools')) :
+    products.filter((p) => p.category === filter);
 
   return (
     <>
