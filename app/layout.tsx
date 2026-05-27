@@ -6,11 +6,11 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Lili Human — Family, Fitness & Printable Art',
   description:
-    'Family stories, fitness programs for real life, and printables to make your home feel like you.',
+    'Workouts for real schedules. Printables for real homes. Stories from a real life — no filter needed.',
   metadataBase: new URL('https://lilihuman.com'),
   openGraph: {
     title: 'Lili Human',
-    description: 'Family stories, fitness programs for real life, and printables to make your home feel like you.',
+    description: 'Workouts for real schedules. Printables for real homes. Stories from a real life — no filter needed.',
     url: 'https://lilihuman.com',
     siteName: 'Lili Human',
     locale: 'en_US',

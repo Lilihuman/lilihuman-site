@@ -57,7 +57,7 @@ export default function Home() {
               of the world
             </h1>
             <p className="font-body text-lg text-mocha/80 mt-6 leading-relaxed max-w-md fade-up fade-up-delay-3">
-              Family stories, fitness programs for real life, and printables to make your home feel like you.
+              Workouts for real schedules. Printables for real homes. Stories from a real life — no filter needed.
             </p>
             <div className="flex flex-wrap gap-3 mt-8 fade-up fade-up-delay-4">
               <Link href="/shop" className="btn-primary">
