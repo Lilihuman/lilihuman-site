@@ -109,9 +109,9 @@ export default function About() {
               The values that <em className="italic text-peach">guide everything</em>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {values.map((v) => (
-              <div key={v.title} className="card text-center">
+              <div key={v.title} className="card text-center w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]">
                 <div className="text-4xl mb-4">{v.icon}</div>
                 <h3 className="font-heading text-xl font-semibold text-brown mb-2">{v.title}</h3>
                 <p className="font-body text-sm text-mocha/80 leading-relaxed">{v.body}</p>
