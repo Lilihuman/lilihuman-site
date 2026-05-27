@@ -45,10 +45,12 @@ const samplePosts: PostMeta[] = [
   },
 ];
 
-const tags = ['All', 'Family life', 'Fitness', 'Home', 'Recipes'];
+const tags = ['All', 'Fitness', 'Family life', 'Organization', 'Recipes', 'AI & Tech'];
 
-export default function Blog() {
-  const posts = getPosts();
+export default function Blog({ searchParams }: { searchParams: { tag?: string } }) {
+  const allPosts = getPosts();
+  const activeTag = searchParams.tag || 'All';
+  const posts = activeTag === 'All' ? allPosts : allPosts.filter((p) => p.tag === activeTag);
 
   return (
     <>
@@ -67,17 +69,26 @@ export default function Blog() {
       <section className="max-w-6xl mx-auto px-5 md:px-8 pb-4">
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span
+            <Link
               key={tag}
-              className="font-body text-sm font-medium px-4 py-1.5 rounded-pill border border-peach-light/40 text-mocha/70 cursor-pointer hover:border-peach hover:text-peach transition-colors"
+              href={tag === 'All' ? '/blog' : `/blog?tag=${encodeURIComponent(tag)}`}
+              className={`font-body text-sm font-medium px-4 py-1.5 rounded-pill border transition-colors ${
+                activeTag === tag
+                  ? 'bg-peach text-white border-peach'
+                  : 'border-peach-light/40 text-mocha/70 hover:border-peach hover:text-peach'
+              }`}
             >
               {tag}
-            </span>
+            </Link>
           ))}
         </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-5 md:px-8 py-10 pb-24">
+        {posts.length === 0 && (
+          <p className="font-body text-mocha/50 text-sm">No posts in this category yet — check back soon.</p>
+        )}
+
         {/* Featured post */}
         {posts[0] && (
           <Link
