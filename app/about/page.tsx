@@ -57,23 +57,29 @@ export default function About() {
             <p>
               I started this little corner of the internet because I was tired of wellness content that assumed
               you had two hours, a perfectly stocked kitchen, and a nanny. Life doesn&apos;t look like that &mdash; at least
-              mine doesn&apos;t. So I made something that actually fits.
+              mine doesn&apos;t.
             </p>
             <p>
-              I&apos;m a mom (hi, Nico 👋), a partner to Jurie, a dog mum to our little Havanese-Maltese Olive, and
-              someone who genuinely loves moving her body &mdash; on the good days and the brutal ones. I&apos;m also a
-              creator who believes that beautiful, functional design should be accessible to everyone.
+              So I did what I always do when something isn&apos;t working: I figured out a better system.
             </p>
             <p>
-              This site is where all of that lives. Fitness programs I actually use. Printables I designed for
-              myself first. Blog posts that tell the truth about what it looks like to build a life you love
-              when you&apos;re also just trying to keep everyone fed and relatively sane.
+              I&apos;m a mom, a partner to Jurie, a dog mom to our little Havanese-Maltese Olive, and someone who
+              genuinely loves moving her body &mdash; on the good days and the brutal ones. I&apos;m a fitness coach who
+              builds programs for real schedules. I&apos;m obsessed with organization &mdash; the kind that actually holds
+              up when your toddler has other plans. And I&apos;ve fallen hard for AI, not because it&apos;s trendy, but
+              because it gave me back time I didn&apos;t know I could reclaim.
             </p>
-            <h2>What you&apos;ll find here</h2>
             <p>
-              Fitness programs built for busy schedules. Free workouts when you just need to move. A shop full
-              of digital printables and art. Recipes that real people make for real families. And a blog where
-              I write honestly about all of it.
+              When you&apos;re running a household, raising a family, trying to stay strong, and building something of
+              your own &mdash; you need tools that work as hard as you do. That&apos;s what I spend my days building and
+              sharing here.
+            </p>
+            <h2>What you&apos;ll actually find here</h2>
+            <p>
+              Fitness programs built for real life &mdash; short, effective, and designed for the days when everything
+              is already a lot. A shop full of digital tools, printables, and AI guides that make your home and
+              your days feel more like you. Blog posts that tell the truth. And a community of women who are
+              figuring it all out without pretending it&apos;s easy.
             </p>
             <p>
               Pull up a chair. You&apos;re going to fit right in here.
