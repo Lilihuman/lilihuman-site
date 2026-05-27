@@ -13,6 +13,12 @@ const sections = [
     productIds: ['everyday-ai-busy-women', 'everyday-ai-car-troubles', 'everyday-ai-busy-moms', 'everyday-ai-small-business'],
   },
   {
+    key: 'organization',
+    title: 'Organization',
+    description: 'Simple systems for the home that actually hold up in real life.',
+    productIds: ['20-min-reset'],
+  },
+  {
     key: 'family',
     title: 'Family Printables',
     description: 'Organizing tools designed for the whole family, not just the person holding it together.',
@@ -87,14 +93,20 @@ function PrintableCard({ product }: { product: Product }) {
       {error && <p className="font-body text-xs text-red-500 mt-2">{error}</p>}
 
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-peach-light/40">
-        <span className="font-heading text-2xl text-brown">{formatPrice(product.price)}</span>
-        <button
-          onClick={handleBuy}
-          disabled={loading}
-          className="btn-primary text-sm disabled:opacity-60 disabled:cursor-not-allowed"
-        >
-          {loading ? 'Redirecting...' : 'Buy now'}
-        </button>
+        <span className="font-heading text-2xl text-brown">{product.price === 0 ? 'Free' : formatPrice(product.price)}</span>
+        {product.price === 0 ? (
+          <a href={product.filePath} download className="btn-primary text-sm">
+            Download Free →
+          </a>
+        ) : (
+          <button
+            onClick={handleBuy}
+            disabled={loading}
+            className="btn-primary text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? 'Redirecting...' : 'Buy now'}
+          </button>
+        )}
       </div>
     </div>
   );

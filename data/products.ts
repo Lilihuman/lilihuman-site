@@ -124,6 +124,16 @@ export const products: Product[] = [
 
   // Printables & Art
   {
+    id: '20-min-reset',
+    name: 'The 20-Minute Reset',
+    description: 'A simple 4-step system for decluttering your brain and your home when everything feels like too much. Free to download and keep forever.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/the-20-min-reset.pdf',
+    category: 'printable',
+    tags: ['Organization', 'Free'],
+  },
+  {
     id: 'brain-activation-age2',
     name: '10-Minute Daily Brain Activation Program — Age 2.5',
     description: 'A week of short, playful daily routines designed for toddlers around age 2.5. Each 10-minute session blends movement, language, sensory play, and connection — building brain power without pressure or expensive toys.',
