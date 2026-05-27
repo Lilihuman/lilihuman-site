@@ -131,7 +131,7 @@ export const products: Product[] = [
     type: 'digital',
     filePath: '/downloads/the-20-min-reset.pdf',
     category: 'printable',
-    image: '/images/blog/the-20-min-reset.png',
+    image: '/images/printables/the-20-min-reset.png',
     tags: ['Organization', 'Free'],
   },
   {
