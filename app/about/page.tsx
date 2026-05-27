@@ -6,7 +6,7 @@ const values = [
   {
     icon: '🌿',
     title: 'Real over perfect',
-    body: "I share the real: the messy mornings, the skipped workouts, the recipes that flopped. Because that's where connection lives.",
+    body: "The messy mornings, the skipped workouts, the recipes that flopped — that's where real connection lives.",
   },
   {
     icon: '💪',
@@ -14,14 +14,19 @@ const values = [
     body: "Not the days when everything lines up. The days when it doesn't. That's when movement matters most.",
   },
   {
-    icon: '🏡',
-    title: 'Home as a feeling',
-    body: "A home that feels like you isn't about aesthetics — it's about intention. Every printable I design is made with that in mind.",
+    icon: '🗂️',
+    title: 'Systems that hold',
+    body: "A home that runs smoothly isn't magic — it's design. Good organization gives you time back for what actually matters.",
+  },
+  {
+    icon: '🤖',
+    title: 'AI as a real tool',
+    body: "Not trendy. Not intimidating. Just the most practical thing I've found for reclaiming time as a busy mom and creator.",
   },
   {
     icon: '❤️',
     title: 'Family at the centre',
-    body: "Everything I do circles back to the people I love. They're in my work, my priorities, and the stories I tell.",
+    body: "Everything circles back to the people I love. It's in the work, the priorities, and the stories I tell.",
   },
 ];
 
