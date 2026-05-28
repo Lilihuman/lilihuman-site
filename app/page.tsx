@@ -1,9 +1,41 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
 import NewsletterForm from '@/components/NewsletterForm';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+interface PostMeta {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  tag: string;
+  image?: string;
+}
+
+function getRecentPosts(count = 3): PostMeta[] {
+  const dir = path.join(process.cwd(), 'content/blog');
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.mdx') || f.endsWith('.md'))
+    .map((file) => {
+      const raw = fs.readFileSync(path.join(dir, file), 'utf-8');
+      const { data } = matter(raw);
+      return {
+        slug: file.replace(/\.mdx?$/, ''),
+        title: data.title || 'Untitled',
+        date: data.date ? String(data.date) : '',
+        excerpt: data.excerpt || '',
+        tag: data.tag || 'General',
+        image: data.image || null,
+      };
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, count);
+}
 
 const featureCards = [
   {
@@ -36,6 +68,7 @@ const featureCards = [
 ];
 
 export default function Home() {
+  const recentPosts = getRecentPosts();
   return (
     <>
       {/* ── Hero ── */}
@@ -171,41 +204,26 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              tag: 'Family life',
-              title: 'Why we do a weekly "slow morning"',
-              excerpt: 'No screens, no schedules. Just pancakes and whatever the kids feel like doing.',
-              date: 'May 12, 2025',
-            },
-            {
-              tag: 'Fitness',
-              title: '5 moves for when you have 15 minutes',
-              excerpt: 'This is the workout I actually do on chaotic days — no equipment, no excuses.',
-              date: 'May 5, 2025',
-            },
-            {
-              tag: 'Home',
-              title: 'The printable planner that changed my mornings',
-              excerpt: "I designed this one for myself first. Now it's in the shop and I get DMs about it weekly.",
-              date: 'Apr 28, 2025',
-            },
-          ].map((post) => (
-            <article key={post.title} className="card group cursor-pointer">
-              <div className="aspect-video rounded-xl bg-gradient-to-br from-peach-light/40 to-sage-light/30 mb-4 flex items-center justify-center">
-                <p className="font-body text-xs text-mocha/30">Post thumbnail</p>
+          {recentPosts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="card group flex flex-col cursor-pointer no-underline">
+              <div className="aspect-video rounded-xl overflow-hidden mb-4 relative bg-gradient-to-br from-peach-light/40 to-sage-light/30">
+                {post.image ? (
+                  <Image src={post.image} alt={post.title} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+                ) : null}
               </div>
-              <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1 mb-3">
+              <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1 mb-3 self-start">
                 {post.tag}
               </span>
-              <h3 className="font-heading text-xl text-brown font-semibold leading-snug group-hover:text-peach transition-colors">
+              <h3 className="font-heading text-xl text-brown font-semibold leading-snug group-hover:text-peach transition-colors flex-1">
                 {post.title}
               </h3>
-              <p className="font-body text-sm text-mocha/70 mt-2 leading-relaxed">
+              <p className="font-body text-sm text-mocha/70 mt-2 leading-relaxed line-clamp-2">
                 {post.excerpt}
               </p>
-              <p className="font-body text-xs text-mocha/40 mt-4">{post.date}</p>
-            </article>
+              <p className="font-body text-xs text-mocha/40 mt-4">
+                {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </p>
+            </Link>
           ))}
         </div>
 
