@@ -27,21 +27,34 @@ const workouts = [
     title: 'Car Ride Mobility Plan',
     description: 'Perfect for long drives, road trips, or any time you\'ve been sitting too long. Simple stretches and mobility moves you can do at a rest stop or in a parking lot.',
     tags: ['Mobility', '10 min', 'No equipment', 'All levels'],
-    file: '/car-ride-mobility-plan.pdf',
+    file: '/downloads/car-ride-mobility-plan.pdf',
     image: '/images/free-workouts/Car-ride-mobility.png',
     freeDownload: true,
   },
 ];
 
 function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [unlocked, setUnlocked] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email) { setError('Please enter your email.'); return; }
+    if (!name || !email) { setError('Please enter your name and email.'); return; }
+    setLoading(true);
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, source: `free-workout: ${workout.title}` }),
+      });
+    } catch {
+      // Don't block the download if the API call fails
+    }
     setUnlocked(true);
+    setLoading(false);
   }
 
   return (
@@ -69,23 +82,23 @@ function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
 
       <div className="mt-6">
         {'freeDownload' in workout && workout.freeDownload ? (
-          <a
-            href={workout.file}
-            download
-            className="btn-primary w-full justify-center text-sm text-center block"
-          >
+          <a href={workout.file} download className="btn-primary w-full justify-center text-sm text-center block">
             Download for free
           </a>
         ) : unlocked ? (
-          <a
-            href={workout.file}
-            download
-            className="btn-primary w-full justify-center text-sm text-center block"
-          >
+          <a href={workout.file} download className="btn-primary w-full justify-center text-sm text-center block">
             Download your workout
           </a>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <input
+              type="text"
+              required
+              value={name}
+              onChange={(e) => { setName(e.target.value); setError(''); }}
+              placeholder="Your first name"
+              className="w-full px-4 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
+            />
             <input
               type="email"
               required
@@ -95,8 +108,8 @@ function WorkoutCard({ workout }: { workout: (typeof workouts)[number] }) {
               className="w-full px-4 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
             />
             {error && <p className="font-body text-xs text-red-400 px-1">{error}</p>}
-            <button type="submit" className="btn-secondary text-sm">
-              Get the free download
+            <button type="submit" disabled={loading} className="btn-secondary text-sm disabled:opacity-60">
+              {loading ? '...' : 'Get the free download'}
             </button>
           </form>
         )}
@@ -116,7 +129,7 @@ export default function FreeWorkouts() {
           Move for free. <em className="italic text-sage">No strings.</em>
         </h1>
         <p className="font-body text-lg text-mocha/80 mt-5 max-w-xl leading-relaxed">
-          Drop your email and the PDF downloads instantly. No spam — just good workouts.
+          Drop your name and email and the PDF downloads instantly. No spam — just good workouts.
         </p>
       </section>
 

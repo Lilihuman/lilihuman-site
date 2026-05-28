@@ -133,6 +133,44 @@ export const products: Product[] = [
     filters: ['fitness', 'kids-family', 'mom-life'],
   },
 
+  // Free Workouts
+  {
+    id: 'free-full-body-burn',
+    name: '15-Min Full Body Burn',
+    description: 'No equipment needed. 40 seconds work, 20 seconds rest. Beginner and advanced modifications included. This is the workout you do when you have 15 minutes and zero excuses.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/15-min-full-body-burn.pdf',
+    category: 'program',
+    image: '/images/free-workouts/15-min-full-body-burn.png',
+    tags: ['Full body', '15 min', 'No equipment'],
+    filters: ['fitness', 'freebies'],
+  },
+  {
+    id: 'free-arms-shoulders',
+    name: '30-Day Arms & Shoulders Plan',
+    description: 'Stronger arms and defined shoulders in 30 days. Push, pull, and sculpt with light dumbbells — no gym needed.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/30-day-arms-and-shoulders.pdf',
+    category: 'program',
+    image: '/images/free-workouts/30-day-arms-&-shoulders-plan.png',
+    tags: ['Arms & shoulders', '20 min/day', 'Light dumbbells'],
+    filters: ['fitness', 'freebies'],
+  },
+  {
+    id: 'free-car-ride-mobility',
+    name: 'Car Ride Mobility Plan',
+    description: 'Perfect for long drives, road trips, or any time you\'ve been sitting too long. Simple stretches and mobility moves you can do at a rest stop or in a parking lot.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/car-ride-mobility-plan.pdf',
+    category: 'program',
+    image: '/images/free-workouts/Car-ride-mobility.png',
+    tags: ['Mobility', '10 min', 'No equipment'],
+    filters: ['fitness', 'freebies'],
+  },
+
   // Printables & Art
   {
     id: '20-min-reset',
