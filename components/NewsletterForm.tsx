@@ -2,10 +2,19 @@
 
 import { useState } from 'react';
 
-export default function NewsletterForm() {
+interface Props {
+  variant?: 'dark' | 'light';
+  source?: string;
+}
+
+export default function NewsletterForm({ variant = 'dark', source = 'newsletter-footer' }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const inputClass = variant === 'light'
+    ? 'px-4 py-3 rounded-pill bg-cream border border-peach-light/50 font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach'
+    : 'px-4 py-2 rounded-pill bg-cream/10 border border-cream/20 font-body text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:border-peach';
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -15,7 +24,7 @@ export default function NewsletterForm() {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, source: 'newsletter-footer' }),
+        body: JSON.stringify({ name, email, source }),
       });
       if (res.ok) {
         setStatus('success');
@@ -28,7 +37,11 @@ export default function NewsletterForm() {
   }
 
   if (status === 'success') {
-    return <p className="font-body text-sm text-peach-light">You're in! Talk soon.</p>;
+    return (
+      <p className={`font-body text-sm ${variant === 'light' ? 'text-sage' : 'text-peach-light'}`}>
+        You're in! Talk soon.
+      </p>
+    );
   }
 
   return (
@@ -40,7 +53,7 @@ export default function NewsletterForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your first name"
-          className="px-4 py-2 rounded-pill bg-cream/10 border border-cream/20 font-body text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:border-peach"
+          className={inputClass}
         />
         <div className="flex gap-2">
           <input
@@ -49,14 +62,14 @@ export default function NewsletterForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
-            className="flex-1 min-w-0 px-4 py-2 rounded-pill bg-cream/10 border border-cream/20 font-body text-sm text-cream placeholder:text-cream/30 focus:outline-none focus:border-peach"
+            className={`flex-1 min-w-0 ${inputClass}`}
           />
           <button
             type="submit"
             disabled={status === 'loading'}
             className="btn-primary text-sm whitespace-nowrap disabled:opacity-60"
           >
-            {status === 'loading' ? '...' : 'Join'}
+            {status === 'loading' ? '...' : 'Join the list'}
           </button>
         </div>
       </form>

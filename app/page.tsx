@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
+import NewsletterForm from '@/components/NewsletterForm';
 
 const featureCards = [
   {
@@ -123,6 +124,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Newsletter CTA ── */}
+      <section className="bg-cream-dark border-y border-peach-light/30 py-20">
+        <div className="max-w-xl mx-auto px-5 md:px-8 text-center">
+          <span className="section-eyebrow">
+            <LeafDot /> Stay close
+          </span>
+          <h2 className="section-heading mt-2 mb-4">
+            Letters to your inbox, <em className="text-peach italic">not noise</em>
+          </h2>
+          <p className="font-body text-mocha/70 leading-relaxed">
+            Weekly-ish notes on fitness, home life, and whatever I'm currently obsessed with. No spam — I promise.
+          </p>
+          <NewsletterForm variant="light" source="newsletter-homepage" />
+        </div>
+      </section>
+
       {/* ── Quote / pull quote ── */}
       <section className="bg-brown py-20 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
@@ -199,30 +216,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Newsletter CTA ── */}
-      <section className="bg-cream-dark border-y border-peach-light/30 py-20">
-        <div className="max-w-xl mx-auto px-5 md:px-8 text-center">
-          <span className="section-eyebrow">
-            <LeafDot /> Stay close
-          </span>
-          <h2 className="section-heading mt-2 mb-4">
-            Letters to your inbox, <em className="text-peach italic">not noise</em>
-          </h2>
-          <p className="font-body text-mocha/70 leading-relaxed mb-8">
-            Weekly-ish notes on fitness, home life, and whatever I'm currently obsessed with. No spam — I promise.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 px-5 py-3 rounded-pill border border-peach-light/50 bg-cream font-body text-sm text-brown placeholder:text-mocha/40 focus:outline-none focus:border-peach focus:ring-1 focus:ring-peach"
-            />
-            <button type="submit" className="btn-primary whitespace-nowrap">
-              Join the list
-            </button>
-          </form>
-        </div>
-      </section>
     </>
   );
 }
