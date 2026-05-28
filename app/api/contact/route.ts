@@ -8,18 +8,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Log for now — integrate with Resend/SendGrid/Nodemailer as needed
     console.log('Contact form submission:', { name, email, subject, message });
 
-    // Example: send via Resend
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'noreply@lilihuman.com',
-    //   to: 'lili@lilihuman.com',
-    //   replyTo: email,
-    //   subject: `New contact: ${subject}`,
-    //   text: `From: ${name} (${email})\n\n${message}`,
-    // });
+    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (webhookUrl) {
+      await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'contact-form', name }),
+      }).catch((err) => console.error('Failed to save contact email to Sheets:', err));
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
