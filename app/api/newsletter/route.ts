@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, source } = await req.json();
+    const { name, email, source } = await req.json();
 
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: source || 'newsletter' }),
+      body: JSON.stringify({ name: name || '', email, source: source || 'newsletter' }),
     });
 
     if (!response.ok) {
