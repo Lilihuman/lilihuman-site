@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import LeafDot from '@/components/LeafDot';
+import FreeDownloadButton from '@/components/FreeDownloadButton';
 import { products, formatPrice, Product } from '@/data/products';
 
 const categories = [
@@ -75,13 +76,7 @@ function ProductCard({ product }: { product: Product }) {
           {product.price === 0 ? 'Free' : formatPrice(product.price)}
         </span>
         {product.price === 0 ? (
-          <a
-            href={product.filePath}
-            download
-            className="btn-primary text-sm"
-          >
-            Download Free →
-          </a>
+          <FreeDownloadButton filePath={product.filePath!} productName={product.name} />
         ) : (
           <button
             onClick={handleBuy}

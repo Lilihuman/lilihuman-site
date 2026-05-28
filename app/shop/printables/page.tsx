@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import LeafDot from '@/components/LeafDot';
+import FreeDownloadButton from '@/components/FreeDownloadButton';
 import { getProductsByCategory, formatPrice, Product } from '@/data/products';
 
 const sections = [
@@ -95,9 +96,7 @@ function PrintableCard({ product }: { product: Product }) {
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-peach-light/40">
         <span className="font-heading text-2xl text-brown">{product.price === 0 ? 'Free' : formatPrice(product.price)}</span>
         {product.price === 0 ? (
-          <a href={product.filePath} download className="btn-primary text-sm">
-            Download Free →
-          </a>
+          <FreeDownloadButton filePath={product.filePath!} productName={product.name} />
         ) : (
           <button
             onClick={handleBuy}
