@@ -7,10 +7,13 @@ import FreeDownloadButton from '@/components/FreeDownloadButton';
 import { products, formatPrice, Product } from '@/data/products';
 
 const categories = [
-  { key: 'all', label: 'All products' },
-  { key: 'program', label: 'Fitness programs' },
-  { key: 'printable', label: 'Printables & art' },
-  { key: 'ai-tools', label: 'AI Tools & Resources' },
+  { key: 'all', label: 'All' },
+  { key: 'fitness', label: 'Fitness' },
+  { key: 'freebies', label: 'Freebies' },
+  { key: 'ai-tools', label: 'AI Tools' },
+  { key: 'planning', label: 'Planning & Organization' },
+  { key: 'mom-life', label: 'Mom Life' },
+  { key: 'kids-family', label: 'Kids & Family' },
 ];
 
 function ProductCard({ product }: { product: Product }) {
@@ -95,9 +98,7 @@ export default function Shop() {
   const [filter, setFilter] = useState('all');
   const filtered =
     filter === 'all' ? products :
-    filter === 'ai-tools' ? products.filter((p) => p.tags?.includes('AI Tools')) :
-    filter === 'printable' ? products.filter((p) => p.category === 'printable' && !p.tags?.includes('AI Tools')) :
-    products.filter((p) => p.category === filter);
+    products.filter((p) => p.filters?.includes(filter));
 
   return (
     <>

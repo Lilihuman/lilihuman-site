@@ -12,6 +12,7 @@ export interface Product {
   featured?: boolean;
   stripePriceId?: string;
   tags?: string[];
+  filters?: string[];
 }
 
 export const products: Product[] = [
@@ -24,6 +25,7 @@ export const products: Product[] = [
     filePath: '/downloads/20-min-hustle-fitness.pdf',
     category: 'program',
     image: '/images/programs/20min-hustle-fitness.png',
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: '20min-hustle-nutrition',
@@ -34,6 +36,7 @@ export const products: Product[] = [
     filePath: '/downloads/20-min-hustle-meal-plan-w1.pdf',
     category: 'program',
     image: '/images/programs/20min-hustle-nutrition.png',
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: '20min-hustle-complete',
@@ -45,6 +48,7 @@ export const products: Product[] = [
     category: 'program',
     image: '/images/programs/20min-hustle-complete.png',
     featured: true,
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'postpartum-meal-plan',
@@ -55,6 +59,7 @@ export const products: Product[] = [
     filePath: '/downloads/postpartum-reset-meal-plan-a.pdf',
     category: 'program',
     image: '/images/programs/postpartum-nutrition.png',
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'postpartum-reset',
@@ -65,6 +70,7 @@ export const products: Product[] = [
     filePath: '/downloads/postpartum-reset-4-week-program.pdf',
     category: 'program',
     image: '/images/programs/postpartum-fitness.png',
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'postpartum-complete',
@@ -76,6 +82,7 @@ export const products: Product[] = [
     category: 'program',
     image: '/images/programs/postpartum-complete.png',
     featured: true,
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'strong-mama-nutrition',
@@ -86,6 +93,7 @@ export const products: Product[] = [
     filePath: '/downloads/strong-mama-nutrition-program.pdf',
     category: 'program',
     image: '/images/programs/strong-mama-nutrition.png',
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'strong-mama-8wk',
@@ -97,6 +105,7 @@ export const products: Product[] = [
     category: 'program',
     image: '/images/programs/strong-mama-fitness.png',
     featured: true,
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'strong-mama-complete',
@@ -108,6 +117,7 @@ export const products: Product[] = [
     category: 'program',
     image: '/images/programs/strong-mama-complete.png',
     featured: true,
+    filters: ['fitness', 'mom-life'],
   },
   {
     id: 'move-with-me-toddler',
@@ -120,6 +130,7 @@ export const products: Product[] = [
     image: '/images/programs/move-with-me-cover.png',
     featured: true,
     tags: ['Family', 'Kids', 'Toddler'],
+    filters: ['fitness', 'kids-family', 'mom-life'],
   },
 
   // Printables & Art
@@ -133,6 +144,7 @@ export const products: Product[] = [
     category: 'printable',
     image: '/images/printables/the-20-min-reset.png',
     tags: ['Organization', 'Free'],
+    filters: ['freebies', 'planning'],
   },
   {
     id: 'brain-activation-age2',
@@ -145,6 +157,7 @@ export const products: Product[] = [
     image: '/images/printables/brain-activation-age2-cover.png',
     featured: true,
     tags: ['Family', 'Kids', 'Ages 2+'],
+    filters: ['kids-family'],
   },
   {
     id: 'brain-activation-age4',
@@ -157,6 +170,7 @@ export const products: Product[] = [
     image: '/images/printables/brain-activation-age4-cover.png',
     featured: true,
     tags: ['Family', 'Kids', 'Ages 4+'],
+    filters: ['kids-family'],
   },
   {
     id: 'everyday-ai-busy-women',
@@ -169,6 +183,7 @@ export const products: Product[] = [
     image: '/images/printables/everyday-ai-v2-preview.jpg',
     featured: true,
     tags: ['AI Tools', 'PDF Guide'],
+    filters: ['ai-tools', 'mom-life'],
   },
   {
     id: 'everyday-ai-car-troubles',
@@ -181,6 +196,7 @@ export const products: Product[] = [
     image: '/images/printables/everyday-ai-for-car-troubles.png',
     featured: true,
     tags: ['AI Tools', 'PDF Guide'],
+    filters: ['ai-tools'],
   },
   {
     id: 'everyday-ai-busy-moms',
@@ -193,6 +209,7 @@ export const products: Product[] = [
     image: '/images/printables/everyday-ai-for-busy-moms.png',
     featured: true,
     tags: ['AI Tools', 'PDF Guide'],
+    filters: ['ai-tools', 'mom-life'],
   },
   {
     id: 'everyday-ai-small-business',
@@ -205,6 +222,7 @@ export const products: Product[] = [
     image: '/images/printables/everyday-ai-for-business-owners.png',
     featured: true,
     tags: ['AI Tools', 'PDF Guide'],
+    filters: ['ai-tools'],
   },
   {
     id: 'kids-chore-chart',
@@ -216,6 +234,7 @@ export const products: Product[] = [
     category: 'printable',
     image: '/images/printables/kids-chore-chart.png',
     tags: ['Family', 'Kids'],
+    filters: ['freebies', 'kids-family', 'planning'],
   },
 ];
 
