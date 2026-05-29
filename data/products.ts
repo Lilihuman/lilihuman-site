@@ -5,6 +5,7 @@ export interface Product {
   name: string;
   description: string;
   price: number;
+  originalPrice?: number;
   type: ProductType;
   filePath?: string;
   category: 'program' | 'printable';
@@ -13,9 +14,24 @@ export interface Product {
   stripePriceId?: string;
   tags?: string[];
   filters?: string[];
+  note?: string;
 }
 
 export const products: Product[] = [
+  {
+    id: 'custom-program',
+    name: 'Custom Fitness & Nutrition Program',
+    description: 'A fully personalised fitness and nutrition program built around your goals, your schedule, and your life. Complete the intake form first, then purchase here — I\'ll email your custom program within 48–72 hours.',
+    price: 3000,
+    originalPrice: 6000,
+    type: 'digital',
+    category: 'program',
+    image: '/images/programs/custom-program.png',
+    featured: true,
+    tags: ['Custom', 'Personalised'],
+    filters: ['fitness', 'mom-life'],
+    note: 'Step 1: Fill out the intake form at lilihuman.com/fitness/personal-training — Step 2: Purchase here. I\'ll email your program within 48–72 hours.',
+  },
   {
     id: '20min-hustle',
     name: '20-Minute Hustle — 30-Day Plan',

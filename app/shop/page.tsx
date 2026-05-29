@@ -74,10 +74,21 @@ function ProductCard({ product }: { product: Product }) {
       </h3>
       <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{product.description}</p>
 
+      {product.note && (
+        <p className="font-body text-xs text-mocha/50 italic mt-3 leading-relaxed">{product.note}</p>
+      )}
+
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-peach-light/30">
-        <span className="font-heading text-2xl font-semibold text-peach">
-          {product.price === 0 ? 'Free' : formatPrice(product.price)}
-        </span>
+        <div className="flex items-baseline gap-2">
+          <span className="font-heading text-2xl font-semibold text-peach">
+            {product.price === 0 ? 'Free' : formatPrice(product.price)}
+          </span>
+          {product.originalPrice && (
+            <span className="font-body text-sm text-mocha/40 line-through">
+              {formatPrice(product.originalPrice)}
+            </span>
+          )}
+        </div>
         {product.price === 0 ? (
           <FreeDownloadButton filePath={product.filePath!} productName={product.name} />
         ) : (

@@ -73,6 +73,65 @@ const testimonials = [
 export default function FitnessHub() {
   return (
     <>
+      {/* ── CUSTOM PROGRAM PROMO ─────────────────────────────────────── */}
+      <section className="bg-peach/10 border-b border-peach/20">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-peach text-white font-body text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
+                <span>50% off until September</span>
+              </div>
+              <h2 className="font-heading text-5xl md:text-6xl font-light text-brown leading-tight">
+                A program built<br />
+                <em className="italic text-peach">just for you.</em>
+              </h2>
+              <p className="font-body text-lg text-mocha/70 mt-5 leading-relaxed max-w-lg">
+                No cookie-cutter plans. I'll build you a fully custom fitness <em>and</em> nutrition program
+                tailored to your goals, your schedule, and exactly where you're starting from.
+              </p>
+              <div className="flex items-baseline gap-3 mt-6">
+                <span className="font-heading text-4xl font-semibold text-peach">$30</span>
+                <span className="font-body text-xl text-mocha/40 line-through">$60</span>
+                <span className="font-body text-sm text-mocha/50">· limited time</span>
+              </div>
+              <div className="mt-3 bg-brown/5 border border-brown/10 rounded-2xl px-5 py-4 max-w-md">
+                <p className="font-body text-sm text-mocha/70 leading-relaxed">
+                  <span className="font-semibold text-brown">How it works:</span>{' '}
+                  Fill out the intake form so I know exactly what you need →
+                  then purchase your custom program → I'll email you your complete plan within 48–72 hours.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 md:pl-8">
+              <div className="space-y-3">
+                {[
+                  { icon: '🎯', text: 'Goals-first — built around what you actually want to achieve' },
+                  { icon: '📅', text: 'Schedule-first — fits your real week, not an imaginary one' },
+                  { icon: '🥗', text: 'Fitness + nutrition in one — no separate plan needed' },
+                  { icon: '📩', text: 'Delivered to your inbox within 48–72 hours' },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">{item.icon}</span>
+                    <p className="font-body text-sm text-mocha/70 leading-relaxed">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                <Link href="/fitness/personal-training" className="btn-secondary text-sm text-center flex-1">
+                  Step 1 — Fill the intake form →
+                </Link>
+                <Link href="/shop" className="btn-primary text-sm text-center flex-1">
+                  Step 2 — Purchase ($30) →
+                </Link>
+              </div>
+              <p className="font-body text-xs text-mocha/40 text-center">
+                50% off offer ends September 2026 · Regular price $60
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden grain-overlay">
         <div className="absolute inset-0 pointer-events-none">
