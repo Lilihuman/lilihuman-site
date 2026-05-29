@@ -40,7 +40,7 @@ const columns = [
 ];
 
 const socials = [
-  { label: 'Instagram', href: 'https://www.instagram.com/lilimotaghedi/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/lilihuman.co/' },
   { label: 'Pinterest', href: 'https://pin.it/1gppwVqWJ' },
   { label: 'YouTube', href: 'https://www.youtube.com/@lilihuman' },
 ];

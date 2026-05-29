@@ -4,7 +4,7 @@ import { useState } from 'react';
 import LeafDot from '@/components/LeafDot';
 
 const socials = [
-  { label: 'Instagram', handle: '@lilimotaghedi', href: 'https://www.instagram.com/lilimotaghedi/', icon: '📸' },
+  { label: 'Instagram', handle: '@lilihuman.co', href: 'https://www.instagram.com/lilihuman.co/', icon: '📸' },
   { label: 'Pinterest', handle: 'Pinterest', href: 'https://pin.it/1gppwVqWJ', icon: '📌' },
   { label: 'YouTube', handle: 'Lili Human', href: 'https://www.youtube.com/@lilihuman', icon: '▶️' },
   { label: 'Email', handle: 'lili.motaghedi@gmail.com', href: 'mailto:lili.motaghedi@gmail.com', icon: '✉️' },
