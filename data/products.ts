@@ -26,7 +26,7 @@ export const products: Product[] = [
     originalPrice: 6000,
     type: 'digital',
     category: 'program',
-    image: '/images/programs/custom-program.png',
+    image: '/images/programs/custom-fitness-&-nutrition-program.png',
     featured: true,
     tags: ['Custom', 'Personalised'],
     filters: ['fitness', 'mom-life'],
