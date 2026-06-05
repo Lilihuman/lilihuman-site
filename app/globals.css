@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -78,6 +78,87 @@
   }
 
   .prose-lili a {
+    @apply text-peach underline underline-offset-2 hover:text-mocha;
+  }
+
+  /* Editorial reading layout for blog posts */
+  .article-kicker {
+    @apply text-center font-body uppercase text-xs text-peach mb-5;
+    letter-spacing: 0.34em;
+  }
+
+  .article-title {
+    @apply font-heading text-center font-medium text-brown mb-5;
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    line-height: 1.08;
+  }
+
+  .article-byline {
+    @apply text-center italic text-mocha/60 text-sm;
+  }
+
+  .article-ornament {
+    @apply flex items-center justify-center gap-4 text-sage my-9;
+  }
+
+  .article-ornament::before,
+  .article-ornament::after {
+    content: '';
+    height: 1px;
+    width: 3.4rem;
+    @apply bg-peach-light/70;
+  }
+
+  .article-read {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 1.16rem;
+    line-height: 1.85;
+  }
+
+  .article-read p {
+    @apply text-mocha mb-6;
+  }
+
+  .article-read p:first-of-type {
+    @apply text-brown/90;
+  }
+
+  .article-read p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    float: left;
+    font-size: 4.2rem;
+    line-height: 0.74;
+    padding: 0.4rem 0.55rem 0 0;
+    @apply text-brown;
+  }
+
+  .article-read strong {
+    @apply font-semibold text-brown;
+  }
+
+  .article-read h2 {
+    @apply font-heading text-3xl text-brown mt-12 mb-4;
+  }
+
+  .article-read h3 {
+    @apply font-heading text-2xl text-brown mt-9 mb-3;
+  }
+
+  .article-read blockquote {
+    @apply my-10 pl-6 border-l-2 border-peach text-brown;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.65rem;
+    line-height: 1.4;
+  }
+
+  .article-read .article-closer {
+    @apply text-brown italic mt-8;
+  }
+
+  .article-read a {
     @apply text-peach underline underline-offset-2 hover:text-mocha;
   }
 }
