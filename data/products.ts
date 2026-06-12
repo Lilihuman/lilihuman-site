@@ -187,6 +187,19 @@ export const products: Product[] = [
     filters: ['fitness', 'freebies'],
   },
 
+  {
+    id: 'free-move-play-grow',
+    name: '10-Minute Move, Play, Grow!',
+    description: 'A fun 10-minute flow to build skills and connection — anywhere. Six quick activities (wiggle wake-up, animal walks, red light/green light, roll-throw-catch, a pillow obstacle course, and calm + connect) that build gross motor strength, impulse control, coordination, and bonding. Simple activities, big impact.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/10-min-move-play-grow.pdf',
+    category: 'program',
+    image: '/images/free-workouts/10-min-move-play-grow.png',
+    tags: ['Family', 'Kids', 'Toddler', '10 min'],
+    filters: ['fitness', 'freebies', 'kids-family', 'mom-life'],
+  },
+
   // Printables & Art
   {
     id: '20-min-reset',
@@ -301,5 +314,5 @@ export function getProductsByCategory(category: Product['category']): Product[] 
 }
 
 export function formatPrice(cents: number): string {
-  return `$${(cents / 100).toFixed(2)}`;
+  return `$${(cents / 100).toFixed(2)} CAD`;
 }
