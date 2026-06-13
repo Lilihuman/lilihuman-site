@@ -240,6 +240,18 @@ export const products: Product[] = [
     filters: ['kids-family'],
   },
   {
+    id: 'free-top-10-ai-tips',
+    name: 'Top 10 Tips & Tricks for Getting Better Results with AI',
+    description: 'A free one-page guide to working smarter with AI. Ten practical tips — be specific, give context and a role, verify what matters, protect sensitive info, refine instead of restarting, show examples, ask it to explain its reasoning, know its limits, keep your judgment in the loop, and use AI to go faster. Better prompts, better answers, better results.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/top-10-ai-tips.pdf',
+    category: 'printable',
+    image: '/images/printables/top-10-ai-tips.png',
+    tags: ['AI Tools', 'PDF Guide', 'Free'],
+    filters: ['ai-tools', 'freebies', 'mom-life'],
+  },
+  {
     id: 'everyday-ai-busy-women',
     name: 'Everyday AI for Busy Women',
     description: 'A no-fluff guide to using AI tools in your daily life — from meal planning to inbox management. Practical prompts and real-life examples built for women who are too busy to waste time figuring it out alone.',
