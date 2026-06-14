@@ -163,6 +163,16 @@
   }
 }
 
+/* Hide scrollbar (used by horizontally-scrolling tab strips) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Grain texture overlay for hero sections */
 .grain-overlay {
   position: relative;
