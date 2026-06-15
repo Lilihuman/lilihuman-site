@@ -205,6 +205,13 @@ export default function FitnessLibrary() {
     return matchesType && matchesCategory;
   });
 
+  // Group the filtered items by category so the section is organized by
+  // category. Categories keep their original order (from `categories` above).
+  const grouped = categories
+    .filter((c) => c !== 'All')
+    .map((c) => ({ category: c, items: filtered.filter((i) => i.category === c) }))
+    .filter((g) => g.items.length > 0);
+
   return (
     <>
       <section className="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-10">
@@ -255,10 +262,22 @@ export default function FitnessLibrary() {
       </section>
 
       <section className="max-w-6xl mx-auto px-5 md:px-8 pb-24">
-        {filtered.length > 0 ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item) => (
-              <LibraryCard key={item.id} item={item} />
+        {grouped.length > 0 ? (
+          <div className="flex flex-col gap-14">
+            {grouped.map((group) => (
+              <div key={group.category}>
+                <div className="flex items-center gap-3 mb-6">
+                  <h2 className="font-heading text-2xl font-semibold text-brown">{group.category}</h2>
+                  <span className="font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
+                    {group.items.length}
+                  </span>
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {group.items.map((item) => (
+                    <LibraryCard key={item.id} item={item} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         ) : (

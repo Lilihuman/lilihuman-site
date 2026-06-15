@@ -168,6 +168,7 @@ export const exercises: Exercise[] = [
       'Consistency and progression build results',
     ],
     infographic: '/images/exercises/crunches.png',
+    thumbnail: '/images/exercises/crunches-thumb.png',
   },
 
   {
@@ -240,6 +241,7 @@ export const exercises: Exercise[] = [
       'Consistency brings flexibility',
     ],
     infographic: '/images/exercises/downward-facing-dog.png',
+    thumbnail: '/images/exercises/downward-facing-dog-thumb.png',
   },
 
   {
@@ -311,6 +313,7 @@ export const exercises: Exercise[] = [
       'Consistency builds strength',
     ],
     infographic: '/images/exercises/side-leg-raise.png',
+    thumbnail: '/images/exercises/side-leg-raise-thumb.png',
   },
 
   {
@@ -393,6 +396,7 @@ export const exercises: Exercise[] = [
       'Consistency is key',
     ],
     infographic: '/images/exercises/pigeon-pose.png',
+    thumbnail: '/images/exercises/pigeon-pose-thumb.png',
   },
 
   {
@@ -463,6 +467,7 @@ export const exercises: Exercise[] = [
       'Hold longer for greater benefits',
     ],
     infographic: '/images/exercises/child-pose.png',
+    thumbnail: '/images/exercises/child-pose-thumb.png',
   },
 
   {
@@ -518,6 +523,7 @@ export const exercises: Exercise[] = [
       'Pair with upper back and shoulder stretches for best results',
     ],
     infographic: '/images/exercises/neck-mobility.png',
+    thumbnail: '/images/exercises/neck-mobility-thumb.png',
   },
 
   {
@@ -574,6 +580,7 @@ export const exercises: Exercise[] = [
       'Breathe deeply and stay relaxed',
     ],
     infographic: '/images/exercises/wall-angels.png',
+    thumbnail: '/images/exercises/wall-angels-thumb.png',
   },
 
   {
@@ -631,6 +638,7 @@ export const exercises: Exercise[] = [
       'Consistency creates results',
     ],
     infographic: '/images/exercises/lunge-hip-flexor-stretch.png',
+    thumbnail: '/images/exercises/lunge-hip-flexor-stretch-thumb.png',
   },
 
   {
@@ -689,6 +697,7 @@ export const exercises: Exercise[] = [
       'Consistency improves mobility',
     ],
     infographic: '/images/exercises/thoracic-rotation.png',
+    thumbnail: '/images/exercises/thoracic-rotation-thumb.png',
   },
 
   {
@@ -746,6 +755,7 @@ export const exercises: Exercise[] = [
       'Consistency improves mobility',
     ],
     infographic: '/images/exercises/open-book.png',
+    thumbnail: '/images/exercises/open-book-thumb.png',
   },
 
   {
@@ -803,6 +813,7 @@ export const exercises: Exercise[] = [
       'Fuel your body, rest and recover',
     ],
     infographic: '/images/exercises/squats.png',
+    thumbnail: '/images/exercises/squats-thumb.png',
   },
 
   {
@@ -860,6 +871,7 @@ export const exercises: Exercise[] = [
       'Be consistent',
     ],
     infographic: '/images/exercises/lunges.png',
+    thumbnail: '/images/exercises/lunges-thumb.png',
   },
 
   {
@@ -909,6 +921,7 @@ export const exercises: Exercise[] = [
       'Consistency = results',
     ],
     infographic: '/images/exercises/fire-hydrants.png',
+    thumbnail: '/images/exercises/fire-hydrants-thumb.png',
   },
 
   {
@@ -959,6 +972,7 @@ export const exercises: Exercise[] = [
       'Consistency = progress',
     ],
     infographic: '/images/exercises/donkey-kicks.png',
+    thumbnail: '/images/exercises/donkey-kicks-thumb.png',
   },
 
   {
@@ -1009,6 +1023,7 @@ export const exercises: Exercise[] = [
       'Consistency and proper form = results',
     ],
     infographic: '/images/exercises/bicycle.png',
+    thumbnail: '/images/exercises/bicycle-thumb.png',
   },
 
   {
@@ -1056,6 +1071,7 @@ export const exercises: Exercise[] = [
       'Increase hold time as you get stronger',
     ],
     infographic: '/images/exercises/v-sit.png',
+    thumbnail: '/images/exercises/v-sit-thumb.png',
   },
 
   {
@@ -1104,6 +1120,7 @@ export const exercises: Exercise[] = [
       'Consistency = results',
     ],
     infographic: '/images/exercises/twist.png',
+    thumbnail: '/images/exercises/twist-thumb.png',
   },
 
   {
@@ -1153,6 +1170,7 @@ export const exercises: Exercise[] = [
       'Consistency = results',
     ],
     infographic: '/images/exercises/windshield-wipers.png',
+    thumbnail: '/images/exercises/windshield-wipers-thumb.png',
   },
 
   {
@@ -1199,6 +1217,7 @@ export const exercises: Exercise[] = [
       'Breathe — exhale as you extend, inhale as you return',
     ],
     infographic: '/images/exercises/dead-bug.png',
+    thumbnail: '/images/exercises/dead-bug-thumb.png',
   },
 
   {
@@ -1246,6 +1265,7 @@ export const exercises: Exercise[] = [
       'Be consistent and patient',
     ],
     infographic: '/images/exercises/leg-lifts.png',
+    thumbnail: '/images/exercises/leg-lifts-thumb.png',
   },
 
   {
@@ -1297,6 +1317,7 @@ export const exercises: Exercise[] = [
       'Consistency = results',
     ],
     infographic: '/images/exercises/sit-ups.png',
+    thumbnail: '/images/exercises/sit-ups-thumb.png',
   },
 
   {
@@ -1352,6 +1373,7 @@ export const exercises: Exercise[] = [
       'Rest and recover',
     ],
     infographic: '/images/exercises/plank.png',
+    thumbnail: '/images/exercises/plank-thumb.png',
   },
 
   {
@@ -1405,6 +1427,7 @@ export const exercises: Exercise[] = [
       'Breathe out as you curl up, breathe in as you lower',
     ],
     infographic: '/images/exercises/biceps-curl.png',
+    thumbnail: '/images/exercises/biceps-curl-thumb.png',
   },
 
   {
@@ -1456,6 +1479,7 @@ export const exercises: Exercise[] = [
       'Consistency = results',
     ],
     infographic: '/images/exercises/shoulder-press.png',
+    thumbnail: '/images/exercises/shoulder-press-thumb.png',
   },
 
   {
@@ -1508,6 +1532,7 @@ export const exercises: Exercise[] = [
       'Consistency = progress',
     ],
     infographic: '/images/exercises/lateral-raises.png',
+    thumbnail: '/images/exercises/lateral-raises-thumb.png',
   },
 
   {
@@ -1561,6 +1586,7 @@ export const exercises: Exercise[] = [
       'Progressively increase weight over time',
     ],
     infographic: '/images/exercises/skull-crushers.png',
+    thumbnail: '/images/exercises/skull-crushers-thumb.png',
   },
 
   {
@@ -1610,6 +1636,7 @@ export const exercises: Exercise[] = [
       'Quality over speed',
     ],
     infographic: '/images/exercises/renegade-row.png',
+    thumbnail: '/images/exercises/renegade-row-thumb.png',
   },
 
   {
@@ -1660,6 +1687,7 @@ export const exercises: Exercise[] = [
       'Consistency improves mobility',
     ],
     infographic: '/images/exercises/shoulder-dislocations.png',
+    thumbnail: '/images/exercises/shoulder-dislocations-thumb.png',
   },
 
   {
@@ -1710,6 +1738,7 @@ export const exercises: Exercise[] = [
       'Consistency = mobility',
     ],
     infographic: '/images/exercises/thread-the-needle.png',
+    thumbnail: '/images/exercises/thread-the-needle-thumb.png',
   },
 
   {
@@ -1761,6 +1790,7 @@ export const exercises: Exercise[] = [
       'Consistency is key',
     ],
     infographic: '/images/exercises/cat-cow.png',
+    thumbnail: '/images/exercises/cat-cow-thumb.png',
   },
 
   {
@@ -1808,6 +1838,7 @@ export const exercises: Exercise[] = [
       'Focus on stability, not speed',
     ],
     infographic: '/images/exercises/bird-dog.png',
+    thumbnail: '/images/exercises/bird-dog-thumb.png',
   },
 
   {
@@ -1850,6 +1881,7 @@ export const exercises: Exercise[] = [
       'Consistency is key for better posture',
     ],
     infographic: '/images/exercises/doorway-chest-opener.png',
+    thumbnail: '/images/exercises/doorway-chest-opener-thumb.png',
   },
 ];
 
