@@ -6,6 +6,14 @@ import LeafDot from '@/components/LeafDot';
 
 const workouts = [
   {
+    id: 'desk-reset',
+    title: 'Daily 10-Minute Desk Reset',
+    description: 'Eight simple desk-friendly moves to release tension, improve mobility, and reset your body — in just 10 minutes. Neck turns, thoracic rotations, chair squats, desk incline planks, and more. No equipment, do it right at your desk.',
+    tags: ['Desk-friendly', '10 min', 'No equipment', 'Beginner-friendly'],
+    file: '/downloads/daily-10-min-desk-reset.pdf',
+    image: '/images/free-workouts/daily-10-min-desk-reset.png',
+  },
+  {
     id: 'full-body-burn',
     title: '15-Min Full Body Burn',
     description: 'No equipment needed. 40 seconds work, 20 seconds rest. Beginner and advanced modifications included. This is the workout you do when you have 15 minutes and zero excuses.',
