@@ -105,7 +105,7 @@ function getRecipes(): RecipeMeta[] {
   });
 }
 
-const tags = ['All', 'Breakfast', 'Dinner', 'Snacks', 'Sides'];
+const tags = ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snacks', 'Sides'];
 
 export default function Recipes() {
   const recipes = getRecipes();
