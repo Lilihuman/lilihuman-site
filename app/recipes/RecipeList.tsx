@@ -15,7 +15,7 @@ export interface RecipeMeta {
   image?: string;
 }
 
-const tags = ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snacks', 'Sides'];
+const tags = ['All', 'Breakfast', 'Lunch', 'Dinner', 'Snacks', 'Sides', 'Dessert'];
 
 export default function RecipeList({ recipes }: { recipes: RecipeMeta[] }) {
   const [activeTag, setActiveTag] = useState('All');
