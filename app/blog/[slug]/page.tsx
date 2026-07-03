@@ -24,6 +24,11 @@ function getPost(slug: string) {
 
 function inline(text: string) {
   return text
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, url) => {
+      const external = /^https?:\/\//.test(url);
+      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+      return `<a href="${url}"${attrs}>${label}</a>`;
+    })
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>');
 }
@@ -46,7 +51,7 @@ function renderContent(content: string) {
     }
     // Standalone italic line — used as a closing/emphasis paragraph
     if (trimmed.startsWith('*') && trimmed.endsWith('*') && !trimmed.startsWith('**')) {
-      return <p key={i} className="article-closer">{trimmed.slice(1, -1)}</p>;
+      return <p key={i} className="article-closer" dangerouslySetInnerHTML={{ __html: inline(trimmed.slice(1, -1)) }} />;
     }
     return <p key={i} dangerouslySetInnerHTML={{ __html: inline(trimmed) }} />;
   });
