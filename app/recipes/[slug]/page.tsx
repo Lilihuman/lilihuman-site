@@ -166,10 +166,12 @@ function SectionHeading({ kind, children }: { kind: Kind; children: React.ReactN
   );
 }
 
-function collectSteps(blocks: Block[]): string[] {
-  const steps: string[] = [];
-  for (const b of blocks) if (b.type === 'ol' || b.type === 'ul') steps.push(...b.items);
-  return steps;
+function StepNumber({ n }: { n: number }) {
+  return (
+    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-peach/15 font-heading text-lg font-semibold text-peach">
+      {n}
+    </span>
+  );
 }
 
 /* ---------- page ---------- */
@@ -284,20 +286,42 @@ export default function RecipePage({ params }: Props) {
         }
 
         if (kind === 'steps') {
-          const steps = collectSteps(section.blocks);
           return (
             <section key={si}>
               <SectionHeading kind={kind}>{section.heading}</SectionHeading>
-              <ol className="space-y-5">
-                {steps.map((step, i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-peach/15 font-heading text-lg font-semibold text-peach">
-                      {i + 1}
-                    </span>
-                    <p className="font-body text-mocha leading-relaxed pt-0.5">{renderInline(step)}</p>
-                  </li>
-                ))}
-              </ol>
+              <div className="space-y-6">
+                {section.blocks.map((b, i) => {
+                  if (b.type === 'subhead')
+                    return (
+                      <h3
+                        key={i}
+                        className="font-body text-sm font-semibold uppercase tracking-wider text-peach pt-2"
+                      >
+                        {renderInline(b.text)}
+                      </h3>
+                    );
+                  if (b.type === 'ol' || b.type === 'ul')
+                    return (
+                      <ol key={i} className="space-y-5">
+                        {b.items.map((step, j) => (
+                          <li key={j} className="flex gap-4">
+                            <StepNumber n={j + 1} />
+                            <p className="font-body text-mocha leading-relaxed pt-0.5">
+                              {renderInline(step)}
+                            </p>
+                          </li>
+                        ))}
+                      </ol>
+                    );
+                  if (b.type === 'p')
+                    return (
+                      <p key={i} className="font-body text-mocha leading-relaxed">
+                        {renderInline(b.text)}
+                      </p>
+                    );
+                  return null;
+                })}
+              </div>
             </section>
           );
         }
