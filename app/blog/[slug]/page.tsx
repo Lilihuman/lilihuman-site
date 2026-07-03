@@ -4,8 +4,22 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import Image from 'next/image';
 
+// Re-render at least hourly so scheduled (future-dated) posts become
+// reachable once their date arrives, even without a new deploy.
+export const revalidate = 3600;
+
 interface Props {
   params: { slug: string };
+}
+
+// A post is published once its date has arrived (compared by UTC calendar day).
+function isPublished(date: string | Date): boolean {
+  if (!date) return true;
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return true;
+  const now = new Date();
+  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  return d.getTime() <= todayUTC;
 }
 
 function getPost(slug: string) {
@@ -60,7 +74,7 @@ function renderContent(content: string) {
 export default function BlogPost({ params }: Props) {
   const post = getPost(params.slug);
 
-  if (!post) {
+  if (!post || !isPublished(post.data.date)) {
     return (
       <article className="max-w-2xl mx-auto px-5 md:px-8 py-20">
         <Link href="/blog" className="font-body text-sm text-peach hover:underline mb-8 inline-flex items-center gap-1">

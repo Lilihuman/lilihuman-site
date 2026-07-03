@@ -15,6 +15,17 @@ interface PostMeta {
   image?: string;
 }
 
+// A post is published once its date has arrived (compared by UTC calendar day).
+// Future-dated posts stay hidden until then, so posts can be scheduled ahead.
+function isPublished(date: string | Date): boolean {
+  if (!date) return true;
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return true;
+  const now = new Date();
+  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  return d.getTime() <= todayUTC;
+}
+
 function getPosts(): PostMeta[] {
   const dir = path.join(process.cwd(), 'content/blog');
   if (!fs.existsSync(dir)) return samplePosts;
@@ -32,7 +43,9 @@ function getPosts(): PostMeta[] {
       author: data.author,
       image: data.image || null,
     };
-  }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  })
+    .filter((p) => isPublished(p.date))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 const samplePosts: PostMeta[] = [
