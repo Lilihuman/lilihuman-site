@@ -30,7 +30,7 @@ function getPosts(): PostMeta[] {
       excerpt: data.excerpt || '',
       tag: data.tag || 'General',
       author: data.author,
-      image: data.image || null,
+      image: data.image && fs.existsSync(path.join(process.cwd(), 'public', data.image)) ? data.image : null,
     };
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
