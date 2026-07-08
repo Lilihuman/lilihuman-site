@@ -78,7 +78,7 @@ export default function OrderConfirmationClient() {
             <p className="font-body text-xs text-mocha/50 mt-1 capitalize">{order.productType} product</p>
           </div>
           <span className="font-heading text-lg text-peach">
-            ${(order.amountTotal / 100).toFixed(2)}
+            ${(order.amountTotal / 100).toFixed(2)} CAD
           </span>
         </div>
         <p className="font-body text-xs text-mocha/40 mt-3">
