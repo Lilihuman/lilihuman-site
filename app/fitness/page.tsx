@@ -90,7 +90,7 @@ export default function FitnessHub() {
                 tailored to your goals, your schedule, and exactly where you're starting from.
               </p>
               <div className="flex items-baseline gap-3 mt-6">
-                <span className="font-heading text-4xl font-semibold text-peach">$30</span>
+                <span className="font-heading text-4xl font-semibold text-peach">$30 CAD</span>
                 <span className="font-body text-xl text-mocha/40 line-through">$60</span>
                 <span className="font-body text-sm text-mocha/50">· limited time</span>
               </div>
@@ -121,11 +121,11 @@ export default function FitnessHub() {
                   Step 1 — Fill the intake form →
                 </Link>
                 <Link href="/shop" className="btn-primary text-sm text-center flex-1">
-                  Step 2 — Purchase ($30) →
+                  Step 2 — Purchase ($30 CAD) →
                 </Link>
               </div>
               <p className="font-body text-xs text-mocha/40 text-center">
-                50% off offer ends September 2026 · Regular price $60
+                50% off offer ends September 2026 · Regular price $60 CAD
               </p>
             </div>
           </div>

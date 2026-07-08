@@ -87,7 +87,7 @@ export default function Terms() {
 
           <h2>Payment and pricing</h2>
           <p>
-            All prices are listed in USD unless otherwise stated. Payments are processed securely through
+            All prices are listed in CAD unless otherwise stated. Payments are processed securely through
             Stripe. Lili Human reserves the right to change prices at any time. Orders are confirmed at the
             price listed at the time of purchase.
           </p>

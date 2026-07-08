@@ -42,7 +42,7 @@ export default function PersonalTraining() {
           <div className="flex-1">
             <p className="font-heading text-sm font-semibold text-brown mb-1">Step 2 — Purchase</p>
             <p className="font-body text-xs text-mocha/60">
-              <Link href="/shop" className="text-peach hover:underline font-semibold">Buy your custom program ($30)</Link>{' '}
+              <Link href="/shop" className="text-peach hover:underline font-semibold">Buy your custom program ($30 CAD)</Link>{' '}
               from the shop. I'll email your plan within 48–72 hours.
             </p>
           </div>
