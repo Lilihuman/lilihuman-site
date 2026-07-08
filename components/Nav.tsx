@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Menu, X, Search } from 'lucide-react';
 
-const navLinks = [
+const navLinks: { label: string; href: string; highlight?: boolean }[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Fitness', href: '/fitness' },
   { label: 'Shop', href: '/shop' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Newsletter', href: '/newsletter' },
+  { label: 'Lili App', href: '/lili-app', highlight: true },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -72,11 +74,16 @@ export default function Nav() {
 
         {/* Desktop: nav links (hidden when search is open) */}
         {!searchOpen && (
-          <ul className="hidden md:flex items-center gap-7">
+          <ul className="hidden lg:flex items-center gap-6">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="nav-link">
+                <Link href={l.href} className={l.highlight ? 'nav-link text-peach font-semibold' : 'nav-link'}>
                   {l.label}
+                  {l.highlight && (
+                    <span className="ml-1.5 align-middle text-[10px] font-semibold uppercase tracking-wide bg-peach text-white rounded-full px-1.5 py-0.5">
+                      New
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}
@@ -85,7 +92,7 @@ export default function Nav() {
 
         {/* Desktop: expanded search input */}
         {searchOpen && (
-          <form onSubmit={handleSubmit} className="hidden md:flex flex-1 mx-8 items-center gap-2">
+          <form onSubmit={handleSubmit} className="hidden lg:flex flex-1 mx-8 items-center gap-2">
             <Search size={16} className="text-mocha/40 shrink-0" />
             <input
               ref={inputRef}
@@ -102,7 +109,7 @@ export default function Nav() {
         )}
 
         {/* Desktop: right actions */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           <button
             onClick={() => (searchOpen ? closeSearch() : openSearch())}
             className="p-2 text-mocha hover:text-peach transition-colors"
@@ -118,7 +125,7 @@ export default function Nav() {
         </div>
 
         {/* Mobile: search + hamburger */}
-        <div className="md:hidden flex items-center gap-1">
+        <div className="lg:hidden flex items-center gap-1">
           <button
             className="p-2 text-mocha hover:text-peach transition-colors"
             onClick={() => (searchOpen ? closeSearch() : openSearch())}
@@ -138,7 +145,7 @@ export default function Nav() {
 
       {/* Mobile: search bar */}
       {searchOpen && (
-        <div className="md:hidden bg-cream border-t border-peach-light/30 px-5 py-4">
+        <div className="lg:hidden bg-cream border-t border-peach-light/30 px-5 py-4">
           <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <Search size={16} className="text-mocha/40 shrink-0" />
             <input
@@ -158,15 +165,20 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-cream border-t border-peach-light/30 px-5 py-6 flex flex-col gap-5">
+        <div className="lg:hidden bg-cream border-t border-peach-light/30 px-5 py-6 flex flex-col gap-5">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="font-body text-base text-mocha hover:text-peach transition-colors"
+              className={`font-body text-base transition-colors ${l.highlight ? 'text-peach font-semibold' : 'text-mocha hover:text-peach'}`}
               onClick={() => setOpen(false)}
             >
               {l.label}
+              {l.highlight && (
+                <span className="ml-2 align-middle text-[10px] font-semibold uppercase tracking-wide bg-peach text-white rounded-full px-1.5 py-0.5">
+                  New
+                </span>
+              )}
             </Link>
           ))}
           <Link href="/shop" className="btn-primary text-sm mt-2" onClick={() => setOpen(false)}>
