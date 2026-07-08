@@ -110,7 +110,13 @@ const exerciseItems: LibraryItem[] = exercises.map((e) => ({
   href: `/fitness/library/${e.slug}`,
 }));
 
-const library: LibraryItem[] = [...exerciseItems, ...media];
+// The videos & articles above are placeholders — no real content exists yet
+// (their `href` is '#'). Keep them defined so they're easy to bring back:
+// once real videos/articles exist, give each a real `href` and flip this flag
+// to `true` to show them in the Library again.
+const SHOW_MEDIA = false;
+
+const library: LibraryItem[] = SHOW_MEDIA ? [...exerciseItems, ...media] : [...exerciseItems];
 
 const typeFilters = ['All', 'Exercises', 'Videos', 'Articles'] as const;
 type TypeFilter = (typeof typeFilters)[number];
@@ -230,6 +236,9 @@ export default function FitnessLibrary() {
       {/* Filters */}
       <section className="max-w-6xl mx-auto px-5 md:px-8 pb-10">
         <div className="flex flex-col gap-4">
+          {/* Type filters (Exercises / Videos / Articles) only matter once media
+              is enabled — with exercises only, hide the row. Re-enabled by SHOW_MEDIA. */}
+          {SHOW_MEDIA && (
           <div className="flex items-center gap-2 flex-wrap">
             {typeFilters.map((t) => (
               <button
@@ -243,6 +252,7 @@ export default function FitnessLibrary() {
               </button>
             ))}
           </div>
+          )}
           <div className="flex items-center gap-2 flex-wrap">
             {categories.map((c) => (
               <button
