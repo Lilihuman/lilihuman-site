@@ -1,5 +1,10 @@
+import { notFound } from 'next/navigation';
 import LeafDot from '@/components/LeafDot';
 import AppEarlyAccessForm from '@/components/AppEarlyAccessForm';
+
+// Set to true when the app is ready to launch. While false, the /lili-app page
+// returns 404 and the nav link is hidden (see components/Nav.tsx).
+const APP_LAUNCHED = false;
 
 // The destination people reach once they join early access. Edit here if it changes.
 const APP_URL = 'https://app.lilihuman.com';
@@ -29,6 +34,8 @@ const features = [
 ];
 
 export default function LiliAppPage() {
+  if (!APP_LAUNCHED) notFound();
+
   return (
     <>
       {/* Hero */}

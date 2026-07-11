@@ -12,7 +12,9 @@ const navLinks: { label: string; href: string; highlight?: boolean }[] = [
   { label: 'Shop', href: '/shop' },
   { label: 'Blog', href: '/blog' },
   { label: 'Newsletter', href: '/newsletter' },
-  { label: 'Lili App', href: '/lili-app', highlight: true },
+  // Hidden until launch — restore this line to re-enable the Lili App section
+  // (the /lili-app page is also gated in app/lili-app/page.tsx).
+  // { label: 'Lili App', href: '/lili-app', highlight: true },
   { label: 'Contact', href: '/contact' },
 ];
 
