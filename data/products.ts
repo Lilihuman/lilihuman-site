@@ -329,6 +329,18 @@ export const products: Product[] = [
     filters: ['ai-tools'],
   },
   {
+    id: 'ai-comic-creation-workbook',
+    name: 'AI Comic Creation Workbook',
+    description: 'Plan, write, and illustrate your own children\'s comic — no drawing required. A complete step-by-step system with fillable worksheets and copy-paste AI prompts, taking you from a rough idea to a finished comic you can print, share, or sell. Includes character bibles, story arc planning, panel briefs, image prompts, and a publishing checklist.',
+    price: 1000,
+    type: 'digital',
+    filePath: '/downloads/ai-comic-creation-workbook.pdf',
+    category: 'printable',
+    image: '/images/printables/ai-comic-creation-workbook.png',
+    tags: ['AI Tools', 'PDF Workbook'],
+    filters: ['ai-tools', 'kids-family'],
+  },
+  {
     id: 'kids-chore-chart',
     name: 'Kids Chore Chart',
     description: 'A clean, simple chore chart for kids. Add your child\'s name and chores, print it out, laminate it, and check off tasks with a dry-erase marker. Works for one kid or a whole crew.',
