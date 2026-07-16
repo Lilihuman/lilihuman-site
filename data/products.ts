@@ -332,7 +332,7 @@ export const products: Product[] = [
     id: 'ai-comic-creation-workbook',
     name: 'AI Comic Creation Workbook',
     description: 'Plan, write, and illustrate your own children\'s comic — no drawing required. A complete step-by-step system with fillable worksheets and copy-paste AI prompts, taking you from a rough idea to a finished comic you can print, share, or sell. Includes character bibles, story arc planning, panel briefs, image prompts, and a publishing checklist.',
-    price: 1000,
+    price: 1500,
     type: 'digital',
     filePath: '/downloads/ai-comic-creation-workbook.pdf',
     category: 'printable',
