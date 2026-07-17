@@ -137,7 +137,10 @@ export const products: Product[] = [
     description: 'Eight weeks of progressive strength training designed for busy moms.',
     price: 4700,
     type: 'digital',
-    filePath: '/downloads/strong-mama-8-week-program.pdf',
+    filePaths: [
+      '/downloads/strong-mama-8-week-program.pdf',
+      '/downloads/strong-mama-exercise-guide.pdf',
+    ],
     category: 'program',
     image: '/images/programs/strong-mama-fitness.png',
     featured: true,
@@ -151,6 +154,7 @@ export const products: Product[] = [
     type: 'digital',
     filePaths: [
       '/downloads/strong-mama-8-week-program.pdf',
+      '/downloads/strong-mama-exercise-guide.pdf',
       '/downloads/strong-mama-nutrition-program.pdf',
     ],
     category: 'program',
