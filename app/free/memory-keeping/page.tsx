@@ -81,8 +81,8 @@ export default function MemoryKeepingFreebie() {
               <Image
                 src="/images/free-workouts/memory-keeping-starter.png"
                 alt="Everyday Moments, Everlasting Memories — free memory-keeping guide preview"
-                width={850}
-                height={1100}
+                width={1536}
+                height={1024}
                 className="w-full h-auto"
                 priority
               />

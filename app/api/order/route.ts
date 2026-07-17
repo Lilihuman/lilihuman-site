@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { getProductById, getProductFiles } from '@/data/products';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-10-16',
@@ -20,12 +21,21 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Payment not completed' }, { status: 402 });
     }
 
+    // Resolve the product so we can return its real name and every file it
+    // includes. Bundles ship more than one file; the session metadata only
+    // ever carried a single filePath.
+    const productId = session.metadata?.productId;
+    const product = productId ? getProductById(productId) : undefined;
+
+    const files = product ? getProductFiles(product) : [];
+    const fallback = session.metadata?.filePath;
+
     return NextResponse.json({
       sessionId: session.id,
       customerEmail: session.customer_details?.email || '',
-      productName: session.metadata?.productId || 'Your purchase',
+      productName: product?.name || productId || 'Your purchase',
       productType: session.metadata?.productType || 'digital',
-      filePath: session.metadata?.filePath || '',
+      files: files.length ? files : fallback ? [fallback] : [],
       amountTotal: session.amount_total || 0,
     });
   } catch (err) {

@@ -9,9 +9,19 @@ interface OrderDetails {
   customerEmail: string;
   productName: string;
   productType: string;
-  filePath: string;
+  files: string[];
   amountTotal: number;
   sessionId: string;
+}
+
+function fileLabel(path: string): string {
+  const base = path.split('/').pop() || 'Download';
+  return base
+    .replace(/\.[^.]+$/, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export default function OrderConfirmationClient() {
@@ -87,19 +97,25 @@ export default function OrderConfirmationClient() {
       </div>
 
       {/* Download section */}
-      {order.productType === 'digital' && order.filePath && (
+      {order.productType === 'digital' && order.files.length > 0 && (
         <div className="mt-6 bg-sage/10 rounded-2xl border border-sage/20 p-6">
-          <p className="font-body text-sm font-medium text-brown mb-1">Your download is ready</p>
-          <p className="font-body text-xs text-mocha/60 mb-4 leading-relaxed">
-            Click the button below to download your file. The link is also in your confirmation email.
+          <p className="font-body text-sm font-medium text-brown mb-1">
+            {order.files.length > 1
+              ? `Your ${order.files.length} downloads are ready`
+              : 'Your download is ready'}
           </p>
-          <a
-            href={order.filePath}
-            download
-            className="btn-sage inline-flex"
-          >
-            ⬇ Download your file
-          </a>
+          <p className="font-body text-xs text-mocha/60 mb-4 leading-relaxed">
+            {order.files.length > 1
+              ? 'Your bundle includes every file below. The links are also in your confirmation email.'
+              : 'Click the button below to download your file. The link is also in your confirmation email.'}
+          </p>
+          <div className="flex flex-col items-start gap-2">
+            {order.files.map((f) => (
+              <a key={f} href={f} download className="btn-sage inline-flex">
+                ⬇ {order.files.length > 1 ? fileLabel(f) : 'Download your file'}
+              </a>
+            ))}
+          </div>
         </div>
       )}
 

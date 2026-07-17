@@ -7,7 +7,13 @@ export interface Product {
   price: number;
   originalPrice?: number;
   type: ProductType;
+  /**
+   * Single-file products. For products that deliver more than one file
+   * (bundles), use `filePaths` instead — see `getProductFiles`.
+   */
   filePath?: string;
+  /** Multi-file products. Takes precedence over `filePath` when present. */
+  filePaths?: string[];
   category: 'program' | 'printable';
   image?: string;
   featured?: boolean;
@@ -49,7 +55,10 @@ export const products: Product[] = [
     description: 'Two weeks of fat-loss meal plans designed to pair with your 20-Minute Hustle workouts.',
     price: 1500,
     type: 'digital',
-    filePath: '/downloads/20-min-hustle-meal-plan-w1.pdf',
+    filePaths: [
+      '/downloads/20-min-hustle-meal-plan-w1.pdf',
+      '/downloads/20-min-hustle-meal-plan-w2.pdf',
+    ],
     category: 'program',
     image: '/images/programs/20min-hustle-nutrition.png',
     filters: ['fitness', 'mom-life'],
@@ -60,7 +69,11 @@ export const products: Product[] = [
     description: 'The full package — 30 days of workouts plus two weeks of fat-loss meal plans.',
     price: 2500,
     type: 'digital',
-    filePath: '/downloads/20-min-hustle-fitness.pdf',
+    filePaths: [
+      '/downloads/20-min-hustle-fitness.pdf',
+      '/downloads/20-min-hustle-meal-plan-w1.pdf',
+      '/downloads/20-min-hustle-meal-plan-w2.pdf',
+    ],
     category: 'program',
     image: '/images/programs/20min-hustle-complete.png',
     featured: true,
@@ -72,7 +85,10 @@ export const products: Product[] = [
     description: 'Two weeks of nourishing meal plans designed to pair with your Postpartum Reset program.',
     price: 1500,
     type: 'digital',
-    filePath: '/downloads/postpartum-reset-meal-plan-a.pdf',
+    filePaths: [
+      '/downloads/postpartum-reset-meal-plan-a.pdf',
+      '/downloads/postpartum-reset-meal-plan-b.pdf',
+    ],
     category: 'program',
     image: '/images/programs/postpartum-nutrition.png',
     filters: ['fitness', 'mom-life'],
@@ -94,7 +110,11 @@ export const products: Product[] = [
     description: 'Everything you need — the full 4-week postpartum fitness program plus both meal plan weeks.',
     price: 3500,
     type: 'digital',
-    filePath: '/downloads/postpartum-reset-4-week-program.pdf',
+    filePaths: [
+      '/downloads/postpartum-reset-4-week-program.pdf',
+      '/downloads/postpartum-reset-meal-plan-a.pdf',
+      '/downloads/postpartum-reset-meal-plan-b.pdf',
+    ],
     category: 'program',
     image: '/images/programs/postpartum-complete.png',
     featured: true,
@@ -129,7 +149,10 @@ export const products: Product[] = [
     description: 'The full Strong Mama experience — 8 weeks of workouts plus the complete nutrition program.',
     price: 5700,
     type: 'digital',
-    filePath: '/downloads/strong-mama-8-week-program.pdf',
+    filePaths: [
+      '/downloads/strong-mama-8-week-program.pdf',
+      '/downloads/strong-mama-nutrition-program.pdf',
+    ],
     category: 'program',
     image: '/images/programs/strong-mama-complete.png',
     featured: true,
@@ -376,4 +399,14 @@ export function getProductsByCategory(category: Product['category']): Product[] 
 
 export function formatPrice(cents: number): string {
   return `$${(cents / 100).toFixed(2)} CAD`;
+}
+
+/**
+ * Every downloadable file for a product. Bundles list each file in
+ * `filePaths`; single-file products use `filePath`. Services with neither
+ * (e.g. the custom program) return an empty array.
+ */
+export function getProductFiles(product: Product): string[] {
+  if (product.filePaths?.length) return product.filePaths;
+  return product.filePath ? [product.filePath] : [];
 }
