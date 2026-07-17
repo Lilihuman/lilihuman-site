@@ -23,6 +23,17 @@ export interface FreebieLanding {
   benefits: { title: string; body: string }[];
   /** Search + social description. Keep under ~155 chars. */
   metaDescription: string;
+  /**
+   * Real pixel size of the product image, for next/image and og:image.
+   *
+   * Stated here rather than read off disk on purpose: the artwork ranges from
+   * 1:1 to 1.9:1, so a hardcoded guess causes layout shift — but reading
+   * public/ with fs makes Next's tracer bundle all 1.1GB of it into the
+   * serverless function, which blows past Vercel's 250MB limit.
+   *
+   * When adding a freebie, check its real dimensions and put them here.
+   */
+  image: { width: number; height: number };
   /** Optional onward link to a paid product, only where it genuinely fits. */
   upsell?: { heading: string; body: string; href: string; label: string };
 }
@@ -30,6 +41,7 @@ export interface FreebieLanding {
 export const freebieLandings: FreebieLanding[] = [
   {
     slug: 'memory-keeping',
+    image: { width: 1536, height: 1024 },
     productId: 'free-memory-keeping',
     eyebrow: 'A free gift for busy moms',
     headline: 'Everyday Moments,',
@@ -61,6 +73,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'desk-reset',
+    image: { width: 1672, height: 941 },
     productId: 'free-desk-reset',
     eyebrow: 'A free 10-minute reset',
     headline: 'Your Body Wasn’t Built',
@@ -92,6 +105,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'full-body-burn',
+    image: { width: 1448, height: 1086 },
     productId: 'free-full-body-burn',
     eyebrow: 'A free 15-minute workout',
     headline: 'Fifteen Minutes,',
@@ -123,6 +137,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'arms-and-shoulders',
+    image: { width: 1448, height: 1086 },
     productId: 'free-arms-shoulders',
     eyebrow: 'A free 30-day plan',
     headline: 'Stronger Arms in',
@@ -154,6 +169,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'car-ride-mobility',
+    image: { width: 1448, height: 1086 },
     productId: 'free-car-ride-mobility',
     eyebrow: 'A free travel-day rescue',
     headline: 'For When You’ve Been',
@@ -179,6 +195,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'move-play-grow',
+    image: { width: 1254, height: 1254 },
     productId: 'free-move-play-grow',
     eyebrow: 'A free ten minutes together',
     headline: 'Move, Play,',
@@ -210,6 +227,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: '20-minute-reset',
+    image: { width: 1731, height: 909 },
     productId: '20-min-reset',
     eyebrow: 'A free one-page system',
     headline: 'When Everything Feels Like',
@@ -235,6 +253,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'top-10-ai-tips',
+    image: { width: 1536, height: 1024 },
     productId: 'free-top-10-ai-tips',
     eyebrow: 'A free one-page guide',
     headline: 'Better Prompts,',
@@ -266,6 +285,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'claude-mastery-course',
+    image: { width: 1536, height: 1024 },
     productId: 'free-claude-mastery-course',
     eyebrow: 'A free 14-module course',
     headline: 'Learn Gently,',
@@ -297,6 +317,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'kids-chore-chart',
+    image: { width: 1536, height: 1024 },
     productId: 'kids-chore-chart',
     eyebrow: 'A free printable',
     headline: 'A Chore Chart That',

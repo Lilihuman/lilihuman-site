@@ -6,7 +6,6 @@ import LeafDot from '@/components/LeafDot';
 import FreeDownloadButton from '@/components/FreeDownloadButton';
 import { freebieLandings, getFreebieBySlug } from '@/data/freebies';
 import { getProductById } from '@/data/products';
-import { getImageSize } from '@/lib/imageSize';
 
 export function generateStaticParams() {
   return freebieLandings.map((f) => ({ slug: f.slug }));
@@ -33,7 +32,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       siteName: 'Lili Human',
       type: 'article',
       images: product?.image
-        ? [{ url: product.image, ...getImageSize(product.image), alt: product.name }]
+        ? [{ url: product.image, ...freebie.image, alt: product.name }]
         : [],
     },
     twitter: {
@@ -97,7 +96,7 @@ export default function FreebieLandingPage({ params }: { params: { slug: string 
                 <Image
                   src={product.image}
                   alt={`${product.name} — free download preview`}
-                  {...getImageSize(product.image)}
+                  {...freebie.image}
                   className="w-full h-auto"
                   priority
                 />
