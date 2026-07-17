@@ -48,7 +48,7 @@ async function sendFulfillmentEmail(opts: {
         <a href="${baseUrl}${f}"
            style="display:inline-block; background:#8FA98E; color:#fff; text-decoration:none;
                   padding:12px 22px; border-radius:999px; font-size:14px; margin:0 0 10px 0;">
-          &#11015; ${files.length > 1 ? fileLabel(f) : 'Download your file'}
+          ${files.length > 1 ? fileLabel(f) : 'Download your file'} &rarr;
         </a><br />`
     )
     .join('');
