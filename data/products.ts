@@ -329,6 +329,18 @@ export const products: Product[] = [
     filters: ['ai-tools'],
   },
   {
+    id: 'free-memory-keeping',
+    name: 'Everyday Moments, Everlasting Memories',
+    description: 'A free, no-pressure memory-keeping starter for busy moms. Turn ordinary days into stories your kids will treasure — the memory-keeper\'s mindset, 10 milestone prompts, a 5-minute weekly ritual, and a printable keepsake page. No perfect scrapbooks required.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/memory-keeping-starter.pdf',
+    category: 'printable',
+    image: '/images/free-workouts/memory-keeping-starter.png',
+    tags: ['Memory-keeping', 'Printable', 'For moms'],
+    filters: ['freebies', 'kids-family', 'mom-life'],
+  },
+  {
     id: 'ai-comic-creation-workbook',
     name: 'AI Comic Creation Workbook',
     description: 'Plan, write, and illustrate your own children\'s comic — no drawing required. A complete step-by-step system with fillable worksheets and copy-paste AI prompts, taking you from a rough idea to a finished comic you can print, share, or sell. Includes character bibles, story arc planning, panel briefs, image prompts, and a publishing checklist.',
