@@ -225,6 +225,18 @@ export const products: Product[] = [
     tags: ['Mobility', '10 min', 'No equipment'],
     filters: ['fitness', 'freebies'],
   },
+  {
+    id: 'free-core-spinal-stability',
+    name: 'Core & Spinal Stability Guide',
+    description: '16 core exercises across four stability styles — anti-extension, anti-rotation, anti-lateral flexion, and spinal control — plus optional finishers and a sample weekly plan. Improve posture, protect your spine, ease back pain, and build a strong, stable midsection.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/core-spinal-stability-exercises.pdf',
+    category: 'program',
+    image: '/images/free-workouts/core-spinal-stability.png',
+    tags: ['Core & spine', '15–25 min', 'Minimal equipment'],
+    filters: ['fitness', 'freebies'],
+  },
 
   {
     id: 'free-move-play-grow',

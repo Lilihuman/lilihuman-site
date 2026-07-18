@@ -168,6 +168,32 @@ export const freebieLandings: FreebieLanding[] = [
     },
   },
   {
+    slug: 'core-spinal-stability',
+    image: { width: 1536, height: 1024 },
+    productId: 'free-core-spinal-stability',
+    eyebrow: 'A free core & spine guide',
+    headline: 'A Strong, Stable',
+    emphasis: 'Core',
+    subhead:
+      'Gentle, back-friendly movement you can do at home — no gym required. Sixteen exercises to build a stable midsection and protect your spine.',
+    benefits: [
+      {
+        title: 'Back-Friendly by Design',
+        body: 'Built around spinal control and stability, not crunches until it hurts — movement that protects your back while it strengthens it.',
+      },
+      {
+        title: 'Four Ways to Train Your Core',
+        body: 'Anti-extension, anti-rotation, anti-lateral flexion, and spinal control — the whole picture, not just the mirror muscles.',
+      },
+      {
+        title: 'A Plan, Not a Pile of Moves',
+        body: 'Sixteen exercises, optional finishers, and a sample weekly plan so you know exactly what to do and when.',
+      },
+    ],
+    metaDescription:
+      'A free core & spinal stability guide — 16 back-friendly exercises across four stability styles, plus a sample weekly plan. Better posture, a protected spine, less back pain.',
+  },
+  {
     slug: 'car-ride-mobility',
     image: { width: 1448, height: 1086 },
     productId: 'free-car-ride-mobility',
