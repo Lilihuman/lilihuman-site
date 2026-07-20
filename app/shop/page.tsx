@@ -107,9 +107,17 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function Shop() {
   const [filter, setFilter] = useState('all');
-  const filtered =
+  // Always display products cheapest → most expensive, regardless of the order
+  // they're written in data/products.ts. New products slot in by price
+  // automatically — no need to hand-order the data file. (.slice() copies first
+  // so we never mutate the shared products array; the sort is stable, so items
+  // at the same price keep their data-file order.)
+  const filtered = (
     filter === 'all' ? products :
-    products.filter((p) => p.filters?.includes(filter));
+    products.filter((p) => p.filters?.includes(filter))
+  )
+    .slice()
+    .sort((a, b) => a.price - b.price);
 
   return (
     <>
