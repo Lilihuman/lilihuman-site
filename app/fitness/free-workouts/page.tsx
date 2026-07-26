@@ -54,6 +54,14 @@ const workouts = [
     image: '/images/free-workouts/2-min-commercial-break-core.png',
   },
   {
+    id: 'in-bed-core-workout',
+    title: '2-Minute In-Bed Core Workout',
+    description: 'A quiet core reset you can do lying in bed — no equipment, no getting on the floor. Four moves, 30 seconds each: belly brace with heel slides, bent-knee marches, pillow press dead bug, and a glute bridge hold.',
+    tags: ['Core', 'In bed', '2 min', 'No equipment'],
+    file: '/downloads/2-min-in-bed-core-workout.pdf',
+    image: '/images/free-workouts/2-min-in-bed-core-workout.png',
+  },
+  {
     id: 'nap-time-quiet-workout',
     title: 'The Nap-Time Quiet Workout',
     description: 'A quiet, no-equipment strength workout for when the baby is finally asleep. Five controlled moves — slow squats, push-ups, glute bridges, bird dogs, and side planks — with no jumping, stomping, or noise.',

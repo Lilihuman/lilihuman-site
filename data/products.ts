@@ -430,6 +430,18 @@ export const products: Product[] = [
     tags: ['Yoga', '26 postures', 'No equipment', 'All levels'],
     filters: ['fitness', 'freebies'],
   },
+  {
+    id: 'free-in-bed-core-workout',
+    name: '2-Minute In-Bed Core Workout',
+    description: 'A quiet core workout you can do lying in bed — perfect for a commercial break, with no equipment and no getting on the floor. Four moves, 30 seconds each — belly brace with heel slides, bent-knee marches, pillow press dead bug, and a glute bridge hold. The soft mattress makes balance harder, so slow and controlled beats fast.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/2-min-in-bed-core-workout.pdf',
+    category: 'program',
+    image: '/images/free-workouts/2-min-in-bed-core-workout.png',
+    tags: ['Core', 'In bed', '2 min', 'No equipment'],
+    filters: ['fitness', 'freebies'],
+  },
 
   // Printables & Art
   {

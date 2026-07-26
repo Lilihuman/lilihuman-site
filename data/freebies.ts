@@ -763,6 +763,32 @@ export const freebieLandings: FreebieLanding[] = [
     metaDescription:
       'A free Bikram yoga guide — all 26 postures and 2 breathing exercises in order, with cues and benefits. Improve flexibility, strength, circulation, and calm.',
   },
+  {
+    slug: 'in-bed-core-workout',
+    image: { width: 1448, height: 1086 },
+    productId: 'free-in-bed-core-workout',
+    eyebrow: 'A free in-bed core reset',
+    headline: 'Core Work Without',
+    emphasis: 'Getting Out of Bed',
+    subhead:
+      'Four gentle core moves you can do lying right in bed — perfect for a commercial break, with no equipment and no getting down on the floor.',
+    benefits: [
+      {
+        title: 'Never Leave the Mattress',
+        body: 'Belly braces, heel slides, bent-knee marches and a glute bridge hold — all done lying down, no floor required.',
+      },
+      {
+        title: 'Slow and Controlled Wins',
+        body: 'The soft mattress makes balance harder, so quality matters more than speed. Thirty seconds a move, one round per break.',
+      },
+      {
+        title: 'Gentle and Safe',
+        body: 'Keep your ribs down and lower back supported, and skip anything that causes pain, dizziness, or numbness.',
+      },
+    ],
+    metaDescription:
+      'A free 2-minute in-bed core workout — four gentle moves you can do lying in bed, no equipment, no getting on the floor. Perfect for a commercial break.',
+  },
 ];
 
 export function getFreebieBySlug(slug: string): FreebieLanding | undefined {
