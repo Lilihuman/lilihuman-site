@@ -149,7 +149,7 @@ const workouts = [
     description: 'Short mobility breaks you can do right at your desk to reduce stiffness, improve posture, and boost focus. Neck, shoulders, spine, and lower-body moves — no equipment, no changing clothes.',
     tags: ['Desk-friendly', '1–2 min each', 'No equipment', 'All levels'],
     file: '/downloads/desk-mobility.pdf',
-    image: '/images/free-workouts/desk-mobility.png',
+    image: '/images/free-workouts/desk-mobility-cover.png',
   },
   {
     id: 'postpartum-safe',
@@ -157,7 +157,7 @@ const workouts = [
     description: 'Gentle, effective movements to help your body heal and rebuild strength after birth. Core and pelvic-floor activation, mobility and recovery, plus when-to-start and when-to-stop guidance. Strong every day — for you and your baby.',
     tags: ['Postpartum', 'Gentle', 'Core & pelvic floor', 'Beginner-friendly'],
     file: '/downloads/postpartum-safe.pdf',
-    image: '/images/free-workouts/postpartum-safe.png',
+    image: '/images/free-workouts/postpartum-safe-cover.png',
   },
   {
     id: 'bikram-yoga',

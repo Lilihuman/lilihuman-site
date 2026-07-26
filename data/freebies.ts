@@ -687,7 +687,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'desk-mobility',
-    image: { width: 1024, height: 1536 },
+    image: { width: 1536, height: 1024 },
     productId: 'free-desk-mobility',
     eyebrow: 'A free desk mobility guide',
     headline: 'Loosen Up',
@@ -713,7 +713,7 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'postpartum-safe',
-    image: { width: 1024, height: 1536 },
+    image: { width: 1536, height: 1024 },
     productId: 'free-postpartum-safe',
     eyebrow: 'A free postpartum guide',
     headline: 'Heal and Rebuild,',
