@@ -373,6 +373,110 @@ export const freebieLandings: FreebieLanding[] = [
       label: 'See the programs',
     },
   },
+  {
+    slug: 'nighttime-wind-down',
+    image: { width: 1491, height: 1055 },
+    productId: 'free-nighttime-wind-down',
+    eyebrow: 'A free 5-minute wind-down',
+    headline: 'Let the Day',
+    emphasis: 'Go',
+    subhead:
+      'Eight gentle moves to unclench your shoulders, slow your breathing, and tell your body it’s finally allowed to rest. No equipment, no routine you’ll dread.',
+    benefits: [
+      {
+        title: 'Made for the End of the Day',
+        body: 'Nothing strenuous, nothing you have to psych yourself up for — just slow, quiet movement that helps you land.',
+      },
+      {
+        title: 'Breathe Slower, Sleep Sooner',
+        body: 'Longer exhales and easy stretches to shift you out of go-mode and into something calmer before your head hits the pillow.',
+      },
+      {
+        title: 'Not About the Stretch',
+        body: 'The goal isn’t deep flexibility — it’s to leave your body a little calmer than you found it. Five minutes is all it takes.',
+      },
+    ],
+    metaDescription:
+      'A free 5-minute nighttime wind-down routine — eight gentle, no-equipment moves to release tension, slow your breathing, and help your body settle before bed.',
+  },
+  {
+    slug: 'wake-up-routine',
+    image: { width: 1491, height: 1055 },
+    productId: 'free-wake-up-routine',
+    eyebrow: 'A free 5-minute wake-up',
+    headline: 'Wake Your Body',
+    emphasis: 'Up Gently',
+    subhead:
+      'Eight easy moves to loosen your spine, hips, shoulders and ankles before the day gets busy — no equipment, and you can start half of it before you’re even out of bed.',
+    benefits: [
+      {
+        title: 'For Stiff, Groggy Mornings',
+        body: 'Gentle mobility that meets you where you are at 6am — nothing that demands energy you don’t have yet.',
+      },
+      {
+        title: 'Head to Toe in Five Minutes',
+        body: 'Spine, hips, shoulders and ankles, all loosened in about the time it takes the coffee to brew.',
+      },
+      {
+        title: 'No Perfect Morning Required',
+        body: 'You don’t need a whole routine or a spare hour — just a little movement to get started. Every modification’s included.',
+      },
+    ],
+    metaDescription:
+      'A free 5-minute morning wake-up routine — eight gentle, no-equipment moves to loosen your spine, hips, shoulders and ankles before the day gets busy.',
+  },
+  {
+    slug: 'commercial-break-core',
+    image: { width: 1491, height: 1055 },
+    productId: 'free-commercial-break-core',
+    eyebrow: 'A free 2-minute core hit',
+    headline: 'Train Your Core',
+    emphasis: 'On the Ad Break',
+    subhead:
+      'Four core moves, thirty seconds each, done in the time it takes for the ads to run. No gym, no floor space you don’t already have in front of the couch.',
+    benefits: [
+      {
+        title: 'Two Minutes That Count',
+        body: 'One quick round — standing crunch, knee plank, controlled crunches, glute bridge march — every time the show cuts to commercials.',
+      },
+      {
+        title: 'Steady Beats Rushed',
+        body: 'Built around controlled movement, not speed. Slow and honest gets you further than fast and sloppy.',
+      },
+      {
+        title: 'Fits Around Your Life',
+        body: 'No changing, no setup, no excuses. If you’re on the couch anyway, you’ve got everything you need.',
+      },
+    ],
+    metaDescription:
+      'A free 2-minute commercial break core workout — four no-equipment moves, 30 seconds each, you can do during any ad break. Steady, controlled, and it adds up.',
+  },
+  {
+    slug: 'nighttime-in-bed',
+    image: { width: 1448, height: 1086 },
+    productId: 'free-nighttime-in-bed',
+    eyebrow: 'A free bedtime routine',
+    headline: 'Unwind Without',
+    emphasis: 'Leaving Bed',
+    subhead:
+      'Eight calming moves you can do lying right where you’ll sleep — belly breathing, gentle stretches, and a final legs-up rest to help your whole body go heavy.',
+    benefits: [
+      {
+        title: 'Never Leave the Mattress',
+        body: 'Every move happens in bed. No cold floor, no getting back up — just settle in and begin.',
+      },
+      {
+        title: 'Soft, Slow, and Sleepy',
+        body: 'Slow belly breathing and easy stretches designed to relax your body, not test your flexibility.',
+      },
+      {
+        title: 'End the Day Heavy and Calm',
+        body: 'Finish with three slow breaths and let your whole body sink into the mattress. Stop anything that pinches or tingles.',
+      },
+    ],
+    metaDescription:
+      'A free 5-minute in-bed nighttime routine — eight gentle moves you can do lying down, from belly breathing to legs-elevated rest, to help your body unwind for sleep.',
+  },
 ];
 
 export function getFreebieBySlug(slug: string): FreebieLanding | undefined {
