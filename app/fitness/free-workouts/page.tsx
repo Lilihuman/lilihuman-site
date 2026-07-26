@@ -54,6 +54,14 @@ const workouts = [
     image: '/images/free-workouts/2-min-commercial-break-core.png',
   },
   {
+    id: 'nap-time-quiet-workout',
+    title: 'The Nap-Time Quiet Workout',
+    description: 'A quiet, no-equipment strength workout for when the baby is finally asleep. Five controlled moves — slow squats, push-ups, glute bridges, bird dogs, and side planks — with no jumping, stomping, or noise.',
+    tags: ['Quiet strength', 'No equipment', 'Mom life', 'All levels'],
+    file: '/downloads/nap-time-quiet-workout.pdf',
+    image: '/images/free-workouts/nap-time-quiet-workout.png',
+  },
+  {
     id: 'arms-shoulders',
     title: '30-Day Arms & Shoulders Plan',
     description: 'Stronger arms and defined shoulders in 30 days. Push, pull, and sculpt with light dumbbells — no gym needed.',

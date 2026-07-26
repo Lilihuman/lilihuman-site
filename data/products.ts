@@ -298,6 +298,18 @@ export const products: Product[] = [
     tags: ['Bedtime', 'In bed', '5 min', 'No equipment'],
     filters: ['fitness', 'freebies'],
   },
+  {
+    id: 'free-nap-time-quiet-workout',
+    name: 'The Nap-Time Quiet Workout',
+    description: 'A quiet, no-equipment strength workout for when the baby is finally asleep. Five controlled moves — slow squats, push-ups, glute bridges, bird dogs, and side planks — with no jumping, no stomping, and no noise. Do up to three rounds, resting whenever you need to, and finish with a quiet connection moment.',
+    price: 0,
+    type: 'digital',
+    filePath: '/downloads/nap-time-quiet-workout.pdf',
+    category: 'program',
+    image: '/images/free-workouts/nap-time-quiet-workout.png',
+    tags: ['Quiet strength', 'No equipment', 'Mom life', 'All levels'],
+    filters: ['fitness', 'freebies', 'mom-life'],
+  },
 
   // Printables & Art
   {

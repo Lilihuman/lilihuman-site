@@ -477,6 +477,32 @@ export const freebieLandings: FreebieLanding[] = [
     metaDescription:
       'A free 5-minute in-bed nighttime routine — eight gentle moves you can do lying down, from belly breathing to legs-elevated rest, to help your body unwind for sleep.',
   },
+  {
+    slug: 'nap-time-quiet-workout',
+    image: { width: 1672, height: 941 },
+    productId: 'free-nap-time-quiet-workout',
+    eyebrow: 'A free quiet workout',
+    headline: 'For When the Baby',
+    emphasis: 'Is Finally Asleep',
+    subhead:
+      'Five controlled strength moves with no jumping, no stomping, and no noise — the workout you can actually do while a little one sleeps down the hall.',
+    benefits: [
+      {
+        title: 'No Jumping, No Stomping, No Noise',
+        body: 'Every move is quiet and controlled by design — nothing that risks waking the baby you just spent an hour getting down.',
+      },
+      {
+        title: 'Real Strength in a Small Window',
+        body: 'Slow squats, push-ups, glute bridges, bird dogs and side planks — up to three rounds, resting whenever you need to.',
+      },
+      {
+        title: 'A Moment That’s Yours',
+        body: 'It ends with one hand on your chest and three quiet breaths. This time was yours, even if it was brief.',
+      },
+    ],
+    metaDescription:
+      'A free quiet, no-equipment workout for when the baby is asleep — five controlled strength moves with no jumping, stomping, or noise. Up to three rounds, rest as needed.',
+  },
 ];
 
 export function getFreebieBySlug(slug: string): FreebieLanding | undefined {
