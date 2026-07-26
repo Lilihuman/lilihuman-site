@@ -117,7 +117,7 @@ const workouts = [
     description: 'Build a strong, healthy back and better posture. Width, thickness, lower-back protection, and posture-fixing moves — organised so you can target exactly what you need. Reduce back pain and stand taller.',
     tags: ['Back & posture', '20 min', 'Dumbbells / bands', 'All levels'],
     file: '/downloads/back-strength.pdf',
-    image: '/images/free-workouts/back-strength.png',
+    image: '/images/free-workouts/back-strength-cover.png',
   },
   {
     id: 'glute-lower-body',
@@ -125,7 +125,7 @@ const workouts = [
     description: 'Target your glutes, legs, and calves to build strength, shape, and definition from every angle. Glute-focused moves, lower-body strength, calves, tips for best results, and a sample weekly plan.',
     tags: ['Glutes & legs', '20–30 min', 'Dumbbells', 'All levels'],
     file: '/downloads/glute-lower-body.pdf',
-    image: '/images/free-workouts/glute-lower-body.png',
+    image: '/images/free-workouts/glute-lower-body-cover.png',
   },
   {
     id: 'upper-body',
@@ -133,7 +133,7 @@ const workouts = [
     description: 'Push and pull your way to a strong, capable upper body — chest, shoulders, arms, and back. Build strength, improve posture, and feel powerful in every rep, with a sample upper-body workout included.',
     tags: ['Upper body', '20–30 min', 'Dumbbells / bands', 'All levels'],
     file: '/downloads/upper-body.pdf',
-    image: '/images/free-workouts/upper-body.png',
+    image: '/images/free-workouts/upper-body-cover.png',
   },
   {
     id: 'daily-mobility',
@@ -141,7 +141,7 @@ const workouts = [
     description: 'A short daily mobility routine to improve flexibility, reduce stiffness and soreness, and prevent injury — neck, shoulders, spine, hips, and a full-body flow. Move better, feel better, every day.',
     tags: ['Mobility', '15–20 min', 'No equipment', 'All levels'],
     file: '/downloads/daily-mobility.pdf',
-    image: '/images/free-workouts/daily-mobility.png',
+    image: '/images/free-workouts/daily-mobility-cover.png',
   },
   {
     id: 'desk-mobility',
@@ -165,7 +165,7 @@ const workouts = [
     description: 'The original hot yoga — 26 postures and 2 breathing exercises, laid out in order with cues and benefits. Improve flexibility, strength, and focus, and follow the full sequence at your own pace.',
     tags: ['Yoga', '26 postures', 'No equipment', 'All levels'],
     file: '/downloads/bikram-yoga.pdf',
-    image: '/images/free-workouts/bikram-yoga.png',
+    image: '/images/free-workouts/bikram-yoga-cover.png',
   },
 ];
 

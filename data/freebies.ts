@@ -581,6 +581,188 @@ export const freebieLandings: FreebieLanding[] = [
     metaDescription:
       'A free 10-minute lunch-break workout — five no-equipment moves, 40 seconds on and 20 off, twice through. No changing clothes, just space beside your desk.',
   },
+  {
+    slug: 'back-strength',
+    image: { width: 1672, height: 941 },
+    productId: 'free-back-strength',
+    eyebrow: 'A free back & posture guide',
+    headline: 'A Stronger Back,',
+    emphasis: 'Better Posture',
+    subhead:
+      'Build a stronger back and stand taller — upper, mid, and lower-back moves organised so you can target exactly what you need and ease everyday pain.',
+    benefits: [
+      {
+        title: 'Target Exactly What You Need',
+        body: 'Width, thickness, lower-back protection, and posture-fixing moves, grouped so you can go straight to the ones that matter for you.',
+      },
+      {
+        title: 'Posture You Can Feel',
+        body: 'Strengthen the muscles that hold you upright, so sitting all day stops quietly rounding you forward.',
+      },
+      {
+        title: 'Protect Your Spine',
+        body: 'Reduce back pain and build support around your spine with movement that’s effective without being punishing.',
+      },
+    ],
+    metaDescription:
+      'A free back strength & posture guide — upper, mid, and lower-back exercises to build a stronger back, improve posture, and reduce everyday pain.',
+  },
+  {
+    slug: 'glute-lower-body',
+    image: { width: 1672, height: 941 },
+    productId: 'free-glute-lower-body',
+    eyebrow: 'A free glute & lower-body guide',
+    headline: 'Powerful From',
+    emphasis: 'the Ground Up',
+    subhead:
+      'Build stronger glutes and sculpt your legs from every angle — glute-focused moves, lower-body strength, calves, and a sample weekly plan to tie it together.',
+    benefits: [
+      {
+        title: 'Glutes From Every Angle',
+        body: 'Targeted glute work plus the supporting lower-body strength that makes it show — not just one move on repeat.',
+      },
+      {
+        title: 'Legs and Calves Too',
+        body: 'Round out your lower body with the leg and calf work most plans skip, for strength and shape top to bottom.',
+      },
+      {
+        title: 'A Plan, Not a Pile of Moves',
+        body: 'A sample weekly plan and tips for best results, so you know exactly what to do and when.',
+      },
+    ],
+    metaDescription:
+      'A free glute & lower body guide — glute-focused moves, lower-body strength, calves, and a sample weekly plan to build strength and shape from the ground up.',
+  },
+  {
+    slug: 'upper-body',
+    image: { width: 1536, height: 1024 },
+    productId: 'free-upper-body',
+    eyebrow: 'A free upper-body guide',
+    headline: 'Strong, Capable,',
+    emphasis: 'From the Waist Up',
+    subhead:
+      'Push and pull your way to a strong upper body — chest, shoulders, arms, and back — with a sample workout so you can start today.',
+    benefits: [
+      {
+        title: 'Push and Pull, Balanced',
+        body: 'Chest, shoulders, arms and back trained together, so you build strength evenly instead of just the mirror muscles.',
+      },
+      {
+        title: 'Better Posture, Real Power',
+        body: 'A strong upper back and shoulders hold you upright and make everyday lifting and carrying feel easy.',
+      },
+      {
+        title: 'A Workout to Start With',
+        body: 'A sample upper-body workout is included, so you’re not left guessing how to put the moves together.',
+      },
+    ],
+    metaDescription:
+      'A free upper body strength guide — chest, shoulders, arms and back, with a sample workout. Build strength, improve posture, and feel powerful in every rep.',
+  },
+  {
+    slug: 'daily-mobility',
+    image: { width: 1536, height: 1024 },
+    productId: 'free-daily-mobility',
+    eyebrow: 'A free daily mobility guide',
+    headline: 'Move Better,',
+    emphasis: 'Feel Better',
+    subhead:
+      'A short daily mobility routine to loosen stiffness, improve flexibility, and help your body feel its best — neck, shoulders, spine, hips, and a full-body flow.',
+    benefits: [
+      {
+        title: 'Head to Toe',
+        body: 'Neck, shoulders, spine and hips, plus a full-body flow — the whole body, not just the part that hurts today.',
+      },
+      {
+        title: 'A Few Minutes, Every Day',
+        body: 'Short enough to actually keep up with. Consistency is what reduces stiffness and soreness over time.',
+      },
+      {
+        title: 'Move Well, Stay Injury-Free',
+        body: 'Better flexibility and mobility means fewer tweaks and strains from the demands of everyday life.',
+      },
+    ],
+    metaDescription:
+      'A free daily mobility guide — a short routine for neck, shoulders, spine, hips, and a full-body flow to reduce stiffness, improve flexibility, and prevent injury.',
+  },
+  {
+    slug: 'desk-mobility',
+    image: { width: 1024, height: 1536 },
+    productId: 'free-desk-mobility',
+    eyebrow: 'A free desk mobility guide',
+    headline: 'Loosen Up',
+    emphasis: 'Without Leaving Your Desk',
+    subhead:
+      'Short mobility breaks you can do right at your desk — neck, shoulders, spine, and lower body — to undo stiffness and boost focus. No equipment, no changing clothes.',
+    benefits: [
+      {
+        title: 'Right at Your Desk',
+        body: 'No mat, no gym, no changing — just a minute or two between tasks to reset your body.',
+      },
+      {
+        title: 'Undo the Sitting',
+        body: 'Neck, shoulders, spine and lower-body moves that target exactly where a long day at a screen tightens up.',
+      },
+      {
+        title: 'Sharper Focus, Better Posture',
+        body: 'A quick reset that eases stiffness and helps you sit taller and think clearer for the next stretch.',
+      },
+    ],
+    metaDescription:
+      'A free desk mobility guide — short mobility breaks for neck, shoulders, spine, and lower body you can do right at your desk. No equipment, no changing clothes.',
+  },
+  {
+    slug: 'postpartum-safe',
+    image: { width: 1024, height: 1536 },
+    productId: 'free-postpartum-safe',
+    eyebrow: 'A free postpartum guide',
+    headline: 'Heal and Rebuild,',
+    emphasis: 'Gently',
+    subhead:
+      'Gentle, effective movement to help your body recover and rebuild strength after birth — core and pelvic-floor activation, mobility, and clear when-to-start guidance.',
+    benefits: [
+      {
+        title: 'Gentle by Design',
+        body: 'Movements chosen to help your body heal, not push it — with when-to-start and when-to-stop guidance built in.',
+      },
+      {
+        title: 'Core and Pelvic Floor First',
+        body: 'Reconnect with the deep core and pelvic floor that carried you through pregnancy — the right foundation before anything harder.',
+      },
+      {
+        title: 'Strong for You and Baby',
+        body: 'Rebuild real strength for lifting, carrying, and the long days — at a pace that respects where your body actually is.',
+      },
+    ],
+    metaDescription:
+      'A free postpartum-safe exercise guide — gentle core and pelvic-floor activation, mobility, and recovery, with when-to-start guidance to help your body rebuild after birth.',
+  },
+  {
+    slug: 'bikram-yoga',
+    image: { width: 1536, height: 1024 },
+    productId: 'free-bikram-yoga',
+    eyebrow: 'A free hot yoga guide',
+    headline: 'The Original',
+    emphasis: 'Hot Yoga',
+    subhead:
+      'All 26 postures and 2 breathing exercises, laid out in order with cues and benefits — so you can follow the full Bikram sequence at your own pace.',
+    benefits: [
+      {
+        title: 'The Full Sequence, In Order',
+        body: '26 postures and 2 breathing exercises laid out exactly as they’re meant to flow — no guessing what comes next.',
+      },
+      {
+        title: 'Cues and Benefits for Each',
+        body: 'Every posture comes with form cues and what it does for your body, so you practise with intention.',
+      },
+      {
+        title: 'Detox, Flexibility, Calm',
+        body: 'Improve flexibility and strength, boost circulation, and calm your mind — at your own pace, no studio required.',
+      },
+    ],
+    metaDescription:
+      'A free Bikram yoga guide — all 26 postures and 2 breathing exercises in order, with cues and benefits. Improve flexibility, strength, circulation, and calm.',
+  },
 ];
 
 export function getFreebieBySlug(slug: string): FreebieLanding | undefined {
