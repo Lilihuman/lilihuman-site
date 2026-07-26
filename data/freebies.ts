@@ -503,6 +503,84 @@ export const freebieLandings: FreebieLanding[] = [
     metaDescription:
       'A free quiet, no-equipment workout for when the baby is asleep — five controlled strength moves with no jumping, stomping, or noise. Up to three rounds, rest as needed.',
   },
+  {
+    slug: 'wake-up-in-bed',
+    image: { width: 1448, height: 1086 },
+    productId: 'free-wake-up-in-bed',
+    eyebrow: 'A free in-bed wake-up',
+    headline: 'Wake Your Body',
+    emphasis: 'Before Your Feet Touch the Floor',
+    subhead:
+      'Eight gentle moves you can do lying right where you woke up — easy reaches and stretches, finishing seated at the edge of the bed to ease you into the day.',
+    benefits: [
+      {
+        title: 'Start Before You’re Even Up',
+        body: 'Every move begins lying down. No cold floor, no willpower required — just ease into the day from where you already are.',
+      },
+      {
+        title: 'Gentle by Design',
+        body: 'Move slowly, breathe deeply, and stay in a pain-free range. This is about waking your body, not testing it.',
+      },
+      {
+        title: 'Up Without the Grogginess',
+        body: 'Loosen your back, hips and ankles first, then finish seated at the edge of the bed — so you stand up steady, not stiff.',
+      },
+    ],
+    metaDescription:
+      'A free 5-minute in-bed wake-up routine — eight gentle moves you can do lying down, from a full-body reach to a seated bedside stretch, to ease your body into the day.',
+  },
+  {
+    slug: 'partner-workout',
+    image: { width: 1672, height: 941 },
+    productId: 'free-partner-workout',
+    eyebrow: 'A free partner workout',
+    headline: 'Ten Minutes Together,',
+    emphasis: 'You Go, I Go',
+    subhead:
+      'One person works while the other rests, counts, or watches the kids — then you swap. Four moves, three rounds, and a high-five to finish every one.',
+    benefits: [
+      {
+        title: 'You Go, I Go',
+        body: 'One partner moves while the other rests and cheers you on. No equipment, no gym — just the two of you and ten minutes.',
+      },
+      {
+        title: 'Instead of the Perfect Date Night',
+        body: 'Squats, push-ups, reverse lunges and a plank — three rounds you can knock out in the living room after the kids are down.',
+      },
+      {
+        title: 'No Silent Suffering Allowed',
+        body: 'Every round ends with a high-five, a fist bump, a hug, or an overly dramatic victory celebration. That part isn’t optional.',
+      },
+    ],
+    metaDescription:
+      'A free 10-minute partner workout — one person moves while the other rests and cheers. Four no-equipment moves, three rounds, and a high-five to finish every one.',
+  },
+  {
+    slug: 'lunch-break-reset',
+    image: { width: 1672, height: 941 },
+    productId: 'free-lunch-break-reset',
+    eyebrow: 'A free 10-minute reset',
+    headline: 'Ten Minutes to',
+    emphasis: 'Feel Like Yourself Again',
+    subhead:
+      'No changing clothes, no equipment — just a little space beside your desk. Five moves, 40 seconds on and 20 off, twice through, to reset the middle of a busy day.',
+    benefits: [
+      {
+        title: 'Built for the Middle of the Day',
+        body: 'Clear a small space beside your desk, kitchen counter, or dining table and go. No gym clothes, no commute.',
+      },
+      {
+        title: 'Forty On, Twenty Off, Twice',
+        body: 'Squat to reach, desk push-ups, reverse lunges, knee drives and a plank — a simple circuit you run through twice.',
+      },
+      {
+        title: 'Move It Down a Level Anytime',
+        body: 'Every move has an easier version — push off a wall, hold a chair, plank on the counter. Meet your body where it is today.',
+      },
+    ],
+    metaDescription:
+      'A free 10-minute lunch-break workout — five no-equipment moves, 40 seconds on and 20 off, twice through. No changing clothes, just space beside your desk.',
+  },
 ];
 
 export function getFreebieBySlug(slug: string): FreebieLanding | undefined {
