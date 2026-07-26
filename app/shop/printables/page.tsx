@@ -55,13 +55,13 @@ function PrintableCard({ product }: { product: Product }) {
 
   return (
     <div className="card flex flex-col">
-      <div className="relative rounded-2xl overflow-hidden h-48 mb-4">
+      <Link href={`/shop/${product.id}`} className="relative rounded-2xl overflow-hidden h-48 mb-4 block">
         {product.image ? (
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-300 hover:scale-105"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (
@@ -69,7 +69,7 @@ function PrintableCard({ product }: { product: Product }) {
             <span className="font-script text-2xl text-peach/40">Coming soon</span>
           </div>
         )}
-      </div>
+      </Link>
 
       {product.featured && (
         <span className="inline-flex items-center font-body text-xs font-medium text-amber-700 bg-amber-50 rounded-full px-3 py-1 mb-3 self-start">
@@ -77,7 +77,9 @@ function PrintableCard({ product }: { product: Product }) {
         </span>
       )}
 
-      <h3 className="font-heading text-xl font-semibold text-brown mb-2">{product.name}</h3>
+      <Link href={`/shop/${product.id}`}>
+        <h3 className="font-heading text-xl font-semibold text-brown mb-2 hover:text-peach transition-colors">{product.name}</h3>
+      </Link>
 
       {product.tags && (
         <div className="flex gap-2 flex-wrap mb-2">

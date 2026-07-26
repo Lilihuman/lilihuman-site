@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import LeafDot from '@/components/LeafDot';
 import FreeDownloadButton from '@/components/FreeDownloadButton';
 import { products, formatPrice, Product } from '@/data/products';
@@ -43,15 +44,15 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="card flex flex-col group">
-      <div className="relative rounded-2xl overflow-hidden h-48 mb-4">
+      <Link href={`/shop/${product.id}`} className="relative rounded-2xl overflow-hidden h-48 mb-4 block">
         {product.image ? (
-          <Image src={product.image} alt={product.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+          <Image src={product.image} alt={product.name} fill className="object-cover object-top transition-transform duration-300 hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-peach-light/30 via-cream to-sage-light/20 flex items-center justify-center">
             <span className="font-script text-2xl text-peach/40">{categoryLabel}</span>
           </div>
         )}
-      </div>
+      </Link>
 
       <div className="flex items-center gap-2 mb-2">
         <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
@@ -69,9 +70,11 @@ function ProductCard({ product }: { product: Product }) {
         )}
       </div>
 
-      <h3 className="font-heading text-xl font-semibold text-brown mb-2 group-hover:text-peach transition-colors">
-        {product.name}
-      </h3>
+      <Link href={`/shop/${product.id}`}>
+        <h3 className="font-heading text-xl font-semibold text-brown mb-2 group-hover:text-peach transition-colors">
+          {product.name}
+        </h3>
+      </Link>
       <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{product.description}</p>
 
       {product.note && (
