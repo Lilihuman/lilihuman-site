@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import LeafDot from '@/components/LeafDot';
 import FreeDownloadButton from '@/components/FreeDownloadButton';
+import FreebiePeek from '@/components/FreebiePeek';
 import { freebieLandings, getFreebieBySlug } from '@/data/freebies';
 import { getProductById } from '@/data/products';
 
@@ -105,6 +106,13 @@ export default function FreebieLandingPage({ params }: { params: { slug: string 
           </div>
         </div>
       </section>
+
+      {/* Peek inside — protected preview of the actual guide + email gate */}
+      <FreebiePeek
+        slug={freebie.slug}
+        filePath={product.filePath}
+        productName={product.name}
+      />
 
       {/* Soft upsell, only where one genuinely fits */}
       {freebie.upsell && (
