@@ -8,6 +8,8 @@ import BuyButton from '@/components/BuyButton';
 import ProductPeek from '@/components/ProductPeek';
 import { products, getProductById, formatPrice } from '@/data/products';
 import { getProductLandingBySlug } from '@/data/productLandings';
+import FreebiePeek from '@/components/FreebiePeek';
+import { freebieLandings } from '@/data/freebies';
 
 // One shareable detail page per product at /shop/<id> — built so a single
 // product can be advertised with its own link instead of the whole shop. The
@@ -58,6 +60,9 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
   const landing = getProductLandingBySlug(params.slug);
   const isFree = product.price === 0;
+  const freebie = isFree
+    ? freebieLandings.find((f) => f.productId === product.id)
+    : undefined;
   const categoryLabel = CATEGORY_LABEL[product.category] ?? 'Product';
 
   return (
@@ -233,6 +238,17 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               </div>
             </section>
           )}
+        </div>
+      )}
+
+      {/* Free products: show the same locked "Peek inside" as the /free landing page */}
+      {isFree && freebie && product.filePath && (
+        <div className="pb-24">
+          <FreebiePeek
+            slug={freebie.slug}
+            filePath={product.filePath}
+            productName={product.name}
+          />
         </div>
       )}
     </>
