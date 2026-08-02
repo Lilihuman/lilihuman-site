@@ -55,7 +55,7 @@ const workouts = [
   },
   {
     id: 'in-bed-core-workout',
-    title: '2-Minute In-Bed Core Workout',
+    title: 'Ads for Abs (in bed)',
     description: 'A quiet core reset you can do lying in bed — no equipment, no getting on the floor. Four moves, 30 seconds each: belly brace with heel slides, bent-knee marches, pillow press dead bug, and a glute bridge hold.',
     tags: ['Core', 'In bed', '2 min', 'No equipment'],
     file: '/downloads/2-min-in-bed-core-workout.pdf',

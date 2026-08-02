@@ -432,7 +432,7 @@ export const products: Product[] = [
   },
   {
     id: 'free-in-bed-core-workout',
-    name: '2-Minute In-Bed Core Workout',
+    name: 'Ads for Abs (in bed)',
     description: 'A quiet core workout you can do lying in bed — perfect for a commercial break, with no equipment and no getting on the floor. Four moves, 30 seconds each — belly brace with heel slides, bent-knee marches, pillow press dead bug, and a glute bridge hold. The soft mattress makes balance harder, so slow and controlled beats fast.',
     price: 0,
     type: 'digital',

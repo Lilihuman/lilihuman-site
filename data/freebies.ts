@@ -765,11 +765,11 @@ export const freebieLandings: FreebieLanding[] = [
   },
   {
     slug: 'in-bed-core-workout',
-    image: { width: 1448, height: 1086 },
+    image: { width: 1448, height: 1216 },
     productId: 'free-in-bed-core-workout',
     eyebrow: 'A free in-bed core reset',
-    headline: 'Core Work Without',
-    emphasis: 'Getting Out of Bed',
+    headline: 'Ads for Abs',
+    emphasis: '(in bed)',
     subhead:
       'Four gentle core moves you can do lying right in bed — perfect for a commercial break, with no equipment and no getting down on the floor.',
     benefits: [
@@ -787,7 +787,7 @@ export const freebieLandings: FreebieLanding[] = [
       },
     ],
     metaDescription:
-      'A free 2-minute in-bed core workout — four gentle moves you can do lying in bed, no equipment, no getting on the floor. Perfect for a commercial break.',
+      'Ads for Abs (in bed) — a free 2-minute core workout you can do lying down. Four gentle moves, no equipment, no getting on the floor. Perfect for a commercial break.',
   },
 ];
 
