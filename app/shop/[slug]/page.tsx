@@ -8,6 +8,8 @@ import BuyButton from '@/components/BuyButton';
 import ProductPeek from '@/components/ProductPeek';
 import { products, getProductById, formatPrice } from '@/data/products';
 import { getProductLandingBySlug } from '@/data/productLandings';
+import { isPreview } from '@/lib/preview';
+import PreviewBadge from '@/components/PreviewBadge';
 import FreebiePeek from '@/components/FreebiePeek';
 import { freebieLandings } from '@/data/freebies';
 
@@ -56,7 +58,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = getProductById(params.slug);
-  if (!product) notFound();
+  const preview = isPreview();
+  // Public: a hidden product 404s. Preview Mode shows it.
+  if (!product || (product.hidden && !preview)) notFound();
 
   const landing = getProductLandingBySlug(params.slug);
   const isFree = product.price === 0;
@@ -71,6 +75,11 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         <Link href="/shop" className="font-body text-sm text-mocha/60 hover:text-peach transition-colors">
           &larr; Back to the shop
         </Link>
+        {preview && product.hidden && (
+          <p className="mt-4">
+            <PreviewBadge label="Hidden — only you can see this" />
+          </p>
+        )}
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start mt-6">
           {/* Image */}

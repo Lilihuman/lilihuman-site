@@ -7,6 +7,8 @@ import FreeDownloadButton from '@/components/FreeDownloadButton';
 import FreebiePeek from '@/components/FreebiePeek';
 import { freebieLandings, getFreebieBySlug } from '@/data/freebies';
 import { getProductById } from '@/data/products';
+import { isPreview } from '@/lib/preview';
+import PreviewBadge from '@/components/PreviewBadge';
 
 export function generateStaticParams() {
   return freebieLandings.map((f) => ({ slug: f.slug }));
@@ -52,9 +54,18 @@ export default function FreebieLandingPage({ params }: { params: { slug: string 
   const product = getProductById(freebie.productId);
   if (!product || !product.filePath) notFound();
 
+  const preview = isPreview();
+  // Public: a hidden freebie 404s. Preview Mode shows it.
+  if (product.hidden && !preview) notFound();
+
   return (
     <>
       <section className="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-12">
+        {preview && product.hidden && (
+          <p className="mb-4">
+            <PreviewBadge label="Hidden — only you can see this" />
+          </p>
+        )}
         <span className="section-eyebrow">
           <LeafDot /> {freebie.eyebrow}
         </span>

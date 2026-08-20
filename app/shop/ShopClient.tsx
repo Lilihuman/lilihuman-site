@@ -1,0 +1,186 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import LeafDot from '@/components/LeafDot';
+import FreeDownloadButton from '@/components/FreeDownloadButton';
+import PreviewBadge from '@/components/PreviewBadge';
+import { formatPrice, Product } from '@/data/products';
+
+const categories = [
+  { key: 'all', label: 'All' },
+  { key: 'fitness', label: 'Fitness' },
+  { key: 'freebies', label: 'Freebies' },
+  { key: 'ai-tools', label: 'AI Tools' },
+  { key: 'planning', label: 'Planning & Organization' },
+  { key: 'mom-life', label: 'Mom Life' },
+  { key: 'kids-family', label: 'Kids & Family' },
+];
+
+function ProductCard({ product, preview }: { product: Product; preview: boolean }) {
+  const [loading, setLoading] = useState(false);
+
+  async function handleBuy() {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId: product.id }),
+      });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const categoryLabel = {
+    program: 'Fitness program',
+    printable: 'Printable',
+  }[product.category as 'program' | 'printable'];
+
+  return (
+    <div className="card flex flex-col group">
+      <Link href={`/shop/${product.id}`} className="relative rounded-2xl overflow-hidden h-48 mb-4 block">
+        {product.image ? (
+          <Image src={product.image} alt={product.name} fill className="object-cover object-top transition-transform duration-300 hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-peach-light/30 via-cream to-sage-light/20 flex items-center justify-center">
+            <span className="font-script text-2xl text-peach/40">{categoryLabel}</span>
+          </div>
+        )}
+        {preview && product.hidden && (
+          <span className="absolute top-2 left-2">
+            <PreviewBadge />
+          </span>
+        )}
+      </Link>
+
+      <div className="flex items-center gap-2 mb-2">
+        <span className="inline-block font-body text-xs font-medium text-mocha/60 bg-mocha/10 rounded-full px-2.5 py-1">
+          {categoryLabel}
+        </span>
+        {product.type === 'digital' && (
+          <span className="inline-block font-body text-xs font-medium text-sage bg-sage/10 rounded-full px-2.5 py-1">
+            ⚡ Digital
+          </span>
+        )}
+        {product.featured && (
+          <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-2.5 py-1">
+            ✨ Popular
+          </span>
+        )}
+      </div>
+
+      <Link href={`/shop/${product.id}`}>
+        <h3 className="font-heading text-xl font-semibold text-brown mb-2 group-hover:text-peach transition-colors">
+          {product.name}
+        </h3>
+      </Link>
+      <p className="font-body text-sm text-mocha/70 leading-relaxed flex-1">{product.description}</p>
+
+      {product.note && (
+        <p className="font-body text-xs text-mocha/50 italic mt-3 leading-relaxed">{product.note}</p>
+      )}
+
+      <div className="flex items-center justify-between mt-5 pt-4 border-t border-peach-light/30">
+        <div className="flex items-baseline gap-2">
+          <span className="font-heading text-2xl font-semibold text-peach">
+            {product.price === 0 ? 'Free' : formatPrice(product.price)}
+          </span>
+          {product.originalPrice && (
+            <span className="font-body text-sm text-mocha/40 line-through">
+              {formatPrice(product.originalPrice)}
+            </span>
+          )}
+        </div>
+        {product.price === 0 ? (
+          <FreeDownloadButton filePath={product.filePath!} productName={product.name} />
+        ) : (
+          <button
+            onClick={handleBuy}
+            disabled={loading}
+            className="btn-primary text-sm disabled:opacity-60"
+          >
+            {loading ? 'Loading…' : 'Add to cart →'}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function ShopClient({ products, preview }: { products: Product[]; preview: boolean }) {
+  const [filter, setFilter] = useState('all');
+  // Display order: paid products first, cheapest → most expensive, with free
+  // ($0) items grouped at the bottom as a bonus. This is automatic regardless
+  // of the order products are written in data/products.ts — new products slot
+  // into the right spot by price. (.slice() copies first so we never mutate the
+  // shared products array; the sort is stable, so items at the same price — and
+  // the free items among themselves — keep their data-file order.)
+  const filtered = (
+    filter === 'all' ? products :
+    products.filter((p) => p.filters?.includes(filter))
+  )
+    .slice()
+    .sort((a, b) => {
+      const aFree = a.price === 0;
+      const bFree = b.price === 0;
+      if (aFree !== bFree) return aFree ? 1 : -1; // free items sink to the bottom
+      return a.price - b.price;                   // otherwise cheapest first
+    });
+
+  return (
+    <>
+      <section className="max-w-6xl mx-auto px-5 md:px-8 pt-20 pb-12">
+        <span className="section-eyebrow">
+          <LeafDot /> The shop
+        </span>
+        <h1 className="font-heading text-5xl md:text-6xl font-light text-brown mt-2 leading-tight max-w-2xl">
+          Made for your <em className="italic text-peach">real home</em>
+        </h1>
+        <p className="font-body text-lg text-mocha/80 mt-5 max-w-xl leading-relaxed">
+          Fitness programs, printables, and a little physical merch. All designed with warmth and intention.
+        </p>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-24">
+        {/* Filter tabs */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {categories.map((c) => (
+            <button
+              key={c.key}
+              onClick={() => setFilter(c.key)}
+              className={`font-body text-sm font-medium px-5 py-2 rounded-pill border transition-all ${
+                filter === c.key
+                  ? 'bg-peach text-white border-peach'
+                  : 'border-peach-light/50 text-mocha hover:border-peach hover:text-peach bg-transparent'
+              }`}
+            >
+              {c.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((p) => (
+            <ProductCard key={p.id} product={p} preview={preview} />
+          ))}
+        </div>
+
+        {/* Stripe trust badge */}
+        <div className="mt-12 text-center">
+          <p className="font-body text-xs text-mocha/40">
+            Secure payments via Stripe · Digital downloads delivered instantly · Questions?{' '}
+            <a href="/contact" className="text-peach hover:underline">Contact me</a>
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}

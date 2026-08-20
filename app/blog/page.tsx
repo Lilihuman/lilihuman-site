@@ -1,9 +1,11 @@
 import LeafDot from '@/components/LeafDot';
+import PreviewBadge from '@/components/PreviewBadge';
 import Link from 'next/link';
 import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { isPreview } from '@/lib/preview';
 
 interface PostMeta {
   slug: string;
@@ -13,6 +15,9 @@ interface PostMeta {
   tag: string;
   author?: string;
   image?: string;
+  hidden?: boolean;
+  /** True once the date has arrived. Private = hidden || !published. */
+  published?: boolean;
 }
 
 // A post is published once its date has arrived (compared by UTC calendar day).
@@ -26,7 +31,7 @@ function isPublished(date: string | Date): boolean {
   return d.getTime() <= todayUTC;
 }
 
-function getPosts(): PostMeta[] {
+function getPosts(preview: boolean): PostMeta[] {
   const dir = path.join(process.cwd(), 'content/blog');
   if (!fs.existsSync(dir)) return samplePosts;
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx') || f.endsWith('.md'));
@@ -42,9 +47,12 @@ function getPosts(): PostMeta[] {
       tag: data.tag || 'General',
       author: data.author,
       image: data.image || null,
+      hidden: data.hidden === true,
+      published: isPublished(data.date),
     };
   })
-    .filter((p) => isPublished(p.date))
+    // Public sees only published, non-hidden posts. Preview Mode sees everything.
+    .filter((p) => preview || (p.published && !p.hidden))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
@@ -61,7 +69,8 @@ const samplePosts: PostMeta[] = [
 const tags = ['All', 'Fitness', 'Family life', 'Organization', 'Recipes', 'AI & Tech'];
 
 export default function Blog({ searchParams }: { searchParams: { tag?: string } }) {
-  const allPosts = getPosts();
+  const preview = isPreview();
+  const allPosts = getPosts(preview);
   const activeTag = searchParams.tag || 'All';
   const posts = activeTag === 'All' ? allPosts : allPosts.filter((p) => p.tag === activeTag);
 
@@ -124,9 +133,14 @@ export default function Blog({ searchParams }: { searchParams: { tag?: string } 
               )}
             </div>
             <div className="md:w-1/2 flex flex-col justify-center">
-              <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1 mb-3 self-start">
-                {posts[0].tag}
-              </span>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1">
+                  {posts[0].tag}
+                </span>
+                {preview && (posts[0].hidden || !posts[0].published) && (
+                  <PreviewBadge label={posts[0].hidden ? 'Hidden' : 'Scheduled'} />
+                )}
+              </div>
               <h2 className="font-heading text-3xl font-semibold text-brown leading-snug group-hover:text-peach transition-colors">
                 {posts[0].title}
               </h2>
@@ -157,9 +171,14 @@ export default function Blog({ searchParams }: { searchParams: { tag?: string } 
                   </div>
                 )}
               </div>
-              <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1 mb-3 self-start">
-                {post.tag}
-              </span>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="inline-block font-body text-xs font-medium text-peach bg-peach/10 rounded-full px-3 py-1">
+                  {post.tag}
+                </span>
+                {preview && (post.hidden || !post.published) && (
+                  <PreviewBadge label={post.hidden ? 'Hidden' : 'Scheduled'} />
+                )}
+              </div>
               <h3 className="font-heading text-xl font-semibold text-brown leading-snug group-hover:text-peach transition-colors flex-1">
                 {post.title}
               </h3>

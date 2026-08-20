@@ -21,6 +21,12 @@ export interface Product {
   tags?: string[];
   filters?: string[];
   note?: string;
+  /**
+   * Hide this product from the public site — absent from every listing and a
+   * direct URL 404s, exactly like a future-dated blog post. Still visible to
+   * the owner in Preview Mode (see lib/preview.ts). Defaults to visible.
+   */
+  hidden?: boolean;
 }
 
 export const products: Product[] = [

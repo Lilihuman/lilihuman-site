@@ -3,6 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import Image from 'next/image';
+import { isPreview } from '@/lib/preview';
+import PreviewBadge from '@/components/PreviewBadge';
 
 // Re-render at least hourly so scheduled (future-dated) posts become
 // reachable once their date arrives, even without a new deploy.
@@ -73,8 +75,11 @@ function renderContent(content: string) {
 
 export default function BlogPost({ params }: Props) {
   const post = getPost(params.slug);
+  const preview = isPreview();
+  const isPrivate = !!post && (post.data.hidden === true || !isPublished(post.data.date));
 
-  if (!post || !isPublished(post.data.date)) {
+  // Public: a hidden or not-yet-published post 404s. Preview Mode sees it.
+  if (!post || (!preview && isPrivate)) {
     return (
       <article className="max-w-2xl mx-auto px-5 md:px-8 py-20">
         <Link href="/blog" className="font-body text-sm text-peach hover:underline mb-8 inline-flex items-center gap-1">
@@ -92,6 +97,11 @@ export default function BlogPost({ params }: Props) {
       <Link href="/blog" className="font-body text-sm text-peach hover:underline mb-10 inline-flex items-center gap-1">
         ← Back to blog
       </Link>
+      {preview && isPrivate && (
+        <p className="mb-6">
+          <PreviewBadge label={post.data.hidden ? 'Hidden — only you can see this' : 'Scheduled — not public yet'} />
+        </p>
+      )}
       <p className="article-kicker">{post.data.tag}</p>
       <h1 className="article-title">{post.data.title}</h1>
       <p className="article-byline">
