@@ -623,6 +623,17 @@ const HIDDEN_PRODUCT_IDS = new Set<string>([
   'free-desk-mobility',
   'free-postpartum-safe',
   'free-bikram-yoga',
+  // Pre-made paid programs (Custom Program stays public):
+  '20min-hustle',
+  '20min-hustle-nutrition',
+  '20min-hustle-complete',
+  'strong-mama-8wk',
+  'strong-mama-nutrition',
+  'strong-mama-complete',
+  'postpartum-reset',
+  'postpartum-meal-plan',
+  'postpartum-complete',
+  'move-with-me-toddler',
 ]);
 
 for (const p of products) {
