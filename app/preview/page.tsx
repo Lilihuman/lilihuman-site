@@ -14,6 +14,10 @@ export default function PreviewPage({
   searchParams: { error?: string; ok?: string; exited?: string };
 }) {
   const on = isPreview();
+  // Is the password actually set for THIS environment's runtime? Boolean only —
+  // the value is never read into the page. Lets us tell "not configured" apart
+  // from "wrong password".
+  const configured = !!process.env.PREVIEW_PASSWORD;
 
   return (
     <section className="max-w-md mx-auto px-5 md:px-8 pt-24 pb-32">
@@ -49,6 +53,13 @@ export default function PreviewPage({
         </div>
       ) : (
         <div className="card mt-8">
+          {!configured && (
+            <p className="font-body text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mb-4 leading-relaxed">
+              ⚠️ <strong>Not set up yet.</strong> <code>PREVIEW_PASSWORD</code> isn&rsquo;t
+              set for this environment. In Vercel, add it under Settings →
+              Environment Variables with <strong>Production</strong> checked, then redeploy.
+            </p>
+          )}
           {searchParams.exited && (
             <p className="font-body text-sm text-sage font-medium mb-4">
               Preview mode is off — you&rsquo;re seeing the public site again.
