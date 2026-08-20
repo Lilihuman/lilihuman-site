@@ -634,6 +634,14 @@ const HIDDEN_PRODUCT_IDS = new Set<string>([
   'postpartum-meal-plan',
   'postpartum-complete',
   'move-with-me-toddler',
+  // AI how-to guides + Kids Chore Chart (AI Comic Workbook + memory-keeping stay public):
+  'free-top-10-ai-tips',
+  'free-claude-mastery-course',
+  'everyday-ai-busy-women',
+  'everyday-ai-car-troubles',
+  'everyday-ai-busy-moms',
+  'everyday-ai-small-business',
+  'kids-chore-chart',
 ]);
 
 for (const p of products) {
