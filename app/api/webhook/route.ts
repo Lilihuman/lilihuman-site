@@ -82,6 +82,64 @@ async function sendFulfillmentEmail(opts: {
   });
 }
 
+/** Public intake form for the custom program (a Tally form). */
+const INTAKE_FORM_URL = 'https://tally.so/r/gDNLBP';
+
+/**
+ * Emails the buyer of the custom program their next step: the intake form.
+ * The program is built by hand from their answers and sent within 48–72 hours.
+ */
+async function sendIntakeEmail(opts: {
+  to: string;
+  productName: string;
+  amountTotal: number;
+  sessionId: string;
+}) {
+  const { to, productName, amountTotal, sessionId } = opts;
+
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error('RESEND_API_KEY is not set — cannot send intake email');
+    return;
+  }
+  const resend = new Resend(apiKey);
+
+  await resend.emails.send({
+    from: 'Lili Human <hello@lilihuman.com>',
+    to,
+    subject: `Next step: your ${productName} intake form`,
+    html: `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color:#5C4A3D;">
+        <h2 style="color:#8B5E3C; margin-bottom:4px;">Thank you — let's build your program!</h2>
+        <p style="font-size:14px; line-height:1.6;">
+          Your purchase of <strong>${productName}</strong> is confirmed. One quick step and I'll
+          get to work: fill out the short intake form below so I know exactly what you need —
+          your goals, your schedule, any injuries or preferences.
+        </p>
+        <div style="margin:24px 0;">
+          <a href="${INTAKE_FORM_URL}"
+             style="display:inline-block; background:#8FA98E; color:#fff; text-decoration:none;
+                    padding:12px 22px; border-radius:999px; font-size:14px;">
+            Fill out your intake form &rarr;
+          </a>
+        </div>
+        <p style="font-size:13px; color:#8a7a6d; line-height:1.6;">
+          Once I have your answers, I'll build your fully personalised fitness and nutrition
+          program and email it to you within <strong>48–72 hours</strong>.
+        </p>
+        <hr style="border:none; border-top:1px solid #eee; margin:24px 0;" />
+        <p style="font-size:12px; color:#999;">
+          Order ref: ${sessionId.slice(-12).toUpperCase()} &nbsp;·&nbsp;
+          Total: $${(amountTotal / 100).toFixed(2)} CAD
+        </p>
+        <p style="font-size:12px; color:#999;">
+          Questions? Just reply to this email.
+        </p>
+      </div>
+    `,
+  });
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.text();
   const sig = req.headers.get('stripe-signature');
@@ -121,8 +179,9 @@ export async function POST(req: NextRequest) {
       amountTotal: session.amount_total,
     });
 
-    // Products with no files are services, not downloads — the custom program
-    // is fulfilled by hand within 48-72 hours, so don't promise a download.
+    // Products with files get their download links. The custom program has no
+    // file — it's built by hand — so instead we email the buyer the intake form
+    // to fill out, then the program follows within 48-72 hours.
     if (productType === 'digital' && files.length && customerEmail) {
       try {
         await sendFulfillmentEmail({
@@ -137,6 +196,18 @@ export async function POST(req: NextRequest) {
         // Never fail the webhook over email: Stripe would retry and the buyer
         // could get duplicates. They still have the order-confirmation page.
         console.error('Failed to send fulfillment email:', err);
+      }
+    } else if (productId === 'custom-program' && customerEmail) {
+      try {
+        await sendIntakeEmail({
+          to: customerEmail,
+          productName: product?.name || 'Custom Program',
+          amountTotal: session.amount_total || 0,
+          sessionId: session.id,
+        });
+        console.log('Intake email sent to', customerEmail);
+      } catch (err) {
+        console.error('Failed to send intake email:', err);
       }
     }
   }

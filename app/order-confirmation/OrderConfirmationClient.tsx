@@ -119,6 +119,19 @@ export default function OrderConfirmationClient() {
         </div>
       )}
 
+      {/* Service with no file (the custom program) — point them to the intake form. */}
+      {order.productType === 'digital' && order.files.length === 0 && (
+        <div className="mt-6 bg-peach/10 rounded-2xl border border-peach/20 p-6">
+          <p className="font-body text-sm font-medium text-brown mb-1">
+            Check your email for your next step
+          </p>
+          <p className="font-body text-xs text-mocha/60 leading-relaxed">
+            I&rsquo;ve emailed you a short intake form. Fill it out and I&rsquo;ll build your
+            personalised program and send it within 48&ndash;72 hours.
+          </p>
+        </div>
+      )}
+
       <div className="flex flex-wrap justify-center gap-3 mt-10">
         <Link href="/shop" className="btn-secondary">Back to shop</Link>
         <Link href="/fitness/free-workouts" className="btn-primary">Explore fitness</Link>
