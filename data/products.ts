@@ -603,6 +603,33 @@ export const products: Product[] = [
   },
 ];
 
+// Products hidden from the public (visible only in Preview Mode). Curated set —
+// edit this list to hide/unhide; the `hidden` flag is applied below. Hiding a
+// free-workout product also drops its card from the Free Workouts grid (matched
+// by download file) and 404s its /free and /shop pages. See lib/preview.ts.
+const HIDDEN_PRODUCT_IDS = new Set<string>([
+  'free-desk-reset',
+  'free-wake-up-routine',
+  'free-nighttime-wind-down',
+  'free-nighttime-in-bed',
+  'free-commercial-break-core',
+  'free-nap-time-quiet-workout',
+  'free-wake-up-in-bed',
+  'free-partner-workout',
+  'free-lunch-break-reset',
+  'free-core-spinal-stability',
+  'free-back-strength',
+  'free-glute-lower-body',
+  'free-upper-body',
+  'free-desk-mobility',
+  'free-postpartum-safe',
+  'free-bikram-yoga',
+]);
+
+for (const p of products) {
+  if (HIDDEN_PRODUCT_IDS.has(p.id)) p.hidden = true;
+}
+
 export function getProductById(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }

@@ -1,6 +1,9 @@
 import LeafDot from '@/components/LeafDot';
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { isPreview } from '@/lib/preview';
+import PreviewBadge from '@/components/PreviewBadge';
 
 const movementStyles = [
   {
@@ -71,8 +74,15 @@ const testimonials = [
 ];
 
 export default function FitnessHub() {
+  // The hub is hidden from the public — 404 unless in Preview Mode.
+  const preview = isPreview();
+  if (!preview) notFound();
+
   return (
     <>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4">
+        <PreviewBadge label="Hidden page — only you can see this" />
+      </div>
       {/* ── CUSTOM PROGRAM PROMO ─────────────────────────────────────── */}
       <section className="bg-peach/10 border-b border-peach/20">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20">

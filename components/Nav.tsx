@@ -8,7 +8,7 @@ import { Menu, X, Search } from 'lucide-react';
 const navLinks: { label: string; href: string; highlight?: boolean }[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Fitness', href: '/fitness' },
+  { label: 'Fitness', href: '/fitness/free-workouts' },
   { label: 'Shop', href: '/shop' },
   { label: 'Blog', href: '/blog' },
   { label: 'Newsletter', href: '/newsletter' },

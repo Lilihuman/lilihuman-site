@@ -121,7 +121,7 @@ export default function OrderConfirmationClient() {
 
       <div className="flex flex-wrap justify-center gap-3 mt-10">
         <Link href="/shop" className="btn-secondary">Back to shop</Link>
-        <Link href="/fitness" className="btn-primary">Explore fitness</Link>
+        <Link href="/fitness/free-workouts" className="btn-primary">Explore fitness</Link>
       </div>
     </section>
   );

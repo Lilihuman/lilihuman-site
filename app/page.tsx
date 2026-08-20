@@ -43,7 +43,7 @@ const featureCards = [
     eyebrow: 'Move',
     title: 'Fitness Programs',
     body: 'Programs designed for real life — not the ideal version of it. Short, effective, and built for the days when you have 20 minutes and a toddler on your hip.',
-    href: '/fitness',
+    href: '/fitness/free-workouts',
     cta: 'Explore fitness',
     accent: 'peach',
   },

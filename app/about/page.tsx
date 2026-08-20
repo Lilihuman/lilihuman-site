@@ -92,7 +92,7 @@ export default function About() {
           </div>
 
           <div className="flex gap-3 mt-8">
-            <Link href="/fitness" className="btn-primary">Explore fitness &rarr;</Link>
+            <Link href="/fitness/free-workouts" className="btn-primary">Explore fitness &rarr;</Link>
             <Link href="/contact" className="btn-secondary">Say hello</Link>
           </div>
         </div>

@@ -52,7 +52,7 @@ function getRecipes(q: string): Result[] {
 
 function getProducts(q: string): Result[] {
   return products
-    .filter((p) => `${p.name} ${p.description} ${p.category}`.toLowerCase().includes(q))
+    .filter((p) => !p.hidden && `${p.name} ${p.description} ${p.category}`.toLowerCase().includes(q))
     .map((p) => ({
       title: p.name,
       href: '/shop',
@@ -63,10 +63,7 @@ function getProducts(q: string): Result[] {
 
 const staticPages: Result[] = [
   { title: 'About', href: '/about', excerpt: 'Learn more about Lili Human.', category: 'Page' },
-  { title: 'Fitness', href: '/fitness', excerpt: 'Workouts, programs, and personal training.', category: 'Page' },
   { title: 'Free Workouts', href: '/fitness/free-workouts', excerpt: 'Free workout plans and videos.', category: 'Page' },
-  { title: 'Personal Training', href: '/fitness/personal-training', excerpt: 'Work one-on-one with Lili.', category: 'Page' },
-  { title: 'Programs', href: '/fitness/programs', excerpt: 'Structured fitness programs.', category: 'Page' },
   { title: 'Shop', href: '/shop', excerpt: 'Digital and physical products.', category: 'Page' },
   { title: 'Blog', href: '/blog', excerpt: 'Stories, fitness tips, recipes, and more.', category: 'Page' },
   { title: 'Recipes', href: '/recipes', excerpt: 'Healthy and delicious recipe ideas.', category: 'Page' },

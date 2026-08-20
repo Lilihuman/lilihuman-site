@@ -16,9 +16,8 @@ const columns = [
   {
     label: 'Fitness',
     links: [
-      { label: 'Fitness Hub', href: '/fitness' },
-      { label: 'Workout Programs', href: '/fitness/programs' },
       { label: 'Free Workouts', href: '/fitness/free-workouts' },
+      { label: 'Workout Programs', href: '/shop' },
     ],
   },
   {
