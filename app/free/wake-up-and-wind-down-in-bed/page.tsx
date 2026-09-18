@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import LeafDot from '@/components/LeafDot';
-import FreeDownloadButton from '@/components/FreeDownloadButton';
 
 /**
  * Standalone landing page — "Wake Up & Wind Down in Bed".
  *
  * Bundles the two in-bed routines (5-Minute Wake-Up + 5-Minute Nighttime)
- * into one download behind the usual email opt-in. Deliberately NOT a
+ * into one direct download — no email gate (Lili's call, 2026-09-18). Deliberately NOT a
  * `data/freebies.ts` entry: both underlying products are in
  * HIDDEN_PRODUCT_IDS (hidden = 404s via /free/[slug]), and Lili wants them
  * kept off /shop and /fitness/free-workouts. Reachable by direct link only
@@ -94,9 +93,16 @@ export default function WakeUpAndWindDownInBedPage() {
           </ul>
 
           <div className="mt-8 max-w-sm">
-            <FreeDownloadButton filePath={PDF} productName={NAME} />
-            <p className="font-body text-xs text-mocha/50 mt-3">
-              No spam &mdash; just the download and the occasional note. Unsubscribe anytime.
+            <a
+              href={PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-block text-sm"
+            >
+              Download both routines &rarr;
+            </a>
+            <p className="font-body text-xs text-mocha/50 mt-3 leading-relaxed">
+              Free, no sign-up &mdash; one PDF with both routines.
             </p>
           </div>
         </div>
