@@ -21,6 +21,26 @@ export const metadata: Metadata = {
   description:
     'A 15-minute reset to celebrate your health, honour your body, and move with gratitude. Five moves, three rounds, with an easier option for every move.',
   robots: { index: false, follow: false },
+  openGraph: {
+    title:
+      'The Canadian Thanksgiving Gratitude Workout — for Human Note readers | Lili Human',
+    description:
+      'A 15-minute reset to celebrate your health, honour your body, and move with gratitude.',
+    type: 'article',
+    siteName: 'Lili Human',
+    images: [
+      {
+        url: '/images/freebies/canadian-thanksgiving-gratitude-workout-thumb.png',
+        width: 1254,
+        height: 1254,
+        alt: 'The Canadian Thanksgiving Gratitude Workout — a free 15-minute reset',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/freebies/canadian-thanksgiving-gratitude-workout-thumb.png'],
+  },
 };
 
 const moves = [
@@ -104,10 +124,10 @@ export default function GratitudeWorkoutPage() {
         <div className="relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-peach-light/40">
             <Image
-              src="/images/freebies/canadian-thanksgiving-gratitude-workout-cover.png"
-              alt="The Canadian Thanksgiving Gratitude Workout — five moves, three rounds, 15 minutes"
-              width={1055}
-              height={1491}
+              src="/images/freebies/canadian-thanksgiving-gratitude-workout-thumb.png"
+              alt="The Canadian Thanksgiving Gratitude Workout — a free 15-minute reset"
+              width={1254}
+              height={1254}
               className="w-full h-auto"
               priority
             />

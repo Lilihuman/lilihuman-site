@@ -21,6 +21,25 @@ export const metadata: Metadata = {
   description:
     'Grateful for what you have, not what you’re still chasing. A one-page card for three gratitudes, one thing to finish today, and one thing that went right.',
   robots: { index: false, follow: false },
+  openGraph: {
+    title: 'Three Things, A Year Apart — for Human Note readers | Lili Human',
+    description:
+      'Grateful for what you have, not what you’re still chasing. A one-page card to fill in this weekend.',
+    type: 'article',
+    siteName: 'Lili Human',
+    images: [
+      {
+        url: '/images/freebies/three-things-a-year-apart-thumb.png',
+        width: 1254,
+        height: 1254,
+        alt: 'Three Things, A Year Apart — a free printable gratitude card',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/freebies/three-things-a-year-apart-thumb.png'],
+  },
 };
 
 const inside = [
@@ -91,10 +110,10 @@ export default function ThreeThingsAYearApartPage() {
         <div className="relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-peach-light/40">
             <Image
-              src="/images/freebies/three-things-a-year-apart-cover.png"
-              alt="Three Things, A Year Apart — a one-page gratitude card"
-              width={1275}
-              height={1650}
+              src="/images/freebies/three-things-a-year-apart-thumb.png"
+              alt="Three Things, A Year Apart — a free printable gratitude card"
+              width={1254}
+              height={1254}
               className="w-full h-auto"
               priority
             />
