@@ -1,0 +1,11 @@
+# Never line-ending-convert binary assets. A PDF rewritten LF->CRLF on a
+# Windows checkout has broken xref byte offsets and will not open.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.ico   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
