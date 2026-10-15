@@ -93,6 +93,12 @@
     line-height: 1.08;
   }
 
+  .article-subtitle {
+    @apply font-heading text-center italic text-mocha/70 mb-5;
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    line-height: 1.4;
+  }
+
   .article-byline {
     @apply text-center italic text-mocha/60 text-sm;
   }

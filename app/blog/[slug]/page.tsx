@@ -8,6 +8,8 @@ import PreviewBadge from '@/components/PreviewBadge';
 
 // Re-render at least hourly so scheduled (future-dated) posts become
 // reachable once their date arrives, even without a new deploy.
+import type { Metadata } from 'next';
+
 export const revalidate = 60;
 
 interface Props {
@@ -74,6 +76,36 @@ function renderContent(content: string) {
   });
 }
 
+// Per-post title/description/OG. Without this every post served the generic
+// site-wide tag, which hurts search results and link previews. Scheduled or
+// hidden posts are marked noindex so they can't be indexed before they're out.
+export function generateMetadata({ params }: Props): Metadata {
+  const post = getPost(params.slug);
+  if (!post) return {};
+  const { data } = post;
+  const title = `${data.title} | Lili Human`;
+  const description = data.description || data.excerpt || undefined;
+  const url = `/blog/${params.slug}`;
+  const live = isPublished(data.date) && !data.hidden;
+  const images = data.image
+    ? [{ url: data.image, alt: data.imageAlt || data.title }]
+    : [];
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    ...(live ? {} : { robots: { index: false, follow: false } }),
+    openGraph: { title, description, url, siteName: 'Lili Human', type: 'article', images },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: data.image ? [data.image] : [],
+    },
+  };
+}
+
 export default function BlogPost({ params }: Props) {
   const post = getPost(params.slug);
   const preview = isPreview();
@@ -105,6 +137,9 @@ export default function BlogPost({ params }: Props) {
       )}
       <p className="article-kicker">{post.data.tag}</p>
       <h1 className="article-title">{post.data.title}</h1>
+      {post.data.subtitle && (
+        <p className="article-subtitle">{post.data.subtitle}</p>
+      )}
       <p className="article-byline">
         {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · {post.data.author || 'Lili Human'}
       </p>
@@ -115,7 +150,7 @@ export default function BlogPost({ params }: Props) {
         <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-12">
           <Image
             src={imagePath}
-            alt={post.data.title}
+            alt={post.data.imageAlt || post.data.title}
             fill
             priority
             className="object-cover"
