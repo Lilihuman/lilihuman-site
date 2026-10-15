@@ -20,15 +20,15 @@ interface PostMeta {
   published?: boolean;
 }
 
-// A post is published once its date has arrived (compared by UTC calendar day).
-// Future-dated posts stay hidden until then, so posts can be scheduled ahead.
+// A post is published once its publish moment has passed, so posts can be
+// scheduled ahead. A plain `date: 2026-10-16` means midnight UTC that day
+// (unchanged behaviour); a full timestamp such as
+// `date: 2026-10-16T07:00:00-07:00` publishes at exactly that moment.
 function isPublished(date: string | Date): boolean {
   if (!date) return true;
   const d = new Date(date);
   if (isNaN(d.getTime())) return true;
-  const now = new Date();
-  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  return d.getTime() <= todayUTC;
+  return d.getTime() <= Date.now();
 }
 
 function getPosts(preview: boolean): PostMeta[] {

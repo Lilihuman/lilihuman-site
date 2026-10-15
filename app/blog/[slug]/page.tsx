@@ -8,20 +8,21 @@ import PreviewBadge from '@/components/PreviewBadge';
 
 // Re-render at least hourly so scheduled (future-dated) posts become
 // reachable once their date arrives, even without a new deploy.
-export const revalidate = 3600;
+export const revalidate = 60;
 
 interface Props {
   params: { slug: string };
 }
 
-// A post is published once its date has arrived (compared by UTC calendar day).
+// A post is published once its publish moment has passed, so posts can be
+// scheduled ahead. A plain `date: 2026-10-16` means midnight UTC that day
+// (unchanged behaviour); a full timestamp such as
+// `date: 2026-10-16T07:00:00-07:00` publishes at exactly that moment.
 function isPublished(date: string | Date): boolean {
   if (!date) return true;
   const d = new Date(date);
   if (isNaN(d.getTime())) return true;
-  const now = new Date();
-  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  return d.getTime() <= todayUTC;
+  return d.getTime() <= Date.now();
 }
 
 function getPost(slug: string) {
