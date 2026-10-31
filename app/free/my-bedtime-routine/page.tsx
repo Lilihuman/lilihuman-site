@@ -24,6 +24,25 @@ export const metadata: Metadata = {
   description:
     'A printable bedtime chart with magnet tokens your little one moves from “To do” to “Done” — a small thank-you for readers of The Human Note.',
   robots: { index: false, follow: false },
+  openGraph: {
+    title: 'My Bedtime Routine — for Human Note readers | Lili Human',
+    description:
+      'A picture checklist for little ones: six steps to goodnight, with magnet tokens they move themselves.',
+    type: 'article',
+    siteName: 'Lili Human',
+    images: [
+      {
+        url: '/images/freebies/my-bedtime-routine-thumb.png',
+        width: 1672,
+        height: 941,
+        alt: 'My Bedtime Routine — a free printable picture checklist for little ones',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/freebies/my-bedtime-routine-thumb.png'],
+  },
 };
 
 export default function MyBedtimeRoutinePage() {
@@ -94,14 +113,14 @@ export default function MyBedtimeRoutinePage() {
           </p>
         </div>
 
-        {/* Right: cover preview (page 1 of the PDF) */}
+        {/* Right: Lili's promo thumbnail */}
         <div className="relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-peach-light/40">
             <Image
-              src="/images/freebies/my-bedtime-routine-page-1.png"
-              alt="My Bedtime Routine — a six-step chart with To do and Done columns for picture tokens"
-              width={1275}
-              height={1650}
+              src="/images/freebies/my-bedtime-routine-thumb.png"
+              alt="My Bedtime Routine — a free printable picture checklist for little ones"
+              width={1672}
+              height={941}
               className="w-full h-auto"
               priority
             />
