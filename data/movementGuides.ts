@@ -21,6 +21,8 @@ export type MovementStep = {
 export type MovementGuide = {
   slug: string;
   name: string;
+  /** Newsletter send order (1 = first week). A guide page only links to guides with a lower issue. */
+  issue: number;
   /** Title split so the second half can be set in italic sage, like other freebie pages. */
   titleLead: string;
   titleAccent: string;
@@ -36,6 +38,7 @@ export const MOVEMENT_DISCLAIMER =
 export const movementGuides: MovementGuide[] = [
   {
     slug: 'laundry-day-movement',
+    issue: 1,
     name: 'Laundry Day Movement',
     titleLead: 'Laundry Day',
     titleAccent: 'Movement',
@@ -62,6 +65,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'dishes-and-dishwasher',
+    issue: 4,
     name: 'Dishes + Dishwasher',
     titleLead: 'Dishes +',
     titleAccent: 'Dishwasher',
@@ -86,6 +90,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'floor-care-fitness',
+    issue: 6,
     name: 'Floor-Care Fitness',
     titleLead: 'Floor-Care',
     titleAccent: 'Fitness',
@@ -108,6 +113,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'cleaning-day-circuit',
+    issue: 7,
     name: 'Cleaning-Day Circuit',
     titleLead: 'Cleaning-Day',
     titleAccent: 'Circuit',
@@ -134,6 +140,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'kitchen-movement-snacks',
+    issue: 2,
     name: 'Kitchen Movement Snacks',
     titleLead: 'Kitchen Movement',
     titleAccent: 'Snacks',
@@ -160,6 +167,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'tidy-and-tone',
+    issue: 5,
     name: 'Tidy + Tone',
     titleLead: 'Tidy +',
     titleAccent: 'Tone',
@@ -186,6 +194,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'get-ready-movement',
+    issue: 3,
     name: 'Get-Ready Movement',
     titleLead: 'Get-Ready',
     titleAccent: 'Movement',
@@ -210,6 +219,7 @@ export const movementGuides: MovementGuide[] = [
   },
   {
     slug: 'workday-movement',
+    issue: 8,
     name: 'Workday Movement',
     titleLead: 'Workday',
     titleAccent: 'Movement',

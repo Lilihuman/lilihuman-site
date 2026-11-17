@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import LeafDot from '@/components/LeafDot';
+import NewsletterForm from '@/components/NewsletterForm';
 import {
   MOVEMENT_DISCLAIMER,
   getMovementGuide,
@@ -48,7 +49,12 @@ export function movementGuideMetadata(slug: string): Metadata {
 
 export default function MovementGuidePage({ slug }: { slug: string }) {
   const g = getMovementGuide(slug);
-  const others = movementGuides.filter((x) => x.slug !== g.slug);
+  // Guides go out one per week in the newsletter, so a page only links to the
+  // ones already sent (lower issue number). The last guide shows all seven.
+  const earlier = movementGuides
+    .filter((x) => x.issue < g.issue)
+    .sort((a, b) => a.issue - b.issue);
+  const isLast = g.issue === Math.max(...movementGuides.map((x) => x.issue));
 
   return (
     <>
@@ -142,13 +148,15 @@ export default function MovementGuidePage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* The rest of the series */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-24">
+      {/* Guides already sent */}
+      {earlier.length > 0 && (
+      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-16">
         <h2 className="section-heading">
-          More from the <em className="italic text-sage">series</em>
+          {isLast ? 'The full ' : 'Earlier in the '}
+          <em className="italic text-sage">series</em>
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-8">
-          {others.map((o) => (
+          {earlier.map((o) => (
             <Link key={o.slug} href={`/free/${o.slug}`} className="group block">
               <div className="relative aspect-video rounded-xl overflow-hidden border border-peach-light/40">
                 <Image
@@ -166,6 +174,22 @@ export default function MovementGuidePage({ slug }: { slug: string }) {
           ))}
         </div>
       </section>
+      )}
+
+      {/* Next week's guide comes by email */}
+      {!isLast && (
+        <section className="max-w-2xl mx-auto px-5 md:px-8 pb-24 text-center">
+          <h2 className="section-heading">
+            A new guide <em className="italic text-sage">every week</em>
+          </h2>
+          <p className="font-body text-base text-mocha/75 mt-3 mb-6 leading-relaxed">
+            There are eight guides in the series. Each week the next one goes out in my
+            newsletter.
+          </p>
+          <NewsletterForm variant="light" source={`movement-guide-${g.slug}`} />
+        </section>
+      )}
+      {isLast && <div className="pb-8" />}
     </>
   );
 }
